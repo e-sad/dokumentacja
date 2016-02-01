@@ -1,0 +1,33 @@
+﻿<xsd:schema xmlns:curr="http://www.currenda.pl/epu" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.currenda.pl/epu" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" xml:lang="pl">
+	<xsd:include schemaLocation="TypyDanych.xsd" />
+	<xsd:element name="CzynnosciEgzekucyjneEPU">
+		<xsd:annotation>
+			<xsd:documentation>Paczka czynności egzekucyjnych w elektronicznym postpowaniu upominawczym</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="CzynnoscEPU" type="curr:CzynnoscEPU" maxOccurs="unbounded" />
+			</xsd:sequence>
+			<xsd:attribute name="OznaczeniePaczki" type="curr:typNazwa60" use="required">
+				<xsd:annotation>
+					<xsd:documentation>Oznaczenie paczki nadawane przez uytkownika używane jako kryterium wyszukiwania </xsd:documentation>
+				</xsd:annotation>
+			</xsd:attribute>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="CzynnoscEPU">
+		<xsd:annotation>
+			<xsd:documentation>Czynność komornika w elektronicznym postępowaniu upominawczym</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Klauzula" type="curr:typKlauzula" />
+			<xsd:element name="Komornik" type="curr:typKomornikWniosek" />
+			<xsd:element name="SygnaturaKom" type="curr:typNazwa120" />
+			<xsd:element name="DataCzynnosci" type="xsd:dateTime" />
+			<xsd:element name="DataOdnotowania" type="xsd:dateTime" />
+			<xsd:element name="Kwota" type="xsd:decimal" />
+			<xsd:element name="Rodzaj" type="curr:typRodzajCzynnosci" />
+			<xsd:element name="Opis" type="xsd:string" nillable="true" minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

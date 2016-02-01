@@ -1,0 +1,36 @@
+﻿<xsd:schema xmlns:curr="http://www.currenda.pl/epu" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.currenda.pl/epu" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" xml:lang="pl">
+	<xsd:element name="WniosekEgzekucyjny" type="curr:WniosekEgzekucyjny" />
+	<xsd:complexType name="WniosekEgzekucyjny">
+		<xsd:annotation>
+			<xsd:documentation>Wniosek egzekucyjny w elektronicznym postępowaniu upominawczym</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Komornik" type="curr:typKomornikWniosek" minOccurs="0" />
+			<xsd:element name="Sad" type="curr:typSadEPU" />
+			<xsd:element name="Nakaz" type="curr:typNakaz" />
+			<xsd:element name="Klauzula" type="curr:typKlauzula" />
+			<xsd:element name="OsobaSkladajaca" type="curr:typSkladajacy" />
+			<xsd:element name="ListaWierzycieli" type="curr:typListaWierzycieli" />
+			<xsd:element name="ListaDluznikow" type="curr:typListaDluznikow" />
+			<xsd:element name="ListaRoszczen">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="Roszczenie" type="curr:typRoszczenieNakaz" minOccurs="0" maxOccurs="unbounded" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="InformacjeDodatkowe" type="curr:typTekstowy" minOccurs="0" />
+			<xsd:element name="KosztyZastepstwa" type="curr:typKoszty" minOccurs="0" />
+			<xsd:element name="InneKoszty" type="curr:typKoszty" minOccurs="0" />
+			<xsd:element name="ZleceniePoszukiwaniaMajatku" type="curr:typWybor0_1" minOccurs="0" />
+			<xsd:element name="ZlecenieProwadzeniaArt85" type="curr:typWybor0_1" minOccurs="0" />
+		</xsd:sequence>
+		<xsd:attribute name="ID" type="xsd:unsignedLong" use="required" />
+		<xsd:attribute name="version" type="curr:typNazwa10" use="required" fixed="1.0">
+			<xsd:annotation>
+				<xsd:documentation>Oznaczenie wersji formatu. Aktualna wersja: 1.0</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="dataWniosku" type="curr:typData" use="required" />
+	</xsd:complexType>
+</xsd:schema>
