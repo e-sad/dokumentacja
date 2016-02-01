@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<curr:Pozwy OznaczeniePaczki="Przykladowa paczka" xmlns:curr="http://www.currenda.pl/epu">
+<curr:PozewEPU ID="0" version="1.20" dataZlozenia="2013-11-25" xmlns:curr="http://www.currenda.pl/epu">
+<curr:Oswiadczenie>nie</curr:Oswiadczenie><curr:Adresat ID="1">
+<curr:Nazwa>Sąd Rejonowy Lublin-Zachód w Lublinie</curr:Nazwa>
+<curr:Wydzial>VI Wydział Cywilny</curr:Wydzial>
+<curr:Adres ulica="Boczna Lubomelskiej" nr_domu="13" kod="20070" miejscowosc="Lublin" poczta="Lublin" kraj="Polska" powiat="Lublin" gmina="Lublin" /></curr:Adresat>
+<curr:OsobaSkladajaca xmlns:curr="http://www.currenda.pl/epu" pelnomocnik="0" podstawa="umocowanie">
+<curr:Osoba>
+<curr:Imie>Waldemar</curr:Imie>
+<curr:Imie2></curr:Imie2>
+<curr:Nazwisko>Kowalski</curr:Nazwisko>
+<curr:PESEL>75121684538</curr:PESEL>
+<curr:stanowisko d4p1:nil="true" xmlns:d4p1="http://www.w3.org/2001/XMLSchema-instance" />
+</curr:Osoba>
+<curr:Adres ulica="Szeroka" nr_domu="8" nr_mieszkania="2" kod="80-803" miejscowosc="Gdańsk" poczta="Gdańsk" wojewodztwo="pomorskie" powiat="" gmina="" />
+</curr:OsobaSkladajaca>
+
+<curr:ListaPowodow>
+<curr:Powod ID="1">
+<curr:ObcokrajowiecString/>
+<curr:Obcokrajowiec>false</curr:Obcokrajowiec>
+<curr:BrakNumerowIdentyfikacyjnych>false</curr:BrakNumerowIdentyfikacyjnych>
+<curr:reprezentacja>1</curr:reprezentacja>
+<curr:rodzajStrony>2</curr:rodzajStrony>
+<curr:Instytucja>
+<curr:Nazwa>Firma numer jeden</curr:Nazwa>
+<curr:Siedziba>Kraków</curr:Siedziba>
+<curr:czyRejestr>0</curr:czyRejestr>
+</curr:Instytucja>
+<curr:NIP>4984924679</curr:NIP>
+<curr:Adres ulica="Błotna" nr_domu="2" nr_mieszkania="8" kod="80-180" miejscowosc="Gdańsk" poczta="" wojewodztwo="" powiat="" />
+<curr:numerKonta>22222222222222222222222221</curr:numerKonta>
+</curr:Powod>
+</curr:ListaPowodow>
+	
+<curr:ListaPozwanych>
+
+      <curr:Pozwany ID="1">
+		<curr:ObcokrajowiecString/>
+		<curr:Obcokrajowiec>false</curr:Obcokrajowiec>
+		<curr:BrakNumerowIdentyfikacyjnych>false</curr:BrakNumerowIdentyfikacyjnych>
+		<curr:reprezentacja>1</curr:reprezentacja> <!-- Pole w przypadku pozwanego jest nieużywane. Nie ma znaczenia która z opcji zostanie wybrana (1 lub 4)-->
+		<curr:rodzajStrony>2</curr:rodzajStrony>
+		<curr:Instytucja>
+		<curr:Nazwa>Drzewo</curr:Nazwa>
+		<curr:Siedziba>Sopot</curr:Siedziba>
+		<curr:czyRejestr>2</curr:czyRejestr>
+		<curr:InnyRejestr typ="typ rejestru" organ="organ prowadzacy rejestr" numer="1" />
+		</curr:Instytucja>
+		<curr:Adres ulica="Skośna" nr_domu="12" nr_mieszkania="8B" kod="82-300" miejscowosc="Elbląg" poczta="" wojewodztwo="" powiat="" />
+	</curr:Pozwany>
+	
+      <curr:Pozwany ID="2">
+      <curr:ObcokrajowiecString/>
+		<curr:Obcokrajowiec>false</curr:Obcokrajowiec>
+		<curr:BrakNumerowIdentyfikacyjnych>false</curr:BrakNumerowIdentyfikacyjnych>
+		<curr:reprezentacja>1</curr:reprezentacja> <!-- Pole w przypadku pozwanego jest nieużywane. Nie ma znaczenia która z opcji zostanie wybrana (1 lub 4)-->
+		<curr:rodzajStrony>2</curr:rodzajStrony>
+		<curr:Instytucja>
+		<curr:Nazwa>Krzak</curr:Nazwa>
+		<curr:Siedziba>Warszawa</curr:Siedziba>
+		<curr:czyRejestr>0</curr:czyRejestr>
+		</curr:Instytucja>
+		<curr:NIP>7696140745</curr:NIP>
+		<curr:Adres ulica="Błotna" nr_domu="2A" nr_mieszkania="3" kod="80-180" miejscowosc="Gdańsk" poczta="" wojewodztwo="" powiat="" />
+      </curr:Pozwany>
+	  
+	  <curr:Pozwany ID="3">
+        <curr:ObcokrajowiecString>Obywatelstwo polskie</curr:ObcokrajowiecString>
+        <curr:Obcokrajowiec>false</curr:Obcokrajowiec>
+        <curr:BrakNumerowIdentyfikacyjnych>false</curr:BrakNumerowIdentyfikacyjnych>
+        <curr:reprezentacja>1</curr:reprezentacja> <!-- Pole w przypadku pozwanego jest nieużywane. Nie ma znaczenia która z opcji zostanie wybrana (1 lub 4)-->
+        <curr:rodzajStrony>0</curr:rodzajStrony>
+        <curr:OsobaFizyczna>
+          <curr:Imie>Jan</curr:Imie>
+          <curr:Imie2 />
+          <curr:Nazwisko>Kowalski</curr:Nazwisko>
+          <curr:PESEL>88021823011</curr:PESEL>
+        </curr:OsobaFizyczna>
+        <curr:NIP />
+        <curr:Adres ulica="Jana III Sobieskiego" nr_domu="6" nr_mieszkania="1" kod="81-870" miejscowosc="Sopot" poczta="" wojewodztwo="pomorskie" powiat="" />
+      </curr:Pozwany>
+	  
+	   <curr:Pozwany ID="4">
+      <curr:ObcokrajowiecString/>
+		<curr:Obcokrajowiec>false</curr:Obcokrajowiec>
+		<curr:BrakNumerowIdentyfikacyjnych>false</curr:BrakNumerowIdentyfikacyjnych>
+		<curr:reprezentacja>1</curr:reprezentacja> <!-- Pole w przypadku pozwanego jest nieużywane. Nie ma znaczenia która z opcji zostanie wybrana (1 lub 4)-->
+		<curr:rodzajStrony>2</curr:rodzajStrony>
+		<curr:Instytucja>
+		<curr:Nazwa>Pień</curr:Nazwa>
+		<curr:Siedziba>Olsztyn</curr:Siedziba>
+		<curr:czyRejestr>0</curr:czyRejestr>
+		</curr:Instytucja>
+		<curr:NIP>8412706073</curr:NIP>
+		<curr:Adres ulica="10 Lutego" nr_domu="3" nr_mieszkania="7C" kod="81-366" miejscowosc="Gdynia" poczta="" wojewodztwo="" powiat="" />
+      </curr:Pozwany>
+	  
+	  <curr:Pozwany ID="5">
+	  <curr:ObcokrajowiecString/>
+		<curr:Obcokrajowiec>false</curr:Obcokrajowiec>
+		<curr:BrakNumerowIdentyfikacyjnych>false</curr:BrakNumerowIdentyfikacyjnych>
+		<curr:reprezentacja>1</curr:reprezentacja> <!-- Pole w przypadku pozwanego jest nieużywane. Nie ma znaczenia która z opcji zostanie wybrana (1 lub 4)-->
+		<curr:rodzajStrony>2</curr:rodzajStrony>
+		<curr:Instytucja>
+		<curr:Nazwa>Liść</curr:Nazwa>
+		<curr:Siedziba>Opole</curr:Siedziba>
+		<curr:REGON>816658280</curr:REGON>
+		<curr:czyRejestr>0</curr:czyRejestr>
+		</curr:Instytucja>
+		<curr:Adres ulica="Polna" nr_domu="7" nr_mieszkania="8" kod="80-180" miejscowosc="Gdańsk" poczta="" wojewodztwo="" powiat="" />
+		   </curr:Pozwany>
+		
+    </curr:ListaPozwanych>
+	
+<curr:WartoscSporu>32131</curr:WartoscSporu><curr:OplataSadowa wartosc="402" zwolnienie="0" zasadzenie="1" /><curr:KosztyZastepstwa wartosc="0" zasadzenie="0" wgNorm="0" /><curr:RachunekDoZwrotuOplat><curr:NumerRachunkuDoZwrotuOplat>22222222222222222222222222</curr:NumerRachunkuDoZwrotuOplat><curr:WlascicielRachunku>Janek</curr:WlascicielRachunku></curr:RachunekDoZwrotuOplat><curr:ListaRoszczen><curr:Roszczenie numer="1" wartosc="32131" waluta="PLN" odsetki="0" solidarnie="0" typ="0" dataWymagalnosci="2013-11-02" /></curr:ListaRoszczen><curr:Uzasadnienie>uzasadnienie</curr:Uzasadnienie><curr:ListaPodpisow><curr:Podpis><curr:Imie>Waldemar</curr:Imie><curr:Imie2></curr:Imie2><curr:Nazwisko>Kowalski</curr:Nazwisko><curr:PESEL>75121684538</curr:PESEL><curr:stanowisko /></curr:Podpis></curr:ListaPodpisow></curr:PozewEPU>
+
+
+<curr:PozewEPU ID="1" version="1.20" dataZlozenia="2013-11-25" xmlns:curr="http://www.currenda.pl/epu">
+<curr:Oswiadczenie>nie</curr:Oswiadczenie><curr:Adresat ID="1">
+<curr:Nazwa>Sąd Rejonowy Lublin-Zachód w Lublinie</curr:Nazwa>
+<curr:Wydzial>VI Wydział Cywilny</curr:Wydzial>
+<curr:Adres ulica="Boczna Lubomelskiej" nr_domu="13" kod="20070" miejscowosc="Lublin" poczta="Lublin" kraj="Polska" powiat="Lublin" gmina="Lublin" /></curr:Adresat>
+<curr:OsobaSkladajaca xmlns:curr="http://www.currenda.pl/epu" pelnomocnik="0" podstawa="umocowanie">
+<curr:Osoba>
+<curr:Imie>Waldemar</curr:Imie>
+<curr:Imie2></curr:Imie2>
+<curr:Nazwisko>Kowalski</curr:Nazwisko>
+<curr:PESEL>75121684538</curr:PESEL>
+<curr:stanowisko d4p1:nil="true" xmlns:d4p1="http://www.w3.org/2001/XMLSchema-instance" />
+</curr:Osoba>
+<curr:Adres ulica="Szeroka" nr_domu="8" nr_mieszkania="2" kod="80-803" miejscowosc="Gdańsk" poczta="Gdańsk" wojewodztwo="pomorskie" powiat="" gmina="" />
+</curr:OsobaSkladajaca>
+
+<curr:ListaPowodow>
+<curr:Powod ID="1">
+<curr:ObcokrajowiecString>Obywatelstwo polskie</curr:ObcokrajowiecString>
+        <curr:Obcokrajowiec>false</curr:Obcokrajowiec>
+        <curr:BrakNumerowIdentyfikacyjnych>false</curr:BrakNumerowIdentyfikacyjnych>
+        <curr:reprezentacja>1</curr:reprezentacja>
+        <curr:rodzajStrony>0</curr:rodzajStrony>
+        <curr:OsobaFizyczna>
+          <curr:Imie>Paweł</curr:Imie>
+          <curr:Imie2 />
+          <curr:Nazwisko>Kowal</curr:Nazwisko>
+          <curr:PESEL>79062011998</curr:PESEL>
+        </curr:OsobaFizyczna>
+        <curr:NIP />
+        <curr:Adres ulica="Jana III Sobieskiego" nr_domu="6" nr_mieszkania="1" kod="81-870" miejscowosc="Sopot" poczta="" wojewodztwo="pomorskie" powiat="" />
+<curr:numerKonta>22222222222222222222222226</curr:numerKonta>
+</curr:Powod>
+</curr:ListaPowodow>
+	
+<curr:ListaPozwanych>
+
+      <curr:Pozwany ID="1">
+		<curr:ObcokrajowiecString/>
+		<curr:Obcokrajowiec>false</curr:Obcokrajowiec>
+		<curr:BrakNumerowIdentyfikacyjnych>false</curr:BrakNumerowIdentyfikacyjnych>
+		<curr:reprezentacja>4</curr:reprezentacja> <!-- Pole w przypadku pozwanego jest nieużywane. Nie ma znaczenia która z opcji zostanie wybrana (1 lub 4)-->
+		<curr:rodzajStrony>2</curr:rodzajStrony>
+		<curr:Instytucja>
+		<curr:Nazwa>Trawniki</curr:Nazwa>
+		<curr:Siedziba>Warszawa</curr:Siedziba>
+		<curr:czyRejestr>2</curr:czyRejestr>
+		<curr:InnyRejestr typ="typ rejestru" organ="organ prowadzacy rejestr" numer="2" />
+		</curr:Instytucja>
+		<curr:Adres ulica="Prosta" nr_domu="2C" nr_mieszkania="5" kod="82-300" miejscowosc="Elbląg" poczta="" wojewodztwo="" powiat="" />
+	</curr:Pozwany>
+    	
+    </curr:ListaPozwanych>
+	
+	<curr:WartoscSporu>6000</curr:WartoscSporu>
+	<curr:OplataSadowa wartosc="75" zwolnienie="0" zasadzenie="1" />
+	<curr:KosztyZastepstwa wartosc="0" zasadzenie="0" wgNorm="0" />
+	<curr:InneKoszty wartosc="100" zasadzenie="1" wgNorm="1" opis="koszty przesyłek pocztowych" />
+	<curr:RachunekDoZwrotuOplat>
+	<curr:NumerRachunkuDoZwrotuOplat>22222222222222222222222222</curr:NumerRachunkuDoZwrotuOplat>
+	<curr:WlascicielRachunku>Tomasz Bąk</curr:WlascicielRachunku>
+	</curr:RachunekDoZwrotuOplat>
+
+<curr:ListaRoszczen>
+<curr:Roszczenie numer="1" wartosc="6000" waluta="PLN" odsetki="1" solidarnie="0" typ="2" dataWymagalnosci="2013-10-31">
+<curr:Odsetki>
+<curr:OkresOdsetkowy kwota="6000" czyUstawowe="2" stopa="0.001" okres="4" odWniesienia="1" doZaplaty="1" />
+</curr:Odsetki>
+<curr:Dowody>
+<curr:Dowod>1</curr:Dowod>
+</curr:Dowody>
+</curr:Roszczenie>
+</curr:ListaRoszczen>
+<curr:ListaDowodow>
+<curr:Dowod numer="1" typDowodu="faktura" oznaczenie="31234123" dataDowodu="2013-11-02">
+<curr:FaktStwierdzany>faktura</curr:FaktStwierdzany>
+<curr:Opis>opis</curr:Opis>
+</curr:Dowod>
+</curr:ListaDowodow><curr:InneRoszczenia>Inne wnioski procesowe</curr:InneRoszczenia>
+<curr:Uzasadnienie>Uzasadnienie</curr:Uzasadnienie>
+<curr:ListaPodpisow><curr:Podpis>
+<curr:Imie>Waldemar</curr:Imie>
+<curr:Imie2 />
+<curr:Nazwisko>Kowalski</curr:Nazwisko>
+<curr:PESEL>75121684538</curr:PESEL>
+<curr:stanowisko />
+</curr:Podpis>
+</curr:ListaPodpisow>
+
+</curr:PozewEPU>
+
+
+<curr:PozewEPU ID="2" version="1.20" dataZlozenia="2013-11-25" xmlns:curr="http://www.currenda.pl/epu">
+<curr:Oswiadczenie>nie</curr:Oswiadczenie><curr:Adresat ID="1">
+<curr:Nazwa>Sąd Rejonowy Lublin-Zachód w Lublinie</curr:Nazwa>
+<curr:Wydzial>VI Wydział Cywilny</curr:Wydzial>
+<curr:Adres ulica="Boczna Lubomelskiej" nr_domu="13" kod="20070" miejscowosc="Lublin" poczta="Lublin" kraj="Polska" powiat="Lublin" gmina="Lublin" /></curr:Adresat>
+<curr:OsobaSkladajaca xmlns:curr="http://www.currenda.pl/epu" pelnomocnik="0" podstawa="umocowanie">
+<curr:Osoba>
+<curr:Imie>Waldemar</curr:Imie>
+<curr:Imie2></curr:Imie2>
+<curr:Nazwisko>Kowalski</curr:Nazwisko>
+<curr:PESEL>75121684538</curr:PESEL>
+<curr:stanowisko d4p1:nil="true" xmlns:d4p1="http://www.w3.org/2001/XMLSchema-instance" />
+</curr:Osoba>
+<curr:Adres ulica="Szeroka" nr_domu="8" nr_mieszkania="2" kod="80-803" miejscowosc="Gdańsk" poczta="Gdańsk" wojewodztwo="pomorskie" powiat="" gmina="" />
+</curr:OsobaSkladajaca>
+
+<curr:ListaPowodow>
+<curr:Powod ID="1">
+<curr:ObcokrajowiecString>Obywatelstwo polskie</curr:ObcokrajowiecString>
+        <curr:Obcokrajowiec>false</curr:Obcokrajowiec>
+        <curr:BrakNumerowIdentyfikacyjnych>false</curr:BrakNumerowIdentyfikacyjnych>
+        <curr:reprezentacja>4</curr:reprezentacja>
+        <curr:rodzajStrony>1</curr:rodzajStrony>
+        <curr:OsobaFizyczna>
+          <curr:Imie>Piotr</curr:Imie>
+          <curr:Imie2 />
+          <curr:Nazwisko>Nowak</curr:Nazwisko>
+          </curr:OsobaFizyczna>
+        <curr:NIP>9755287908</curr:NIP>
+        <curr:Adres ulica="Jana III Sobieskiego" nr_domu="6" nr_mieszkania="1" kod="81-870" miejscowosc="Sopot" poczta="" wojewodztwo="pomorskie" powiat="" />
+<curr:numerKonta>22222222222222222222222226</curr:numerKonta>
+</curr:Powod>
+</curr:ListaPowodow>
+	
+<curr:ListaPozwanych>
+
+      <curr:Pozwany ID="1">
+		<curr:ObcokrajowiecString/>
+		<curr:Obcokrajowiec>false</curr:Obcokrajowiec>
+		<curr:BrakNumerowIdentyfikacyjnych>false</curr:BrakNumerowIdentyfikacyjnych>
+		<curr:reprezentacja>4</curr:reprezentacja>   <!-- Pole w przypadku pozwanego jest nieużywane (ale jest obowiązkowe). Nie ma znaczenia która z opcji zostanie wybrana (1 lub 4)-->
+		<curr:rodzajStrony>2</curr:rodzajStrony>
+		<curr:Instytucja>
+		<curr:Nazwa>Karaluchy</curr:Nazwa>
+		<curr:Siedziba>Opole</curr:Siedziba>
+		<curr:czyRejestr>2</curr:czyRejestr>
+		<curr:InnyRejestr typ="typ rejestru" organ="organ prowadzacy rejestr" numer="2" />
+		</curr:Instytucja>
+		<curr:Adres ulica="Prosta" nr_domu="2B" nr_mieszkania="15" kod="24-300" miejscowosc="Opole" poczta="" wojewodztwo="" powiat="" />
+	</curr:Pozwany>
+    </curr:ListaPozwanych>
+	
+<curr:WartoscSporu>1500</curr:WartoscSporu><curr:OplataSadowa wartosc="30" zwolnienie="0" zasadzenie="1" /><curr:KosztyZastepstwa wartosc="0" zasadzenie="0" wgNorm="0" /><curr:RachunekDoZwrotuOplat><curr:NumerRachunkuDoZwrotuOplat>44444444444444444444444444</curr:NumerRachunkuDoZwrotuOplat><curr:WlascicielRachunku>Jan Wlasciwy</curr:WlascicielRachunku></curr:RachunekDoZwrotuOplat><curr:ListaRoszczen><curr:Roszczenie numer="1" wartosc="1500" waluta="PLN" odsetki="1" solidarnie="0" typ="0" dataWymagalnosci="2013-09-01"><curr:Odsetki><curr:OkresOdsetkowy kwota="1500" czyUstawowe="1" stopa="0.008" okres="1" odWniesienia="1" doZaplaty="1" /></curr:Odsetki></curr:Roszczenie></curr:ListaRoszczen><curr:Uzasadnienie>Uzasadnienie</curr:Uzasadnienie><curr:ListaPodpisow><curr:Podpis><curr:Imie>Waldemar</curr:Imie><curr:Imie2 /><curr:Nazwisko>Kowalski</curr:Nazwisko><curr:PESEL>75121684538</curr:PESEL><curr:stanowisko /></curr:Podpis></curr:ListaPodpisow>
+
+</curr:PozewEPU>
+
+  </curr:Pozwy>
