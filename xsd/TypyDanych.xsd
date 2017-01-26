@@ -1,4 +1,5 @@
-﻿<xsd:schema xmlns:curr="http://www.currenda.pl/epu" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.currenda.pl/epu" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" xml:lang="pl">
+<!-- edited with XMLSpy v2016 rel. 2 sp1 (x64) (http://www.altova.com) by Piotr Olszewski (Ministerstwo Sprawiedliwosci) -->
+<xsd:schema xmlns:curr="http://www.e-sad.gov.pl/epu" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.e-sad.gov.pl/epu" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.0" xml:lang="pl">
   <xsd:simpleType name="typNIP">
     <xsd:annotation>
       <xsd:documentation>Numer NIP</xsd:documentation>
@@ -307,9 +308,9 @@
       <xsd:documentation>Definicja strony w sprawie</xsd:documentation>
     </xsd:annotation>
     <xsd:sequence>
-      <xsd:element name="ObcokrajowiecString" minOccurs="1" type="xsd:string" />
-      <xsd:element name="Obcokrajowiec" minOccurs="1" type="xsd:boolean" />
-      <xsd:element name="BrakNumerowIdentyfikacyjnych" minOccurs="1" type="xsd:boolean" />
+      <xsd:element name="ObcokrajowiecString" type="xsd:string" minOccurs="1" />
+      <xsd:element name="Obcokrajowiec" type="xsd:boolean" minOccurs="1" />
+      <xsd:element name="BrakNumerowIdentyfikacyjnych" type="xsd:boolean" minOccurs="1" />
       <xsd:element name="reprezentacja" type="curr:typWybor1or4">
         <xsd:annotation>
           <xsd:documentation>Element obowiązkowy. Zawsze przyjume wartość 1 pełnomocnik lub 4 reprezentant.</xsd:documentation>
@@ -454,7 +455,7 @@
       <xsd:documentation>Definicja kosztów zastępstwa procesowego</xsd:documentation>
     </xsd:annotation>
     <xsd:attribute name="wartosc" type="curr:typWartosc_10_2" use="required" />
-    <xsd:attribute name="zasadzenie" type="curr:typWybor0_1" use="required">
+   <xsd:attribute name="zasadzenie" type="curr:typWybor0_1" use="required">
       <xsd:annotation>
         <xsd:documentation>0 - brak żądania zasądzenia zwrotu   1- żądanie zasądzenia zwrotu kosztów zastępstwa procesowego</xsd:documentation>
       </xsd:annotation>
@@ -495,10 +496,21 @@
       <xsd:enumeration value="JPY" />
     </xsd:restriction>
   </xsd:simpleType>
+  <xsd:simpleType name="odsetkiOpis">
+    <xsd:annotation>
+      <xsd:documentation>Opis odetek obowiązkowy jeżeli atrybut typOkresOdsetkowy.czyUstawowe = 18</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="10000" />
+    </xsd:restriction>
+  </xsd:simpleType>
   <xsd:complexType name="typOkresOdsetkowy">
     <xsd:annotation>
       <xsd:documentation>Odsetki  w sprawie</xsd:documentation>
     </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="Opis" type="curr:odsetkiOpis" minOccurs="0" maxOccurs="1" />
+    </xsd:sequence>
     <xsd:attribute name="dataOd" type="curr:typData" use="optional">
       <xsd:annotation>
         <xsd:documentation>Data od której naliczać odsetki </xsd:documentation>
@@ -514,9 +526,35 @@
         <xsd:documentation>Kwota będąca podstawą do naliczania odsetek. Brak kwoty lub kwota = 0 oznacza że odsetki mają być naliczane od całej wartości roszczenia.</xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
-    <xsd:attribute name="czyUstawowe" type="curr:typWybor0_3" use="required">
+    <xsd:attribute name="czyUstawowe" type="curr:typWybor0_18" use="required">
       <xsd:annotation>
-        <xsd:documentation>0 - odsetki ustawowe 1 - odsetki umowne wg podanej stopy 2 - odsetki umowne wg podanej stopy ale nie więcej niż 4 x stopa lombardowa 3 - odsetki umowne równe 4 x stopa lomabardowa</xsd:documentation>
+        <xsd:documentation>
+				Dopuszczalne wartośći dla typOkresOdsetkowy gdzie "version" = 1
+						0 - Odsetki ustawowe
+						1 - Odsetki umowne wg podanej stopy
+						2 - Odsetki umowne wg podanej stopy ale nie więcej niż 4 x stopa lombardowa
+						3 - Odsetki umowne równe 4 x stopa lombardowa
+				Dopuszczalne wartośći dla typOkresOdsetkowy gdzie "version" = 2
+						0 - Odsetki ustawowe
+						1 - Odsetki umowne wg podanej stopy
+						2 - Odsetki umowne wg podanej stopy ale nie więcej niż 4 x stopa lombardowa
+						3 - Odsetki umowne równe 4 x stopa lombardowa
+						4 - Z odsetkami umownymi ……… % [rocznie/kwartalnie/miesięcznie/tygodniowo/dziennie] ale nie więcej niż w wysokości odsetek maksymalnych od dnia …………. do dnia …………..
+						5 - Z odsetkami umownymi w wysokości czterokrotności stopy lombardowej NBP rocznie ale nie więcej niż w wysokości odsetek maksymalnych od dnia …………. do dnia ………..
+						6 - Z odsetkami umownymi w wysokości czterokrotności stopy lombardowej NBP rocznie od dnia …………. do dnia 31 grudnia 2015 roku i odsetkami umownymi w wysokości czterokrotności stopy lombardowej NBP rocznie ale nie więcej niż w wysokości odsetek maksymalnych od dnia 1 stycznia 2016 roku do dnia ……….
+						7 - Z odsetkami umownymi w wysokości odsetek maksymalnych od dnia …………. do dnia …………
+						8 - Z odsetkami ustawowymi za opóźnienie od dnia …………. do dnia …………
+						9 - Z odsetkami ustawowymi od dnia …………. do dnia 31 grudnia 2015 roku i odsetkami ustawowymi za opóźnienie od dnia 1 stycznia 2016 roku do dnia ……….
+						10 - Z odsetkami umownymi ……. % [rocznie/kwartalnie/miesięcznie/tygodniowo/dziennie] ale nie więcej niż w wysokości odsetek maksymalnych za opóźnienie od dnia …………. do dnia …………
+						11 - Z odsetkami umownymi w wysokości odsetek maksymalnych za opóźnienie od dnia …………. do dnia ………
+						12 - Z odsetkami umownymi w wysokości czterokrotności stopy lombardowej NBP rocznie od dnia …………. do dnia 31 grudnia 2015 roku i odsetkami umownymi w wysokości czterokrotności, stopy lombardowej NBP rocznie ale nie więcej niż w wysokości odsetek maksymalnych za opóźnienie od dnia 1 stycznia 2016 roku do dnia ……….
+						13 - Z odsetkami umownymi w wysokości czterokrotności stopy lombardowej NBP rocznie ale nie więcej niż w wysokości odsetek maksymalnych za opóźnienie od dnia …………. do dnia ……….
+						14 - Z odsetkami umownymi ……. % [rocznie/kwartalnie/miesięcznie/tygodniowo/dziennie] ale nie więcej niż w wysokości czterokrotności stopy lombardowej NBP rocznie od dnia …………. do dnia 31 grudnia 2015 roku i odsetkami umownymi  ……. % [rocznie/kwartalnie/miesięcznie/tygodniowo/dziennie] ale nie więcej niż w wysokości odsetek maksymalnych za opóźnienie od dnia 1 stycznia 2016 roku do dnia ……….
+						15 - Z odsetkami ustawowymi za opóźnienie w transakcjach handlowych od dnia ……. do dnia …………
+						16 - Z odsetkami ustawowymi od dnia …………. do dnia 31 grudnia 2015 roku i odsetkami ustawowymi za opóźnienie w transakcjach handlowych od dnia 1 stycznia 2016 roku do dnia ……….
+						17 - Z odsetkami w wysokości odsetek za zwłokę określanej na podstawie art. 56 § 1 ustawy z dnia 29 sierpnia 1997 r. - Ordynacja podatkowa od dnia …………. do dnia 31 grudnia 2015 roku i odsetkami ustawowymi za opóźnienie w transakcjach handlowych od dnia 1 stycznia 2016 roku do dnia ………
+						18 - Pole "Opis" z limitem 10000 znaków w celu umożliwienia powodowi dowolnego określenia żądanych odsetek
+				</xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
     <xsd:attribute name="stopa" type="xsd:decimal" use="optional">
@@ -631,7 +669,7 @@
         <xsd:documentation>Unikalny numer dowodu, który posłuży do roszczenia z dowodem </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
-    <xsd:attribute name="typDowodu" type="curr:typRodzajDowodu" use="required" />
+   <xsd:attribute name="typDowodu" type="curr:typRodzajDowodu" use="required" />
     <xsd:attribute name="oznaczenie" type="curr:typNazwa120" use="optional">
       <xsd:annotation>
         <xsd:documentation>Numer faktury, Oznaczenie aktu notarialnego </xsd:documentation>
@@ -923,7 +961,7 @@
         </xsd:annotation>
       </xsd:element>
       <xsd:choice>
-        <xsd:element name="OsobaFizyczna" type="curr:typOsobaFizyczna" />
+		<xsd:element name="OsobaFizyczna" type="curr:typOsobaFizyczna" />
         <xsd:element name="Instytucja" type="curr:typInstytucja" />
       </xsd:choice>
       <xsd:element name="NIP" type="curr:typNIP" minOccurs="0">
@@ -1028,6 +1066,32 @@
       <xsd:enumeration value="0" />
       <xsd:enumeration value="1" />
       <xsd:enumeration value="2" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="typWybor0_18">
+    <xsd:annotation>
+      <xsd:documentation>19 pól do wyboru</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:byte">
+      <xsd:enumeration value="0" />
+      <xsd:enumeration value="1" />
+      <xsd:enumeration value="2" />
+      <xsd:enumeration value="3" />
+      <xsd:enumeration value="4" />
+      <xsd:enumeration value="5" />
+      <xsd:enumeration value="6" />
+      <xsd:enumeration value="7" />
+      <xsd:enumeration value="8" />
+      <xsd:enumeration value="9" />
+      <xsd:enumeration value="10" />
+      <xsd:enumeration value="11" />
+      <xsd:enumeration value="12" />
+      <xsd:enumeration value="13" />
+      <xsd:enumeration value="14" />
+      <xsd:enumeration value="15" />
+      <xsd:enumeration value="16" />
+      <xsd:enumeration value="17" />
+      <xsd:enumeration value="18" />
     </xsd:restriction>
   </xsd:simpleType>
   <xsd:simpleType name="typWybor0_3">
