@@ -1,1 +1,12 @@
+.idea/
+.project
+.yardoc/
+.DB_Store
+.DS_Store
+tests*
 *~
+tmp/
+backup/
+logs/
+Gemfile.lock
+git-releaser/
