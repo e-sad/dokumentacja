@@ -5,6 +5,6 @@
 
 * Dodany nowy typ: **"odsetkiOpis"**
 
-* Zmiana typu atrybutu **"czyUstawowe"** na **"curr:typWybor0_18"**
+* Zmiana typu atrybutu **"czyUstawowe"** z **"curr:typWybor0_3""** na **"curr:typWybor0_18"**
 
 PS. W eSądzie jak zwykle - bałagan i rozpizdziaj.
