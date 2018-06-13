@@ -1,50 +1,61 @@
-<xsd:schema xmlns:curr="http://www.currenda.pl/epu" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.currenda.pl/epu" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.0" xml:lang="pl">
-  <xsd:element name="PozewEPU" type="curr:PozewEPU" />
-  <xsd:complexType name="PozewEPU">
-    <xsd:annotation>
-      <xsd:documentation>Pozew inicjujący sprawę w elektronicznym postępowaniu upominawczym</xsd:documentation>
-    </xsd:annotation>
-    <xsd:sequence>
-      <xsd:element name="Oswiadczenie" type="xsd:string" minOccurs="0">
-        <xsd:annotation>
-          <xsd:documentation>Przyjmuje wartości tak/nie</xsd:documentation>
-        </xsd:annotation>
-      </xsd:element>
-      <xsd:element name="Adresat" type="curr:typAdresat" />
-      <xsd:element name="SadWlasciwy" type="curr:typAdresat" minOccurs="0" />
-      <xsd:element name="OsobaSkladajaca" type="curr:typSkladajacy" />
-      <xsd:element name="ListaPowodow" type="curr:typListaPowodow" />
-      <xsd:element name="ListaPozwanych" type="curr:typListaPozwanych" />
-      <xsd:element name="SprawaWgPowoda" minOccurs="0" type="curr:typNazwa60">
-        <xsd:annotation>
-          <xsd:documentation>Sygnatura / oznaczenie sprawy nadane przez powoda </xsd:documentation>
-        </xsd:annotation>
-      </xsd:element>
-      <xsd:element name="WartoscSporu" type="xsd:decimal">
-        <xsd:annotation>
-          <xsd:documentation>Suma wartości roszczeń zdefiniowanych na liście roszczeń wyrażona w PLN</xsd:documentation>
-        </xsd:annotation>
-      </xsd:element>
-      <xsd:element name="OplataSadowa" type="curr:typOplata" />
-      <xsd:element name="KosztyZastepstwa" type="curr:typKoszty" />
-      <xsd:element name="InneKoszty" type="curr:typKoszty" minOccurs="0" />
-      <xsd:element name="RachunekDoZwrotuOplat" type="curr:typRachunekDoZwrotuOplat" minOccurs="0" maxOccurs="1" />
-      <xsd:element name="ListaRoszczen" type="curr:typLista" />
-      <xsd:element name="ListaDowodow" type="curr:typListaDowodow" minOccurs="0" />
-      <xsd:element name="InneRoszczenia" type="curr:typTekstowy" minOccurs="0" />
-      <xsd:element name="Uzasadnienie" type="curr:typTekstowy" />
-      <xsd:element name="ListaPodpisow" type="curr:typListaPodpisow" minOccurs="0" />
-    </xsd:sequence>
-    <xsd:attribute name="ID" type="xsd:unsignedLong" use="required">
-      <xsd:annotation>
-        <xsd:documentation>Unikalny w ramach paczki numer ID pozwu </xsd:documentation>
-      </xsd:annotation>
-    </xsd:attribute>
-    <xsd:attribute name="version" use="required">
-      <xsd:annotation>
-        <xsd:documentation>Oznaczenie wersji formatu 2.0 dla pozwow w paczkach</xsd:documentation>
-      </xsd:annotation>
-    </xsd:attribute>
-    <xsd:attribute name="dataZlozenia" type="curr:typData" use="required" />
-  </xsd:complexType>
+<xsd:schema xmlns:curr="http://www.currenda.pl/epu" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.e-sad.gov.pl/epu" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.0" xml:lang="pl">
+	<xsd:include schemaLocation="TypyDanych.xsd"/>
+	<xsd:element name="PozewEPU" type="curr:PozewEPU"/>
+	<xsd:complexType name="PozewEPU">
+		<xsd:annotation>
+			<xsd:documentation>Pozew inicjujący sprawę w elektronicznym postępowaniu upominawczym</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Oswiadczenie" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Przyjmuje wartości tak/nie</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Adresat" type="curr:typAdresat"/>
+			<xsd:element name="SadWlasciwy" type="curr:typAdresat" minOccurs="0"/>
+			<xsd:element name="OsobaSkladajaca" type="curr:typSkladajacy"/>
+			<xsd:element name="ListaPowodow" type="curr:typListaPowodow"/>
+			<xsd:element name="ListaPozwanych" type="curr:typListaPozwanych"/>
+			<xsd:element name="SprawaWgPowoda" type="curr:typNazwa60" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Sygnatura / oznaczenie sprawy nadane przez powoda </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="WartoscSporu" type="xsd:decimal">
+				<xsd:annotation>
+					<xsd:documentation>Suma wartości roszczeń zdefiniowanych na liście roszczeń wyrażona w PLN</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OplataSadowa" type="curr:typOplata"/>
+			<xsd:element name="KosztyZastepstwa" type="curr:typKoszty"/>
+			<xsd:element name="InneKoszty" type="curr:typKoszty" minOccurs="0"/>
+			<xsd:element name="RachunekDoZwrotuOplat" type="curr:typRachunekDoZwrotuOplat" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="ListaRoszczen" type="curr:typLista"/>
+			<xsd:element name="ListaDowodow" type="curr:typListaDowodow" minOccurs="0"/>
+			<xsd:element name="InneRoszczenia" type="curr:typTekstowy" minOccurs="0"/>
+			<xsd:element name="Uzasadnienie" type="curr:typTekstowy"/>
+			<xsd:element name="ListaPodpisow" type="curr:typListaPodpisow" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="ID" type="xsd:unsignedLong" use="required">
+			<xsd:annotation>
+				<xsd:documentation>Unikalny w ramach paczki numer ID pozwu </xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="CzyWniosekUmorzBrakPodst" type="xsd:short">
+			<xsd:annotation>
+				<xsd:documentation>Złożenie wniosku o umorzenie postępowania w przypadku braku podstaw do wydania nakazu zapłaty (użycie atrybutu możliwe od dnia 01.03.2017r.) </xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="CzyWniosekUmorzUchylenie" type="xsd:short">
+			<xsd:annotation>
+				<xsd:documentation>Złożenie wniosku o umorzenie postępowania w przypadku uchylenia nakazu zapłaty (użycie atrybutu możliwe od dnia 01.03.2017r.)</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="version" use="required">
+			<xsd:annotation>
+				<xsd:documentation>Oznaczenie wersji formatu 1.0 dla pozwow w paczkach</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="dataZlozenia" type="curr:typData" use="required"/>
+	</xsd:complexType>
 </xsd:schema>
