@@ -12,4 +12,11 @@ https://www.e-sad.gov.pl/Subpage.aspx?page_id=32
 
 
 ### Autor
-Paweł 'felixd' Wojciechowski - [Outsourcing IT - Konopnickiej.Com](https://konopnickiej.com)
+
+Paweł 'felixd' Wojciechowski
+
+[Outsourcing IT - Konopnickiej.Com](https://konopnickiej.com)
+
+---
+
+Released with help of [Git Releaser](https://gitlab.com/felixd/git-releaser)
