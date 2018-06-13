@@ -1,534 +1,538 @@
-<!-- edited with XMLSpy v2016 rel. 2 sp1 (x64) (http://www.altova.com) by Piotr Olszewski (Ministerstwo Sprawiedliwosci) -->
 <xsd:schema xmlns:curr="http://www.e-sad.gov.pl/epu" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.e-sad.gov.pl/epu" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.0" xml:lang="pl">
-  <xsd:simpleType name="typNIP">
-    <xsd:annotation>
-      <xsd:documentation>Numer NIP</xsd:documentation>
-    </xsd:annotation>
-    <xsd:restriction base="xsd:string">
-      <xsd:pattern value="([1-9]((\d[1-9])|([1-9]\d))\d{7})|(^$)" />
-    </xsd:restriction>
-  </xsd:simpleType>
-  <xsd:simpleType name="typPESEL">
-    <xsd:annotation>
-      <xsd:documentation>Definicja numeru PESEL</xsd:documentation>
-    </xsd:annotation>
-    <xsd:restriction base="xsd:string">
-      <xsd:pattern value="[0-9]{11}" />
-    </xsd:restriction>
-  </xsd:simpleType>
-  <xsd:simpleType name="typKRS">
-    <xsd:annotation>
-      <xsd:documentation>Definicja KRS </xsd:documentation>
-    </xsd:annotation>
-    <xsd:restriction base="xsd:string">
-      <xsd:pattern value="[0-9]{10}" />
-    </xsd:restriction>
-  </xsd:simpleType>
-  <xsd:simpleType name="typREGON">
-    <xsd:annotation>
-      <xsd:documentation>Definicja Regonu </xsd:documentation>
-    </xsd:annotation>
-    <xsd:union>
-      <xsd:simpleType>
-        <xsd:restriction base="xsd:string">
-          <xsd:pattern value="\d{9}" />
-        </xsd:restriction>
-      </xsd:simpleType>
-      <xsd:simpleType>
-        <xsd:restriction base="xsd:string">
-          <xsd:pattern value="\d{14}" />
-        </xsd:restriction>
-      </xsd:simpleType>
-    </xsd:union>
-  </xsd:simpleType>
-  <xsd:simpleType name="typKodPocztowy">
-    <xsd:annotation>
-      <xsd:documentation>Definicja kodu pocztowego</xsd:documentation>
-    </xsd:annotation>
-    <xsd:restriction base="xsd:string">
-      <xsd:pattern value="([0-9]{2}-[0-9]{3})|([0-9]{5})" />
-    </xsd:restriction>
-  </xsd:simpleType>
-  <xsd:simpleType name="typData">
-    <xsd:annotation>
-      <xsd:documentation>Definicja daty w fromacie rrrr-mm-dd</xsd:documentation>
-    </xsd:annotation>
-    <xsd:restriction base="xsd:string">
-      <xsd:pattern value="[0-9]{4}-[0-9]{2}-[0-9]{2}" />
-    </xsd:restriction>
-  </xsd:simpleType>
-  <xsd:simpleType name="typNazwa10">
-    <xsd:annotation>
-      <xsd:documentation>Definicja nazwy do 10 znaków </xsd:documentation>
-    </xsd:annotation>
-    <xsd:restriction base="xsd:string">
-      <xsd:maxLength value="10" />
-    </xsd:restriction>
-  </xsd:simpleType>
-  <xsd:simpleType name="typNazwa20">
-    <xsd:annotation>
-      <xsd:documentation>Definicja nazwy do 20 znaków </xsd:documentation>
-    </xsd:annotation>
-    <xsd:restriction base="xsd:string">
-      <xsd:maxLength value="20" />
-    </xsd:restriction>
-  </xsd:simpleType>
-  <xsd:simpleType name="typNazwa30">
-    <xsd:annotation>
-      <xsd:documentation>Definicja nazwy do 30 znaków </xsd:documentation>
-    </xsd:annotation>
-    <xsd:restriction base="xsd:string">
-      <xsd:maxLength value="30" />
-    </xsd:restriction>
-  </xsd:simpleType>
-  <xsd:simpleType name="typNazwa60">
-    <xsd:annotation>
-      <xsd:documentation>Definicja nazwy do 60 znaków </xsd:documentation>
-    </xsd:annotation>
-    <xsd:restriction base="xsd:string">
-      <xsd:maxLength value="60" />
-    </xsd:restriction>
-  </xsd:simpleType>
-  <xsd:simpleType name="typNazwa70">
-    <xsd:annotation>
-      <xsd:documentation>Definicja nazwy od 2 do 70 znaków </xsd:documentation>
-    </xsd:annotation>
-    <xsd:restriction base="xsd:string">
-      <xsd:maxLength value="60" />
-      <xsd:minLength value="2" />
-    </xsd:restriction>
-  </xsd:simpleType>
-  <xsd:simpleType name="typNazwa100">
-    <xsd:annotation>
-      <xsd:documentation>Definicja nazwy do 100 znaków </xsd:documentation>
-    </xsd:annotation>
-    <xsd:restriction base="xsd:string">
-      <xsd:maxLength value="100" />
-    </xsd:restriction>
-  </xsd:simpleType>
-  <xsd:simpleType name="typNazwa120">
-    <xsd:annotation>
-      <xsd:documentation>Definicja nazwy do 120 znaków </xsd:documentation>
-    </xsd:annotation>
-    <xsd:restriction base="xsd:string">
-      <xsd:maxLength value="120" />
-    </xsd:restriction>
-  </xsd:simpleType>
-  <xsd:simpleType name="typNazwa150">
-    <xsd:annotation>
-      <xsd:documentation>Definicja nazwy do 150 znaków </xsd:documentation>
-    </xsd:annotation>
-    <xsd:restriction base="xsd:string">
-      <xsd:minLength value="2" />
-      <xsd:maxLength value="150" />
-    </xsd:restriction>
-  </xsd:simpleType>
-  <xsd:simpleType name="typNazwa200">
-    <xsd:annotation>
-      <xsd:documentation>Definicja nazwy do 200 znaków </xsd:documentation>
-    </xsd:annotation>
-    <xsd:restriction base="xsd:string">
-      <xsd:maxLength value="200" />
-    </xsd:restriction>
-  </xsd:simpleType>
-  <xsd:simpleType name="typNazwa300">
-    <xsd:annotation>
-      <xsd:documentation>Definicja nazwy do 300 znaków </xsd:documentation>
-    </xsd:annotation>
-    <xsd:restriction base="xsd:string">
-      <xsd:maxLength value="300" />
-    </xsd:restriction>
-  </xsd:simpleType>
-  <xsd:simpleType name="typTekstowy">
-    <xsd:annotation>
-      <xsd:documentation>Typ znakowy ograniczony do 32000 znaków</xsd:documentation>
-    </xsd:annotation>
-    <xsd:restriction base="xsd:string">
-      <xsd:minLength value="0" />
-      <xsd:maxLength value="32000" />
-    </xsd:restriction>
-  </xsd:simpleType>
-  <xsd:simpleType name="typWybor0_1">
-    <xsd:annotation>
-      <xsd:documentation>Podwójne pole wyboru</xsd:documentation>
-    </xsd:annotation>
-    <xsd:restriction base="xsd:byte">
-      <xsd:enumeration value="0" />
-      <xsd:enumeration value="1" />
-    </xsd:restriction>
-  </xsd:simpleType>
-  <xsd:complexType name="typAdres">
-    <xsd:annotation>
-      <xsd:documentation>Definicja adresu zamieszkania lub siedziby</xsd:documentation>
-    </xsd:annotation>
-    <xsd:attribute name="ulica" type="curr:typNazwa100" use="required" />
-    <xsd:attribute name="nr_domu" type="curr:typNazwa20" use="required" />
-    <xsd:attribute name="nr_mieszkania" type="curr:typNazwa20" use="optional" />
-    <xsd:attribute name="kod" type="curr:typKodPocztowy" use="required" />
-    <xsd:attribute name="miejscowosc" type="curr:typNazwa60" use="required" />
-    <xsd:attribute name="poczta" type="curr:typNazwa60" use="optional" />
-    <xsd:attribute name="kraj" type="curr:typNazwa60" use="optional" />
-    <xsd:attribute name="wojewodztwo" type="curr:typNazwa60" use="optional" />
-    <xsd:attribute name="powiat" type="curr:typNazwa60" use="optional" />
-    <xsd:attribute name="gmina" type="curr:typNazwa60" use="optional" />
-  </xsd:complexType>
-  <xsd:complexType name="typInnyRejestr">
-    <xsd:annotation>
-      <xsd:documentation>Inny Rejestr</xsd:documentation>
-    </xsd:annotation>
-    <xsd:attribute name="typ" type="curr:typNazwa60" use="required">
-      <xsd:annotation>
-        <xsd:documentation>typ rejestru</xsd:documentation>
-      </xsd:annotation>
-    </xsd:attribute>
-    <xsd:attribute name="organ" type="curr:typNazwa120" use="required">
-      <xsd:annotation>
-        <xsd:documentation>organ prowadzący rejestr</xsd:documentation>
-      </xsd:annotation>
-    </xsd:attribute>
-    <xsd:attribute name="numer" type="curr:typNazwa60" use="required">
-      <xsd:annotation>
-        <xsd:documentation>numer w rejestrze</xsd:documentation>
-      </xsd:annotation>
-    </xsd:attribute>
-  </xsd:complexType>
-  <xsd:simpleType name="typRodzajDowodu">
-    <xsd:annotation>
-      <xsd:documentation>Słownik rodzajów dowodów</xsd:documentation>
-    </xsd:annotation>
-    <xsd:restriction base="xsd:string">
-      <xsd:enumeration value="inny" />
-      <xsd:enumeration value="umowa" />
-      <xsd:enumeration value="faktura" />
-      <xsd:enumeration value="akt notarialny" />
-    </xsd:restriction>
-  </xsd:simpleType>
-  <xsd:complexType name="typOsobaFizyczna">
-    <xsd:annotation>
-      <xsd:documentation>Osoba fizyczna jako strona postępowania.</xsd:documentation>
-    </xsd:annotation>
-    <xsd:sequence>
-      <xsd:element name="Imie" type="curr:typNazwa30">
-        <xsd:annotation>
-          <xsd:documentation>Imię</xsd:documentation>
-        </xsd:annotation>
-      </xsd:element>
-      <xsd:element name="Imie2" type="curr:typNazwa30" minOccurs="0">
-        <xsd:annotation>
-          <xsd:documentation>Imię drugie</xsd:documentation>
-        </xsd:annotation>
-      </xsd:element>
-      <xsd:element name="Nazwisko" type="curr:typNazwa60">
-        <xsd:annotation>
-          <xsd:documentation>Nazwisko</xsd:documentation>
-        </xsd:annotation>
-      </xsd:element>
-      <xsd:element name="Nazwa" type="curr:typNazwa200" minOccurs="0">
-        <xsd:annotation>
-          <xsd:documentation>Nazwa działalności w przypadku działalności gospodarczej osoby fizycznej</xsd:documentation>
-        </xsd:annotation>
-      </xsd:element>
-      <xsd:element name="PESEL" type="curr:typPESEL" minOccurs="0">
-        <xsd:annotation>
-          <xsd:documentation>Pesel Osoby Fizycznej</xsd:documentation>
-        </xsd:annotation>
-      </xsd:element>
-      <xsd:element name="NrDokumentu" type="curr:typNazwa100" minOccurs="0">
-        <xsd:annotation>
-          <xsd:documentation>Numer dokumentu</xsd:documentation>
-        </xsd:annotation>
-      </xsd:element>
-      <xsd:element name="ImieOjca" type="curr:typNazwa30" minOccurs="0">
-        <xsd:annotation>
-          <xsd:documentation>Imię Ojca</xsd:documentation>
-        </xsd:annotation>
-      </xsd:element>
-      <xsd:element name="ImieMatki" type="curr:typNazwa30" minOccurs="0">
-        <xsd:annotation>
-          <xsd:documentation>Imię Matki</xsd:documentation>
-        </xsd:annotation>
-      </xsd:element>
-      <xsd:element name="NazwiskoRodowe" type="curr:typNazwa60" minOccurs="0">
-        <xsd:annotation>
-          <xsd:documentation>Nazwisko rodowe</xsd:documentation>
-        </xsd:annotation>
-      </xsd:element>
-      <xsd:element name="NazwiskoRodoweMatki" type="curr:typNazwa60" minOccurs="0">
-        <xsd:annotation>
-          <xsd:documentation>Nazwisko rodowe matki</xsd:documentation>
-        </xsd:annotation>
-      </xsd:element>
-      <xsd:element name="MiejsceUrodzenia" type="curr:typNazwa60" minOccurs="0">
-        <xsd:annotation>
-          <xsd:documentation>Miejsce Urodzenia</xsd:documentation>
-        </xsd:annotation>
-      </xsd:element>
-      <xsd:element name="DataUrodzenia" type="curr:typData" minOccurs="0" />
-    </xsd:sequence>
-  </xsd:complexType>
-  <xsd:complexType name="typInstytucja">
-    <xsd:annotation>
-      <xsd:documentation>Instytucja</xsd:documentation>
-    </xsd:annotation>
-    <xsd:sequence>
-      <xsd:element name="Nazwa" type="curr:typNazwa200" />
-      <xsd:element name="Siedziba" type="curr:typNazwa60" />
-      <xsd:element name="REGON" type="curr:typREGON" minOccurs="0">
-        <xsd:annotation>
-          <xsd:documentation>Regon Instytucji</xsd:documentation>
-        </xsd:annotation>
-      </xsd:element>
-      <xsd:element name="czyRejestr" type="curr:typWybor0_2">
-        <xsd:annotation>
-          <xsd:documentation>0 - brak rejestracji w rejestrze 1- rejestracja w rejestrze KRS 2-inny rejestr</xsd:documentation>
-        </xsd:annotation>
-      </xsd:element>
-      <xsd:choice>
-        <xsd:element name="KRS" type="curr:typKRS" minOccurs="0" />
-        <xsd:element name="InnyRejestr" type="curr:typInnyRejestr" minOccurs="0" />
-      </xsd:choice>
-      <xsd:element name="ListaZarzadu" type="curr:typListaZarzadu" minOccurs="0" />
-    </xsd:sequence>
-  </xsd:complexType>
-  <xsd:complexType name="typMiejsce">
-    <xsd:annotation>
-      <xsd:documentation>Miejsce pracy pełnomocnika</xsd:documentation>
-    </xsd:annotation>
-    <xsd:sequence>
-      <xsd:element name="Nazwa" type="curr:typNazwa200">
-        <xsd:annotation>
-          <xsd:documentation>Nazwa instytucji, kancelarii</xsd:documentation>
-        </xsd:annotation>
-      </xsd:element>
-      <xsd:element name="Adres" type="curr:typAdres" />
-    </xsd:sequence>
-  </xsd:complexType>
-  <xsd:complexType name="typStrona">
-    <xsd:annotation>
-      <xsd:documentation>Definicja strony w sprawie</xsd:documentation>
-    </xsd:annotation>
-    <xsd:sequence>
-      <xsd:element name="ObcokrajowiecString" type="xsd:string" minOccurs="1" />
-      <xsd:element name="Obcokrajowiec" type="xsd:boolean" minOccurs="1" />
-      <xsd:element name="BrakNumerowIdentyfikacyjnych" type="xsd:boolean" minOccurs="1" />
-      <xsd:element name="reprezentacja" type="curr:typWybor1or4">
-        <xsd:annotation>
-          <xsd:documentation>Element obowiązkowy. Zawsze przyjume wartość 1 pełnomocnik lub 4 reprezentant.</xsd:documentation>
-        </xsd:annotation>
-      </xsd:element>
-      <xsd:element name="rodzajStrony" type="curr:typWybor0_3">
-        <xsd:annotation>
-          <xsd:documentation>0 - osoba fizyczna 1 - osoba fizyczna prowadząca działalność 2 - osoba prawna 3- jednostka organizacyjna</xsd:documentation>
-        </xsd:annotation>
-      </xsd:element>
-      <xsd:choice>
-        <xsd:element name="OsobaFizyczna" type="curr:typOsobaFizyczna">
-          <xsd:annotation>
-            <xsd:documentation>dla rodzajStrony: 0 - osoba fizyczna 1 - osoba fizyczna prowadząca działalność </xsd:documentation>
-          </xsd:annotation>
-        </xsd:element>
-        <xsd:element name="Instytucja" type="curr:typInstytucja">
-          <xsd:annotation>
-            <xsd:documentation>dla rodzajStrony: 2 - osoba prawna 3- jednostka organizacyjna </xsd:documentation>
-          </xsd:annotation>
-        </xsd:element>
-      </xsd:choice>
-      <xsd:element name="NIP" type="curr:typNIP" minOccurs="0">
-        <xsd:annotation>
-          <xsd:documentation>NIP Osoby Fizycznej lub Instytucji</xsd:documentation>
-        </xsd:annotation>
-      </xsd:element>
-      <xsd:element name="Adres" type="curr:typAdres" maxOccurs="1" />
-      <xsd:element name="numerKonta" type="curr:numerKonta" minOccurs="0" maxOccurs="1">
-        <xsd:annotation>
-          <xsd:documentation>Numer konta powoda</xsd:documentation>
-        </xsd:annotation>
-      </xsd:element>
-    </xsd:sequence>
-    <xsd:attribute name="ID" type="xsd:unsignedLong" use="required">
-      <xsd:annotation>
-        <xsd:documentation>Unikalny numer w ramach pojedynczego dokumentu XML</xsd:documentation>
-      </xsd:annotation>
-    </xsd:attribute>
-  </xsd:complexType>
-  <xsd:complexType name="typOsoba">
-    <xsd:annotation>
-      <xsd:documentation>Definicja osoby skladajacej, reprezentującej instytucję lub składającej podpis</xsd:documentation>
-    </xsd:annotation>
-    <xsd:sequence>
-      <xsd:element name="Imie" type="curr:typNazwa30">
-        <xsd:annotation>
-          <xsd:documentation>Imię</xsd:documentation>
-        </xsd:annotation>
-      </xsd:element>
-      <xsd:element name="Imie2" type="curr:typNazwa30" nillable="true" minOccurs="0">
-        <xsd:annotation>
-          <xsd:documentation>Imię drugie</xsd:documentation>
-        </xsd:annotation>
-      </xsd:element>
-      <xsd:element name="Nazwisko" type="curr:typNazwa60">
-        <xsd:annotation>
-          <xsd:documentation>Nazwisko</xsd:documentation>
-        </xsd:annotation>
-      </xsd:element>
-      <xsd:element name="PESEL" type="curr:typPESEL">
-        <xsd:annotation>
-          <xsd:documentation>Pesel Osoby Fizycznej</xsd:documentation>
-        </xsd:annotation>
-      </xsd:element>
-      <xsd:element name="stanowisko" type="curr:typNazwa60" nillable="true" minOccurs="0">
-        <xsd:annotation>
-          <xsd:documentation>opis stanowiska np. Prezes Zarządu, Członek Zarządu</xsd:documentation>
-        </xsd:annotation>
-      </xsd:element>
-    </xsd:sequence>
-  </xsd:complexType>
-  <xsd:complexType name="typSkladajacy">
-    <xsd:annotation>
-      <xsd:documentation>Definicja osoby skladajacej pozew</xsd:documentation>
-    </xsd:annotation>
-    <xsd:sequence>
-      <xsd:element name="Osoba" type="curr:typOsoba" />
-      <xsd:element name="Nazwa" type="curr:typNazwa200" minOccurs="0">
-        <xsd:annotation>
-          <xsd:documentation>Nazwa kancelarii, miejsca pracy</xsd:documentation>
-        </xsd:annotation>
-      </xsd:element>
-      <xsd:element name="Adres" type="curr:typAdres" />
-    </xsd:sequence>
-    <xsd:attribute name="pelnomocnik" type="curr:typWybor0_1" use="required">
-      <xsd:annotation>
-        <xsd:documentation>1 - pelnomocnik zawodowy 0 - inny </xsd:documentation>
-      </xsd:annotation>
-    </xsd:attribute>
-    <xsd:attribute name="podstawa" type="xsd:string" use="required">
-      <xsd:annotation>
-        <xsd:documentation>Opis umocowania - pełnomocnictwa, data, zakres </xsd:documentation>
-      </xsd:annotation>
-    </xsd:attribute>
-  </xsd:complexType>
-  <xsd:complexType name="typListaZarzadu">
-    <xsd:annotation>
-      <xsd:documentation>Definicja powiązania Roszczenia ze Stroną </xsd:documentation>
-    </xsd:annotation>
-    <xsd:sequence>
-      <xsd:element name="CzlonekZarzadu" type="curr:typOsoba" minOccurs="0" maxOccurs="unbounded" />
-    </xsd:sequence>
-  </xsd:complexType>
-  <xsd:complexType name="typListaPodpisow">
-    <xsd:annotation>
-      <xsd:documentation>Definicja powiązania Roszczenia ze Stroną </xsd:documentation>
-    </xsd:annotation>
-    <xsd:sequence>
-      <xsd:element name="Podpis" type="curr:typOsoba" maxOccurs="unbounded" />
-    </xsd:sequence>
-  </xsd:complexType>
-  <xsd:complexType name="typOplata">
-    <xsd:annotation>
-      <xsd:documentation>Definicja oplaty sadowej</xsd:documentation>
-    </xsd:annotation>
-    <xsd:attribute name="wartosc" type="xsd:decimal" use="required" />
-    <xsd:attribute name="zwolnienie" use="required">
-      <xsd:simpleType>
-        <xsd:annotation>
-          <xsd:documentation>zwolnienie z oplaty, 0 - nie  2 - tak. Pozew złożony w paczce nie może być zwolniony z opłaty.</xsd:documentation>
-        </xsd:annotation>
-        <xsd:restriction base="xsd:byte">
-          <xsd:minInclusive value="0" />
-          <xsd:maxInclusive value="0" />
-        </xsd:restriction>
-      </xsd:simpleType>
-    </xsd:attribute>
-    <xsd:attribute name="zasadzenie" type="curr:typWybor0_1" use="required">
-      <xsd:annotation>
-        <xsd:documentation>Zasądzenie zwrotu kosztów sadowych. 0 - brak żądania zasądzenia  1- żądanie zasądzenia zwrotu opłaty sądowej</xsd:documentation>
-      </xsd:annotation>
-    </xsd:attribute>
-    <xsd:attribute name="identyfikator" type="xsd:unsignedLong" use="optional">
-      <xsd:annotation>
-        <xsd:documentation>identyfikator transakcji świadczący o dokonaniu elektronicznej płatności pełnej oplaty sądowej </xsd:documentation>
-      </xsd:annotation>
-    </xsd:attribute>
-  </xsd:complexType>
-  <xsd:complexType name="typKoszty">
-    <xsd:annotation>
-      <xsd:documentation>Definicja kosztów zastępstwa procesowego</xsd:documentation>
-    </xsd:annotation>
-    <xsd:attribute name="wartosc" type="curr:typWartosc_10_2" use="required" />
-   <xsd:attribute name="zasadzenie" type="curr:typWybor0_1" use="required">
-      <xsd:annotation>
-        <xsd:documentation>0 - brak żądania zasądzenia zwrotu   1- żądanie zasądzenia zwrotu kosztów zastępstwa procesowego</xsd:documentation>
-      </xsd:annotation>
-    </xsd:attribute>
-    <xsd:attribute name="wgNorm" type="curr:typWybor0_1" use="required">
-      <xsd:annotation>
-        <xsd:documentation>0 - obowiązuje wartość podana w polu wartosc     1- wg norm przepisanych - w tym wariancie podana wartosc jest ignorowana</xsd:documentation>
-      </xsd:annotation>
-    </xsd:attribute>
-    <xsd:attribute name="opis" type="xsd:string" use="optional">
-      <xsd:annotation>
-        <xsd:documentation>opis rodzaju kosztów / uzasadnienie</xsd:documentation>
-      </xsd:annotation>
-    </xsd:attribute>
-  </xsd:complexType>
-  <xsd:complexType name="typPodstawa">
-    <xsd:annotation>
-      <xsd:documentation>Definicja podstawy</xsd:documentation>
-    </xsd:annotation>
-    <xsd:attribute name="typ" type="xsd:string" use="required" />
-    <xsd:attribute name="opis" type="xsd:string" use="required" />
-  </xsd:complexType>
-  <xsd:simpleType name="typWaluta">
-    <xsd:annotation>
-      <xsd:documentation>Słownik walut</xsd:documentation>
-    </xsd:annotation>
-    <xsd:restriction base="xsd:string">
-      <xsd:enumeration value="PLN" />
-      <xsd:enumeration value="USD" />
-      <xsd:enumeration value="EUR" />
-      <xsd:enumeration value="CHF" />
-      <xsd:enumeration value="GBP" />
-      <xsd:enumeration value="AUD" />
-      <xsd:enumeration value="CAD" />
-      <xsd:enumeration value="CZK" />
-      <xsd:enumeration value="DKK" />
-      <xsd:enumeration value="HUF" />
-      <xsd:enumeration value="JPY" />
-    </xsd:restriction>
-  </xsd:simpleType>
-  <xsd:simpleType name="odsetkiOpis">
-    <xsd:annotation>
-      <xsd:documentation>Opis odetek obowiązkowy jeżeli atrybut typOkresOdsetkowy.czyUstawowe = 18</xsd:documentation>
-    </xsd:annotation>
-    <xsd:restriction base="xsd:string">
-      <xsd:maxLength value="10000" />
-    </xsd:restriction>
-  </xsd:simpleType>
-  <xsd:complexType name="typOkresOdsetkowy">
-    <xsd:annotation>
-      <xsd:documentation>Odsetki  w sprawie</xsd:documentation>
-    </xsd:annotation>
-    <xsd:sequence>
-      <xsd:element name="Opis" type="curr:odsetkiOpis" minOccurs="0" maxOccurs="1" />
-    </xsd:sequence>
-    <xsd:attribute name="dataOd" type="curr:typData" use="optional">
-      <xsd:annotation>
-        <xsd:documentation>Data od której naliczać odsetki </xsd:documentation>
-      </xsd:annotation>
-    </xsd:attribute>
-    <xsd:attribute name="dataDo" type="curr:typData" use="optional">
-      <xsd:annotation>
-        <xsd:documentation>Data do której naliczac odsetki. Brak daty jest równoznaczne z "do dnia zapłaty" </xsd:documentation>
-      </xsd:annotation>
-    </xsd:attribute>
-    <xsd:attribute name="kwota" type="xsd:decimal" use="optional">
-      <xsd:annotation>
-        <xsd:documentation>Kwota będąca podstawą do naliczania odsetek. Brak kwoty lub kwota = 0 oznacza że odsetki mają być naliczane od całej wartości roszczenia.</xsd:documentation>
-      </xsd:annotation>
-    </xsd:attribute>
-    <xsd:attribute name="czyUstawowe" type="curr:typWybor0_18" use="required">
-      <xsd:annotation>
-        <xsd:documentation>
+	<xsd:simpleType name="typNIP">
+		<xsd:annotation>
+			<xsd:documentation>Numer NIP</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="([1-9]((\d[1-9])|([1-9]\d))\d{7})|(^$)"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="typPESEL">
+		<xsd:annotation>
+			<xsd:documentation>Definicja numeru PESEL</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="[0-9]{11}"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="typKRS">
+		<xsd:annotation>
+			<xsd:documentation>Definicja KRS </xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="[0-9]{10}"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="typREGON">
+		<xsd:annotation>
+			<xsd:documentation>Definicja Regonu </xsd:documentation>
+		</xsd:annotation>
+		<xsd:union>
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+					<xsd:pattern value="\d{9}"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+					<xsd:pattern value="\d{14}"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:union>
+	</xsd:simpleType>
+	<xsd:simpleType name="typKodPocztowy">
+		<xsd:annotation>
+			<xsd:documentation>Definicja kodu pocztowego</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="([0-9]{2}-[0-9]{3})|([0-9]{5})"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="typData">
+		<xsd:annotation>
+			<xsd:documentation>Definicja daty w fromacie rrrr-mm-dd</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="[0-9]{4}-[0-9]{2}-[0-9]{2}"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="typNazwa10">
+		<xsd:annotation>
+			<xsd:documentation>Definicja nazwy do 10 znaków </xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="10"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="typNazwa20">
+		<xsd:annotation>
+			<xsd:documentation>Definicja nazwy do 20 znaków </xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="20"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="typNazwa30">
+		<xsd:annotation>
+			<xsd:documentation>Definicja nazwy do 30 znaków </xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="30"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="typNazwa60">
+		<xsd:annotation>
+			<xsd:documentation>Definicja nazwy do 60 znaków </xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="60"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="typNazwa70">
+		<xsd:annotation>
+			<xsd:documentation>Definicja nazwy od 2 do 70 znaków </xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="60"/>
+			<xsd:minLength value="2"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="typNazwa100">
+		<xsd:annotation>
+			<xsd:documentation>Definicja nazwy do 100 znaków </xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="100"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="typNazwa120">
+		<xsd:annotation>
+			<xsd:documentation>Definicja nazwy do 120 znaków </xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="120"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="typNazwa150">
+		<xsd:annotation>
+			<xsd:documentation>Definicja nazwy do 150 znaków </xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="2"/>
+			<xsd:maxLength value="150"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="typNazwa200">
+		<xsd:annotation>
+			<xsd:documentation>Definicja nazwy do 200 znaków </xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="200"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="typNazwa300">
+		<xsd:annotation>
+			<xsd:documentation>Definicja nazwy do 300 znaków </xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="300"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="typTekstowy">
+		<xsd:annotation>
+			<xsd:documentation>Typ znakowy ograniczony do 32000 znaków</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="0"/>
+			<xsd:maxLength value="32000"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="typWybor0_1">
+		<xsd:annotation>
+			<xsd:documentation>Podwójne pole wyboru</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:byte">
+			<xsd:enumeration value="0"/>
+			<xsd:enumeration value="1"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="typAdres">
+		<xsd:annotation>
+			<xsd:documentation>Definicja adresu zamieszkania lub siedziby</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="ulica" type="curr:typNazwa100" use="required"/>
+		<xsd:attribute name="nr_domu" type="curr:typNazwa20" use="required"/>
+		<xsd:attribute name="nr_mieszkania" type="curr:typNazwa20" use="optional"/>
+		<xsd:attribute name="kod" type="curr:typKodPocztowy" use="required"/>
+		<xsd:attribute name="miejscowosc" type="curr:typNazwa60" use="required"/>
+		<xsd:attribute name="poczta" type="curr:typNazwa60" use="optional"/>
+		<xsd:attribute name="kraj" type="curr:typNazwa60" use="optional"/>
+		<xsd:attribute name="wojewodztwo" type="curr:typNazwa60" use="optional"/>
+		<xsd:attribute name="powiat" type="curr:typNazwa60" use="optional"/>
+		<xsd:attribute name="gmina" type="curr:typNazwa60" use="optional"/>
+	</xsd:complexType>
+	<xsd:complexType name="typInnyRejestr">
+		<xsd:annotation>
+			<xsd:documentation>Inny Rejestr</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="typ" type="curr:typNazwa60" use="required">
+			<xsd:annotation>
+				<xsd:documentation>typ rejestru</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="organ" type="curr:typNazwa120" use="required">
+			<xsd:annotation>
+				<xsd:documentation>organ prowadzący rejestr</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="numer" type="curr:typNazwa60" use="required">
+			<xsd:annotation>
+				<xsd:documentation>numer w rejestrze</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+	<xsd:simpleType name="typRodzajDowodu">
+		<xsd:annotation>
+			<xsd:documentation>Słownik rodzajów dowodów</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="inny"/>
+			<xsd:enumeration value="umowa"/>
+			<xsd:enumeration value="faktura"/>
+			<xsd:enumeration value="akt notarialny"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="typOsobaFizyczna">
+		<xsd:annotation>
+			<xsd:documentation>Osoba fizyczna jako strona postępowania.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Imie" type="curr:typNazwa30">
+				<xsd:annotation>
+					<xsd:documentation>Imię</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Imie2" type="curr:typNazwa30" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Imię drugie</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Nazwisko" type="curr:typNazwa60">
+				<xsd:annotation>
+					<xsd:documentation>Nazwisko</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Nazwa" type="curr:typNazwa200" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Nazwa działalności w przypadku działalności gospodarczej osoby fizycznej</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="PESEL" type="curr:typPESEL" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Pesel Osoby Fizycznej</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="NrDokumentu" type="curr:typNazwa100" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Numer dokumentu</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ImieOjca" type="curr:typNazwa30" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Imię Ojca</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ImieMatki" type="curr:typNazwa30" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Imię Matki</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="NazwiskoRodowe" type="curr:typNazwa60" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Nazwisko rodowe</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="NazwiskoRodoweMatki" type="curr:typNazwa60" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Nazwisko rodowe matki</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MiejsceUrodzenia" type="curr:typNazwa60" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Miejsce Urodzenia</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DataUrodzenia" type="curr:typData" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="typInstytucja">
+		<xsd:annotation>
+			<xsd:documentation>Instytucja</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Nazwa" type="curr:typNazwa200"/>
+			<xsd:element name="Siedziba" type="curr:typNazwa60"/>
+			<xsd:element name="REGON" type="curr:typREGON" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Regon Instytucji</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="czyRejestr" type="curr:typWybor0_2">
+				<xsd:annotation>
+					<xsd:documentation>0 - brak rejestracji w rejestrze 1- rejestracja w rejestrze KRS 2-inny rejestr</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:choice>
+				<xsd:element name="KRS" type="curr:typKRS" minOccurs="0"/>
+				<xsd:element name="InnyRejestr" type="curr:typInnyRejestr" minOccurs="0"/>
+			</xsd:choice>
+			<xsd:element name="ListaZarzadu" type="curr:typListaZarzadu" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="typMiejsce">
+		<xsd:annotation>
+			<xsd:documentation>Miejsce pracy pełnomocnika</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Nazwa" type="curr:typNazwa200">
+				<xsd:annotation>
+					<xsd:documentation>Nazwa instytucji, kancelarii</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Adres" type="curr:typAdres"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="typStrona">
+		<xsd:annotation>
+			<xsd:documentation>Definicja strony w sprawie</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ObcokrajowiecString" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="Obcokrajowiec" type="xsd:boolean" minOccurs="1"/>
+			<xsd:element name="BrakNumerowIdentyfikacyjnych" type="xsd:boolean" minOccurs="1"/>
+			<xsd:element name="reprezentacja" type="curr:typWybor1or4">
+				<xsd:annotation>
+					<xsd:documentation>Element obowiązkowy. Zawsze przyjume wartość 1 pełnomocnik lub 4 reprezentant.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="rodzajStrony" type="curr:typWybor0_3">
+				<xsd:annotation>
+					<xsd:documentation>0 - osoba fizyczna 1 - osoba fizyczna prowadząca działalność 2 - osoba prawna 3- jednostka organizacyjna</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:choice>
+				<xsd:element name="OsobaFizyczna" type="curr:typOsobaFizyczna">
+					<xsd:annotation>
+						<xsd:documentation>dla rodzajStrony: 0 - osoba fizyczna 1 - osoba fizyczna prowadząca działalność </xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="Instytucja" type="curr:typInstytucja">
+					<xsd:annotation>
+						<xsd:documentation>dla rodzajStrony: 2 - osoba prawna 3- jednostka organizacyjna </xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:choice>
+			<xsd:element name="NIP" type="curr:typNIP" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>NIP Osoby Fizycznej lub Instytucji</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Adres" type="curr:typAdres" maxOccurs="1"/>
+			<xsd:element name="numerKonta" type="curr:numerKonta" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Numer konta powoda</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+		<xsd:attribute name="ID" type="xsd:unsignedLong" use="required">
+			<xsd:annotation>
+				<xsd:documentation>Unikalny numer w ramach pojedynczego dokumentu XML</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+	<xsd:complexType name="typOsoba">
+		<xsd:annotation>
+			<xsd:documentation>Definicja osoby skladajacej, reprezentującej instytucję lub składającej podpis</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Imie" type="curr:typNazwa30">
+				<xsd:annotation>
+					<xsd:documentation>Imię</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Imie2" type="curr:typNazwa30" nillable="true" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Imię drugie</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Nazwisko" type="curr:typNazwa60">
+				<xsd:annotation>
+					<xsd:documentation>Nazwisko</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="PESEL" type="curr:typPESEL">
+				<xsd:annotation>
+					<xsd:documentation>Pesel Osoby Fizycznej</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="stanowisko" type="curr:typNazwa60" nillable="true" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>opis stanowiska np. Prezes Zarządu, Członek Zarządu</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="typSkladajacy">
+		<xsd:annotation>
+			<xsd:documentation>Definicja osoby skladajacej pozew</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Osoba" type="curr:typOsoba"/>
+			<xsd:element name="Nazwa" type="curr:typNazwa200" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Nazwa kancelarii, miejsca pracy</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Adres" type="curr:typAdres"/>
+		</xsd:sequence>
+		<xsd:attribute name="pelnomocnik" type="curr:typWybor0_1" use="required">
+			<xsd:annotation>
+				<xsd:documentation>1 - pelnomocnik zawodowy 0 - inny </xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="podstawa" type="xsd:string" use="required">
+			<xsd:annotation>
+				<xsd:documentation>Opis umocowania - pełnomocnictwa, data, zakres </xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+	<xsd:complexType name="typListaZarzadu">
+		<xsd:annotation>
+			<xsd:documentation>Definicja powiązania Roszczenia ze Stroną </xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="CzlonekZarzadu" type="curr:typOsoba" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="typListaPodpisow">
+		<xsd:annotation>
+			<xsd:documentation>Definicja powiązania Roszczenia ze Stroną </xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Podpis" type="curr:typOsoba" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="typOplata">
+		<xsd:annotation>
+			<xsd:documentation>Definicja oplaty sadowej</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="ObnizenieKosztowOplatySadowej" type="xsd:boolean">
+			<xsd:annotation>
+				<xsd:documentation>Obniżenienie kwoty opłaty sądowej w postępowaniu bankowym. Jeżeli wartość tego atrybutu = true, to wartość atrybutu "zwolnienie" = false</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="wartosc" type="xsd:decimal" use="required"/>
+		<xsd:attribute name="zwolnienie" use="required">
+			<xsd:simpleType>
+				<xsd:annotation>
+					<xsd:documentation>zwolnienie z oplaty, 0 - nie  2 - tak. Pozew złożony w paczce nie może być zwolniony z opłaty.</xsd:documentation>
+				</xsd:annotation>
+				<xsd:restriction base="xsd:byte">
+					<xsd:minInclusive value="0"/>
+					<xsd:maxInclusive value="0"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+		<xsd:attribute name="zasadzenie" type="curr:typWybor0_1" use="required">
+			<xsd:annotation>
+				<xsd:documentation>Zasądzenie zwrotu kosztów sadowych. 0 - brak żądania zasądzenia  1- żądanie zasądzenia zwrotu opłaty sądowej</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="identyfikator" type="xsd:unsignedLong" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>identyfikator transakcji świadczący o dokonaniu elektronicznej płatności pełnej oplaty sądowej </xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+	<xsd:complexType name="typKoszty">
+		<xsd:annotation>
+			<xsd:documentation>Definicja kosztów zastępstwa procesowego</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="wartosc" type="curr:typWartosc_10_2" use="required"/>
+		<xsd:attribute name="zasadzenie" type="curr:typWybor0_1" use="required">
+			<xsd:annotation>
+				<xsd:documentation>0 - brak żądania zasądzenia zwrotu   1- żądanie zasądzenia zwrotu kosztów zastępstwa procesowego</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="wgNorm" type="curr:typWybor0_1" use="required">
+			<xsd:annotation>
+				<xsd:documentation>0 - obowiązuje wartość podana w polu wartosc     1- wg norm przepisanych - w tym wariancie podana wartosc jest ignorowana</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="opis" type="xsd:string" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>opis rodzaju kosztów / uzasadnienie</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+	<xsd:complexType name="typPodstawa">
+		<xsd:annotation>
+			<xsd:documentation>Definicja podstawy</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="typ" type="xsd:string" use="required"/>
+		<xsd:attribute name="opis" type="xsd:string" use="required"/>
+	</xsd:complexType>
+	<xsd:simpleType name="typWaluta">
+		<xsd:annotation>
+			<xsd:documentation>Słownik walut</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="PLN"/>
+			<xsd:enumeration value="USD"/>
+			<xsd:enumeration value="EUR"/>
+			<xsd:enumeration value="CHF"/>
+			<xsd:enumeration value="GBP"/>
+			<xsd:enumeration value="AUD"/>
+			<xsd:enumeration value="CAD"/>
+			<xsd:enumeration value="CZK"/>
+			<xsd:enumeration value="DKK"/>
+			<xsd:enumeration value="HUF"/>
+			<xsd:enumeration value="JPY"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="odsetkiOpis">
+		<xsd:annotation>
+			<xsd:documentation>Opis odetek obowiązkowy jeżeli atrybut typOkresOdsetkowy.czyUstawowe = 18</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="10000"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="typOkresOdsetkowy">
+		<xsd:annotation>
+			<xsd:documentation>Odsetki  w sprawie</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Opis" type="curr:odsetkiOpis" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+		<xsd:attribute name="dataOd" type="curr:typData" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>Data od której naliczać odsetki </xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="dataDo" type="curr:typData" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>Data do której naliczac odsetki. Brak daty jest równoznaczne z "do dnia zapłaty" </xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="kwota" type="xsd:decimal" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>Kwota będąca podstawą do naliczania odsetek. Brak kwoty lub kwota = 0 oznacza że odsetki mają być naliczane od całej wartości roszczenia.</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="czyUstawowe" type="curr:typWybor0_18" use="required">
+			<xsd:annotation>
+				<xsd:documentation>
 				Dopuszczalne wartośći dla typOkresOdsetkowy gdzie "version" = 1
 						0 - Odsetki ustawowe
 						1 - Odsetki umowne wg podanej stopy
@@ -555,616 +559,616 @@
 						17 - Z odsetkami w wysokości odsetek za zwłokę określanej na podstawie art. 56 § 1 ustawy z dnia 29 sierpnia 1997 r. - Ordynacja podatkowa od dnia …………. do dnia 31 grudnia 2015 roku i odsetkami ustawowymi za opóźnienie w transakcjach handlowych od dnia 1 stycznia 2016 roku do dnia ………
 						18 - Pole "Opis" z limitem 10000 znaków w celu umożliwienia powodowi dowolnego określenia żądanych odsetek
 				</xsd:documentation>
-      </xsd:annotation>
-    </xsd:attribute>
-    <xsd:attribute name="stopa" type="xsd:decimal" use="optional">
-      <xsd:annotation>
-        <xsd:documentation>wymagane dla odsetek umownych czyUstawowe = 1</xsd:documentation>
-      </xsd:annotation>
-    </xsd:attribute>
-    <xsd:attribute name="okres" type="curr:typWybor0_4" use="optional">
-      <xsd:annotation>
-        <xsd:documentation>wymagane dla odsetek umownych (czyUstawowe = 1) 0 - rocznie 1- kwartalnie 2-miesięcznie 3- tygodniowo 4- dziennie</xsd:documentation>
-      </xsd:annotation>
-    </xsd:attribute>
-    <xsd:attribute name="odWniesienia" type="curr:typWybor0_1" use="optional" />
-    <xsd:attribute name="doZaplaty" type="curr:typWybor0_1" use="optional" />
-  </xsd:complexType>
-  <xsd:complexType name="typDowodRef">
-    <xsd:annotation>
-      <xsd:documentation>Definicja powiązania Roszczenia z Dowodem</xsd:documentation>
-    </xsd:annotation>
-    <xsd:sequence>
-      <xsd:element name="Dowod" type="xsd:byte" minOccurs="0" maxOccurs="unbounded" />
-    </xsd:sequence>
-  </xsd:complexType>
-  <xsd:complexType name="typOdsetki">
-    <xsd:annotation>
-      <xsd:documentation>Definicja okresów odsetek ustawowych, umownych lub mieszanych </xsd:documentation>
-    </xsd:annotation>
-    <xsd:sequence>
-      <xsd:element name="OkresOdsetkowy" type="curr:typOkresOdsetkowy" minOccurs="0" maxOccurs="unbounded" />
-    </xsd:sequence>
-  </xsd:complexType>
-  <xsd:complexType name="typRoszczenie">
-    <xsd:annotation>
-      <xsd:documentation>Roszczenie w sprawie</xsd:documentation>
-    </xsd:annotation>
-    <xsd:sequence>
-      <xsd:element name="Odsetki" type="curr:typOdsetki" minOccurs="0" />
-      <xsd:element name="Dowody" type="curr:typDowodRef" minOccurs="0" />
-    </xsd:sequence>
-    <xsd:attribute name="numer" type="xsd:int" use="required">
-      <xsd:annotation>
-        <xsd:documentation>Kolejny numer roszczenia na liście. Bez znaczenia przy imporcie.</xsd:documentation>
-      </xsd:annotation>
-    </xsd:attribute>
-    <xsd:attribute name="wartosc" type="xsd:decimal" use="required">
-      <xsd:annotation>
-        <xsd:documentation>Wartosc roszczenia</xsd:documentation>
-      </xsd:annotation>
-    </xsd:attribute>
-    <xsd:attribute name="waluta" type="curr:typWaluta" use="required">
-      <xsd:annotation>
-        <xsd:documentation />
-      </xsd:annotation>
-    </xsd:attribute>
-    <xsd:attribute name="opis" type="xsd:string" use="optional">
-      <xsd:annotation>
-        <xsd:documentation>Opis roszczenia </xsd:documentation>
-      </xsd:annotation>
-    </xsd:attribute>
-    <xsd:attribute name="odsetki" use="required">
-      <xsd:simpleType>
-        <xsd:annotation>
-          <xsd:documentation>0 - nie  1 - tak </xsd:documentation>
-        </xsd:annotation>
-        <xsd:restriction base="xsd:byte">
-          <xsd:maxInclusive value="1" />
-        </xsd:restriction>
-      </xsd:simpleType>
-    </xsd:attribute>
-    <xsd:attribute name="solidarnie" type="curr:typWybor0_4" use="required">
-      <xsd:annotation>
-        <xsd:documentation>0 - solidarność powodód i pozwanych  1 - inny   2 - inny powodowie 3 - inny pozwani  4 - in solidum </xsd:documentation>
-      </xsd:annotation>
-    </xsd:attribute>
-    <xsd:attribute name="typ" type="curr:typWybor0_2" use="required">
-      <xsd:annotation>
-        <xsd:documentation>0 - roszczenie cywilne  1 - roszczenie gospodarcze  2- roszczenie z prawa pracy</xsd:documentation>
-      </xsd:annotation>
-    </xsd:attribute>
-    <xsd:attribute name="dataWymagalnosci" type="curr:typData" use="optional">
-      <xsd:annotation>
-        <xsd:documentation>Data wymagalności roszczenia</xsd:documentation>
-      </xsd:annotation>
-    </xsd:attribute>
-  </xsd:complexType>
-  <xsd:complexType name="typLista">
-    <xsd:annotation>
-      <xsd:documentation>Definicja listy roszczeń w sprawie</xsd:documentation>
-    </xsd:annotation>
-    <xsd:sequence>
-      <xsd:element name="Roszczenie" type="curr:typRoszczenie" minOccurs="0" maxOccurs="unbounded" />
-    </xsd:sequence>
-  </xsd:complexType>
-  <xsd:complexType name="typDowod">
-    <xsd:annotation>
-      <xsd:documentation>Definicja dowodu w sprawie</xsd:documentation>
-    </xsd:annotation>
-    <xsd:sequence>
-      <xsd:element name="FaktStwierdzany" type="xsd:string" minOccurs="0">
-        <xsd:annotation>
-          <xsd:documentation> Cel powołania dowodu w sprawie</xsd:documentation>
-        </xsd:annotation>
-      </xsd:element>
-      <xsd:element name="Opis" type="xsd:string" minOccurs="0">
-        <xsd:annotation>
-          <xsd:documentation>Opis dowodu w sprawie</xsd:documentation>
-        </xsd:annotation>
-      </xsd:element>
-    </xsd:sequence>
-    <xsd:attribute name="numer" type="xsd:byte" use="required">
-      <xsd:annotation>
-        <xsd:documentation>Unikalny numer dowodu, który posłuży do roszczenia z dowodem </xsd:documentation>
-      </xsd:annotation>
-    </xsd:attribute>
-   <xsd:attribute name="typDowodu" type="curr:typRodzajDowodu" use="required" />
-    <xsd:attribute name="oznaczenie" type="curr:typNazwa120" use="optional">
-      <xsd:annotation>
-        <xsd:documentation>Numer faktury, Oznaczenie aktu notarialnego </xsd:documentation>
-      </xsd:annotation>
-    </xsd:attribute>
-    <xsd:attribute name="dataDowodu" type="curr:typData" use="optional">
-      <xsd:annotation>
-        <xsd:documentation>Data wystawienia faktury, Data sporządzenia aktu notarialnego </xsd:documentation>
-      </xsd:annotation>
-    </xsd:attribute>
-  </xsd:complexType>
-  <xsd:complexType name="typListaDowodow">
-    <xsd:annotation>
-      <xsd:documentation>Definicja listy dowodów sprawie</xsd:documentation>
-    </xsd:annotation>
-    <xsd:sequence>
-      <xsd:element name="Dowod" type="curr:typDowod" minOccurs="0" maxOccurs="unbounded" />
-    </xsd:sequence>
-  </xsd:complexType>
-  <xsd:complexType name="typListaPowodow">
-    <xsd:annotation>
-      <xsd:documentation>Definicja listy powodow w sprawie</xsd:documentation>
-    </xsd:annotation>
-    <xsd:sequence>
-      <xsd:element name="Powod" type="curr:typStrona" maxOccurs="unbounded" />
-    </xsd:sequence>
-  </xsd:complexType>
-  <xsd:complexType name="typListaPozwanych">
-    <xsd:annotation>
-      <xsd:documentation>Definicja listy pozwanych w sprawie</xsd:documentation>
-    </xsd:annotation>
-    <xsd:sequence>
-      <xsd:element name="Pozwany" type="curr:typStrona" maxOccurs="unbounded" />
-    </xsd:sequence>
-  </xsd:complexType>
-  <xsd:complexType name="typAdresat">
-    <xsd:annotation>
-      <xsd:documentation>Adresatem jest sad do ktorego kierowany jest pozew. Dane sadu nie sa wykorzystywane w imporcie</xsd:documentation>
-    </xsd:annotation>
-    <xsd:sequence>
-      <xsd:element name="Nazwa" type="curr:typNazwa120" />
-      <xsd:element name="Wydzial" type="curr:typNazwa120" />
-      <xsd:element name="Adres" type="curr:typAdres" minOccurs="0" />
-    </xsd:sequence>
-    <xsd:attribute name="ID" type="xsd:unsignedLong" use="required">
-      <xsd:annotation>
-        <xsd:documentation>Lista ID sądów i wydziałów zostanie dostarczona</xsd:documentation>
-      </xsd:annotation>
-    </xsd:attribute>
-  </xsd:complexType>
-  <xsd:complexType name="typNakaz">
-    <xsd:annotation>
-      <xsd:documentation>Nakaz w EPU</xsd:documentation>
-    </xsd:annotation>
-    <xsd:sequence>
-      <xsd:element name="IDNakazu" type="xsd:unsignedLong" />
-      <xsd:element name="Sygnatura" type="curr:typNazwa30" />
-      <xsd:element name="DataNakazu" type="curr:typData" />
-      <xsd:element name="KodDecyzji" type="xsd:byte" />
-    </xsd:sequence>
-  </xsd:complexType>
-  <xsd:complexType name="typSadEPU">
-    <xsd:annotation>
-      <xsd:documentation>Sąd EPU który wydał nakaz</xsd:documentation>
-    </xsd:annotation>
-    <xsd:sequence>
-      <xsd:element name="Nazwa" type="curr:typNazwa120" />
-      <xsd:element name="Wydzial" type="curr:typNazwa120" />
-    </xsd:sequence>
-  </xsd:complexType>
-  <xsd:complexType name="typKlauzula">
-    <xsd:annotation>
-      <xsd:documentation>Klauzula w EPU</xsd:documentation>
-    </xsd:annotation>
-    <xsd:sequence>
-      <xsd:element name="IDNakazu" type="xsd:unsignedLong" />
-      <!-- id nakazu, lub 0 jeśli wniosek został wystawiony do postanowienia-->
-      <xsd:element name="IDKlauzuli" type="xsd:unsignedLong" />
-      <xsd:element name="Sygnatura" type="curr:typNazwa120" />
-      <xsd:element name="DataKlauzuli" type="curr:typData" />
-      <xsd:element name="KodKlauzuli" type="curr:typNazwa20" />
-    </xsd:sequence>
-  </xsd:complexType>
-  <xsd:complexType name="typKomornikWniosek">
-    <xsd:annotation>
-      <xsd:documentation>Adresatem jest komornik do ktorego kierowany jest wniosek.</xsd:documentation>
-    </xsd:annotation>
-    <xsd:sequence>
-      <xsd:element name="Nazwa" type="curr:typNazwa200" />
-    </xsd:sequence>
-    <xsd:attribute name="ID" type="xsd:unsignedLong" use="required" />
-  </xsd:complexType>
-  <xsd:complexType name="typKomornik">
-    <xsd:annotation>
-      <xsd:documentation>Komornik w EPU</xsd:documentation>
-    </xsd:annotation>
-    <xsd:sequence>
-      <xsd:element name="IDKomornika" type="xsd:unsignedLong" />
-      <xsd:element name="Nazwa" type="curr:typNazwa200" />
-    </xsd:sequence>
-  </xsd:complexType>
-  <xsd:simpleType name="typRodzajCzynnosci">
-    <xsd:annotation>
-      <xsd:documentation>Słownik rodzajów czynności egzekucyjnych</xsd:documentation>
-    </xsd:annotation>
-    <xsd:restriction base="xsd:string">
-      <xsd:enumeration value="podjęcie postępowania egzekucyjnego" />
-      <xsd:enumeration value="koszty egzekucyjne poniesione przez wierzyciela" />
-      <xsd:enumeration value="umorzono przez wyegzekwowanie w całości" />
-      <xsd:enumeration value="umorzono przez wyegzekwowanie w części" />
-      <xsd:enumeration value="umorzono w inny sposób" />
-      <xsd:enumeration value="zwrot wniosku" />
-      <xsd:enumeration value="przekazano sprawę" />
-    </xsd:restriction>
-  </xsd:simpleType>
-  <xsd:simpleType name="typRodzajZawiadomienie">
-    <xsd:annotation>
-      <xsd:documentation>Słownik rodzajów zawiadomień o wszczęciu egzekucji</xsd:documentation>
-    </xsd:annotation>
-    <xsd:restriction base="xsd:string">
-      <xsd:enumeration value="0" />
-      <xsd:enumeration value="1" />
-      <xsd:enumeration value="2" />
-      <xsd:enumeration value="3" />
-      <xsd:enumeration value="4" />
-    </xsd:restriction>
-  </xsd:simpleType>
-  <xsd:simpleType name="typRodzajZawiadomieniaStatusOdbiorcy">
-    <xsd:annotation>
-      <xsd:documentation>Słownik rodzajów statusów odbiorców dla zawiadomienia o wszczęciu egzekucji</xsd:documentation>
-    </xsd:annotation>
-    <xsd:restriction base="xsd:string">
-      <xsd:enumeration value="0" />
-      <xsd:enumeration value="1" />
-      <xsd:enumeration value="2" />
-      <xsd:enumeration value="3" />
-      <xsd:enumeration value="4" />
-      <xsd:enumeration value="5" />
-    </xsd:restriction>
-  </xsd:simpleType>
-  <xsd:complexType name="typRoszczenieNakaz">
-    <xsd:annotation>
-      <xsd:documentation>Roszczenie w nakazie sprawie</xsd:documentation>
-    </xsd:annotation>
-    <xsd:sequence>
-      <xsd:element name="Odsetki" type="curr:typOdsetki" minOccurs="0" />
-    </xsd:sequence>
-    <xsd:attribute name="numer" type="xsd:int" use="required">
-      <xsd:annotation>
-        <xsd:documentation>Kolejny numer roszczenia na liście. Bez znaczenia przy imporcie.</xsd:documentation>
-      </xsd:annotation>
-    </xsd:attribute>
-    <xsd:attribute name="opisKwoty" type="xsd:string" use="optional">
-      <xsd:annotation>
-        <xsd:documentation>Opis kwoty </xsd:documentation>
-      </xsd:annotation>
-    </xsd:attribute>
-    <xsd:attribute name="wartosc" type="xsd:decimal" use="required">
-      <xsd:annotation>
-        <xsd:documentation>Wartosc roszczenia</xsd:documentation>
-      </xsd:annotation>
-    </xsd:attribute>
-    <xsd:attribute name="waluta" type="curr:typWaluta" use="required">
-      <xsd:annotation>
-        <xsd:documentation />
-      </xsd:annotation>
-    </xsd:attribute>
-    <xsd:attribute name="wartoscSlownie" type="xsd:string" use="optional">
-      <xsd:annotation>
-        <xsd:documentation>słowny opis kwoty </xsd:documentation>
-      </xsd:annotation>
-    </xsd:attribute>
-    <xsd:attribute name="opis" type="xsd:string" use="optional">
-      <xsd:annotation>
-        <xsd:documentation>Opis roszczenia </xsd:documentation>
-      </xsd:annotation>
-    </xsd:attribute>
-    <xsd:attribute name="odsetki" use="required">
-      <xsd:simpleType>
-        <xsd:annotation>
-          <xsd:documentation>0 - nie  1 - tak </xsd:documentation>
-        </xsd:annotation>
-        <xsd:restriction base="xsd:byte">
-          <xsd:maxInclusive value="1" />
-        </xsd:restriction>
-      </xsd:simpleType>
-    </xsd:attribute>
-    <xsd:attribute name="solidarnie" type="curr:typWybor0_4" use="required">
-      <xsd:annotation>
-        <xsd:documentation>0 - solidarność powodód i pozwanych  1 - inny   2 - inny powodowie 3 - inny pozwani  4 - in solidum </xsd:documentation>
-      </xsd:annotation>
-    </xsd:attribute>
-    <xsd:attribute name="typ" type="curr:typRoszczenieNakazTypRoszczenia" use="required">
-      <xsd:annotation>
-        <xsd:documentation>Typy roszczeń. 0 - cywilne, 1 - gospodarcze, 2 - pracy, 13 - koszty procesu, 16 - łączna kwota (bez kosztów procesu)</xsd:documentation>
-      </xsd:annotation>
-    </xsd:attribute>
-  </xsd:complexType>
-  <xsd:complexType name="typStronaNakaz">
-    <xsd:annotation>
-      <xsd:documentation>Strona w nakazie</xsd:documentation>
-    </xsd:annotation>
-    <xsd:sequence>
-      <xsd:element name="Nazwa" type="curr:typNazwa300" />
-      <xsd:element name="ID" type="xsd:unsignedLong" />
-    </xsd:sequence>
-  </xsd:complexType>
-  <xsd:complexType name="typListaPowodowNakaz">
-    <xsd:annotation>
-      <xsd:documentation>Definicja listy powodow  w nakazie</xsd:documentation>
-    </xsd:annotation>
-    <xsd:sequence>
-      <xsd:element name="Powod" type="curr:typStronaNakaz" maxOccurs="unbounded" />
-    </xsd:sequence>
-  </xsd:complexType>
-  <xsd:complexType name="typListaPozwanychNakaz">
-    <xsd:annotation>
-      <xsd:documentation>Definicja listy pozwanych w sprawie</xsd:documentation>
-    </xsd:annotation>
-    <xsd:sequence>
-      <xsd:element name="Pozwany" type="curr:typStronaNakaz" maxOccurs="unbounded" />
-    </xsd:sequence>
-  </xsd:complexType>
-  <xsd:complexType name="typOrzeczenie">
-    <xsd:annotation>
-      <xsd:documentation>Orzeczenie w EPU</xsd:documentation>
-    </xsd:annotation>
-    <xsd:sequence>
-      <xsd:element name="IDOrzeczenia" type="xsd:unsignedLong" />
-      <xsd:element name="Sygnatura" type="curr:typNazwa120" />
-      <xsd:element name="KodDecyzji" type="xsd:byte" />
-      <xsd:element name="DataOrzeczenia" type="xsd:date" />
-      <xsd:element name="Opis" type="xsd:string" minOccurs="0" />
-    </xsd:sequence>
-  </xsd:complexType>
-  <xsd:simpleType name="typRodzajInstytucji">
-    <xsd:annotation>
-      <xsd:documentation>Rodzaje Instytucji</xsd:documentation>
-    </xsd:annotation>
-    <xsd:restriction base="xsd:string">
-      <xsd:enumeration value="inny" />
-      <xsd:enumeration value="spółka z ograniczoną odpowiedzialnością" />
-      <xsd:enumeration value="spółka akcyjna" />
-      <xsd:enumeration value="spółka jawna" />
-      <xsd:enumeration value="Skarb Państwa" />
-      <xsd:enumeration value="fundacja" />
-      <xsd:enumeration value="stowarzyszenie" />
-      <xsd:enumeration value="bank" />
-      <xsd:enumeration value="spółdzielnia mieszkaniowa" />
-      <xsd:enumeration value="wspólnota mieszkaniowa" />
-    </xsd:restriction>
-  </xsd:simpleType>
-  <xsd:simpleType name="typRodzajSposobu">
-    <xsd:annotation>
-      <xsd:documentation>Rodzaje sposobów egzekucji</xsd:documentation>
-    </xsd:annotation>
-    <xsd:restriction base="xsd:string">
-      <xsd:enumeration value="z ruchomości" />
-      <xsd:enumeration value="z wynagrodzenia za pracę" />
-      <xsd:enumeration value="z rachunków bankowych" />
-      <xsd:enumeration value="z wierzytelności" />
-      <xsd:enumeration value="z nieruchomości" />
-      <xsd:enumeration value="inny" />
-    </xsd:restriction>
-  </xsd:simpleType>
-  <xsd:complexType name="typSposobEgzekucji">
-    <xsd:annotation>
-      <xsd:documentation>Definicja listy sposobów egzekucji wobec dłuznika</xsd:documentation>
-    </xsd:annotation>
-    <xsd:sequence>
-      <xsd:element name="SposobEgzekucji" minOccurs="0" maxOccurs="unbounded">
-        <xsd:complexType>
-          <xsd:sequence>
-            <xsd:element name="Rodzaj" type="curr:typRodzajSposobu" />
-            <xsd:element name="Opis" type="xsd:string" />
-          </xsd:sequence>
-        </xsd:complexType>
-      </xsd:element>
-    </xsd:sequence>
-  </xsd:complexType>
-  <xsd:complexType name="typDluznik">
-    <xsd:annotation>
-      <xsd:documentation>Definicja dluznika w sprawie</xsd:documentation>
-    </xsd:annotation>
-    <xsd:sequence>
-      <xsd:element name="rodzaj" type="curr:typWybor0_3">
-        <xsd:annotation>
-          <xsd:documentation>0 - osoba fizyczna 1 - osoba fizyczna prowadząca działalność 2 - osoba prawna 3 - jednostka organizacyjna</xsd:documentation>
-        </xsd:annotation>
-      </xsd:element>
-      <xsd:choice>
-		<xsd:element name="OsobaFizyczna" type="curr:typOsobaFizyczna" />
-        <xsd:element name="Instytucja" type="curr:typInstytucja" />
-      </xsd:choice>
-      <xsd:element name="NIP" type="curr:typNIP" minOccurs="0">
-        <xsd:annotation>
-          <xsd:documentation>NIP Osoby Fizycznej lub Instytucji</xsd:documentation>
-        </xsd:annotation>
-      </xsd:element>
-      <xsd:element name="Adres" type="curr:typAdres" maxOccurs="1" />
-      <xsd:element name="ListaSposobow" type="curr:typSposobEgzekucji" />
-      <xsd:element name="Uwagi" type="curr:typTekstowy" minOccurs="0" />
-    </xsd:sequence>
-    <xsd:attribute name="ID" type="xsd:unsignedLong" use="required">
-      <xsd:annotation>
-        <xsd:documentation>Unikalny numer w ramach pojedynczego dokumentu XML</xsd:documentation>
-      </xsd:annotation>
-    </xsd:attribute>
-  </xsd:complexType>
-  <xsd:complexType name="typWierzyciel">
-    <xsd:annotation>
-      <xsd:documentation>Definicja wierzyciela w sprawie</xsd:documentation>
-    </xsd:annotation>
-    <xsd:sequence>
-      <xsd:element name="rodzaj" type="curr:typWybor0_3">
-        <xsd:annotation>
-          <xsd:documentation>0 - osoba fizyczna 1 - osoba fizyczna prowadząca działalność 2 - osoba prawna 3 - jednostka organizacyjna</xsd:documentation>
-        </xsd:annotation>
-      </xsd:element>
-      <xsd:choice>
-        <xsd:element name="OsobaFizyczna" type="curr:typOsobaFizyczna" />
-        <xsd:element name="Instytucja" type="curr:typInstytucja" />
-      </xsd:choice>
-      <xsd:element name="NIP" type="curr:typNIP" minOccurs="0">
-        <xsd:annotation>
-          <xsd:documentation>NIP Osoby Fizycznej lub Instytucji</xsd:documentation>
-        </xsd:annotation>
-      </xsd:element>
-      <xsd:element name="Adres" type="curr:typAdres" maxOccurs="1" />
-      <xsd:element name="NazwaBanku" type="curr:typNazwa100" minOccurs="0" />
-      <xsd:element name="KontoBankowe" type="curr:typNazwa30" minOccurs="0" />
-    </xsd:sequence>
-    <xsd:attribute name="ID" type="xsd:unsignedLong" use="required">
-      <xsd:annotation>
-        <xsd:documentation>Unikalny numer w ramach pojedynczego dokumentu XML</xsd:documentation>
-      </xsd:annotation>
-    </xsd:attribute>
-  </xsd:complexType>
-  <xsd:complexType name="typListaWierzycieli">
-    <xsd:annotation>
-      <xsd:documentation>Definicja wierzyciela w sprawie</xsd:documentation>
-    </xsd:annotation>
-    <xsd:sequence>
-      <xsd:element name="Wierzyciel" type="curr:typWierzyciel" maxOccurs="unbounded" />
-    </xsd:sequence>
-  </xsd:complexType>
-  <xsd:complexType name="typListaDluznikow">
-    <xsd:annotation>
-      <xsd:documentation>Definicja listy dluznikow w sprawie</xsd:documentation>
-    </xsd:annotation>
-    <xsd:sequence>
-      <xsd:element name="Dluznik" type="curr:typDluznik" maxOccurs="unbounded" />
-    </xsd:sequence>
-  </xsd:complexType>
-  <xsd:complexType name="typSad">
-    <xsd:annotation>
-      <xsd:documentation>Sad Własciwy w EPU</xsd:documentation>
-    </xsd:annotation>
-    <xsd:sequence>
-      <xsd:element name="IDInstytucji" type="xsd:unsignedLong" />
-      <xsd:element name="Sad" type="curr:typNazwa200" />
-      <xsd:element name="Wydzial" type="curr:typNazwa200" />
-      <xsd:element name="Sedzia" type="curr:typNazwa120" />
-    </xsd:sequence>
-  </xsd:complexType>
-  <xsd:complexType name="typRachunekDoZwrotuOplat">
-    <xsd:annotation>
-      <xsd:documentation>Numer i nazwa właściciela rachunku do zwrotu opłat sądowych w EPU</xsd:documentation>
-    </xsd:annotation>
-    <xsd:sequence>
-      <xsd:element name="NumerRachunkuDoZwrotuOplat" type="curr:numerKonta" />
-      <xsd:element name="WlascicielRachunku" type="curr:typNazwa150" />
-    </xsd:sequence>
-  </xsd:complexType>
-  <xsd:simpleType name="typRodzajZmiany">
-    <xsd:annotation>
-      <xsd:documentation>Słownik rodzajów zmiany nakazu</xsd:documentation>
-    </xsd:annotation>
-    <xsd:restriction base="xsd:string">
-      <xsd:enumeration value="uchylono" />
-    </xsd:restriction>
-  </xsd:simpleType>
-  <xsd:simpleType name="typWartosc_10_2">
-    <xsd:restriction base="xsd:decimal">
-      <xsd:totalDigits value="10" />
-      <xsd:fractionDigits value="2" />
-    </xsd:restriction>
-  </xsd:simpleType>
-  <xsd:simpleType name="typWybor0_2">
-    <xsd:annotation>
-      <xsd:documentation>3 pola do wyboru</xsd:documentation>
-    </xsd:annotation>
-    <xsd:restriction base="xsd:byte">
-      <xsd:enumeration value="0" />
-      <xsd:enumeration value="1" />
-      <xsd:enumeration value="2" />
-    </xsd:restriction>
-  </xsd:simpleType>
-  <xsd:simpleType name="typWybor0_18">
-    <xsd:annotation>
-      <xsd:documentation>19 pól do wyboru</xsd:documentation>
-    </xsd:annotation>
-    <xsd:restriction base="xsd:byte">
-      <xsd:enumeration value="0" />
-      <xsd:enumeration value="1" />
-      <xsd:enumeration value="2" />
-      <xsd:enumeration value="3" />
-      <xsd:enumeration value="4" />
-      <xsd:enumeration value="5" />
-      <xsd:enumeration value="6" />
-      <xsd:enumeration value="7" />
-      <xsd:enumeration value="8" />
-      <xsd:enumeration value="9" />
-      <xsd:enumeration value="10" />
-      <xsd:enumeration value="11" />
-      <xsd:enumeration value="12" />
-      <xsd:enumeration value="13" />
-      <xsd:enumeration value="14" />
-      <xsd:enumeration value="15" />
-      <xsd:enumeration value="16" />
-      <xsd:enumeration value="17" />
-      <xsd:enumeration value="18" />
-    </xsd:restriction>
-  </xsd:simpleType>
-  <xsd:simpleType name="typWybor0_3">
-    <xsd:annotation>
-      <xsd:documentation>4 pola do wyboru</xsd:documentation>
-    </xsd:annotation>
-    <xsd:restriction base="xsd:byte">
-      <xsd:enumeration value="0" />
-      <xsd:enumeration value="1" />
-      <xsd:enumeration value="2" />
-      <xsd:enumeration value="3" />
-    </xsd:restriction>
-  </xsd:simpleType>
-  <xsd:simpleType name="typWybor0_4">
-    <xsd:annotation>
-      <xsd:documentation>5 pol do wyboru</xsd:documentation>
-    </xsd:annotation>
-    <xsd:restriction base="xsd:byte">
-      <xsd:enumeration value="0" />
-      <xsd:enumeration value="1" />
-      <xsd:enumeration value="2" />
-      <xsd:enumeration value="3" />
-      <xsd:enumeration value="4" />
-    </xsd:restriction>
-  </xsd:simpleType>
-  <xsd:element name="Types">
-    <xsd:complexType>
-      <xsd:sequence>
-        <xsd:element name="ala" type="curr:typRodzajCzynnosci" />
-      </xsd:sequence>
-    </xsd:complexType>
-  </xsd:element>
-  <xsd:simpleType name="numerKonta">
-    <xsd:annotation>
-      <xsd:documentation>Numer konta</xsd:documentation>
-    </xsd:annotation>
-    <xsd:restriction base="xsd:string">
-      <xsd:pattern value="[0-9]{26}" />
-    </xsd:restriction>
-  </xsd:simpleType>
-  <xsd:simpleType name="typWybor1or4">
-    <xsd:annotation>
-      <xsd:documentation>2 pola do wyboru</xsd:documentation>
-    </xsd:annotation>
-    <xsd:restriction base="xsd:byte">
-      <xsd:enumeration value="1" />
-      <xsd:enumeration value="4" />
-    </xsd:restriction>
-  </xsd:simpleType>
-  <xsd:simpleType name="typWybor3_6">
-    <xsd:annotation>
-      <xsd:documentation>7 pól do wyboru</xsd:documentation>
-    </xsd:annotation>
-    <xsd:restriction base="xsd:byte">
-      <xsd:enumeration value="3" />
-      <xsd:enumeration value="4" />
-      <xsd:enumeration value="5" />
-      <xsd:enumeration value="6" />
-      <xsd:enumeration value="13" />
-      <xsd:enumeration value="14" />
-      <xsd:enumeration value="51" />
-    </xsd:restriction>
-  </xsd:simpleType>
-  <xsd:simpleType name="typRoszczenieNakazTypRoszczenia">
-    <xsd:annotation>
-      <xsd:documentation>Typy roszczeń. 0 - cywilne, 1 - gospodarcze, 2 - pracy, 13 - koszty procesu, 16 - łączna kwota (bez kosztów procesu)</xsd:documentation>
-    </xsd:annotation>
-    <xsd:restriction base="xsd:byte">
-      <xsd:enumeration value="0" />
-      <xsd:enumeration value="1" />
-      <xsd:enumeration value="2" />
-      <xsd:enumeration value="13" />
-      <xsd:enumeration value="16" />
-    </xsd:restriction>
-  </xsd:simpleType>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="stopa" type="xsd:decimal" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>wymagane dla odsetek umownych czyUstawowe = 1</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="okres" type="curr:typWybor0_4" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>wymagane dla odsetek umownych (czyUstawowe = 1) 0 - rocznie 1- kwartalnie 2-miesięcznie 3- tygodniowo 4- dziennie</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="odWniesienia" type="curr:typWybor0_1" use="optional"/>
+		<xsd:attribute name="doZaplaty" type="curr:typWybor0_1" use="optional"/>
+	</xsd:complexType>
+	<xsd:complexType name="typDowodRef">
+		<xsd:annotation>
+			<xsd:documentation>Definicja powiązania Roszczenia z Dowodem</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Dowod" type="xsd:byte" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="typOdsetki">
+		<xsd:annotation>
+			<xsd:documentation>Definicja okresów odsetek ustawowych, umownych lub mieszanych </xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="OkresOdsetkowy" type="curr:typOkresOdsetkowy" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="typRoszczenie">
+		<xsd:annotation>
+			<xsd:documentation>Roszczenie w sprawie</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Odsetki" type="curr:typOdsetki" minOccurs="0"/>
+			<xsd:element name="Dowody" type="curr:typDowodRef" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="numer" type="xsd:int" use="required">
+			<xsd:annotation>
+				<xsd:documentation>Kolejny numer roszczenia na liście. Bez znaczenia przy imporcie.</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="wartosc" type="xsd:decimal" use="required">
+			<xsd:annotation>
+				<xsd:documentation>Wartosc roszczenia</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="waluta" type="curr:typWaluta" use="required">
+			<xsd:annotation>
+				<xsd:documentation/>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="opis" type="xsd:string" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>Opis roszczenia </xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="odsetki" use="required">
+			<xsd:simpleType>
+				<xsd:annotation>
+					<xsd:documentation>0 - nie  1 - tak </xsd:documentation>
+				</xsd:annotation>
+				<xsd:restriction base="xsd:byte">
+					<xsd:maxInclusive value="1"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+		<xsd:attribute name="solidarnie" type="curr:typWybor0_4" use="required">
+			<xsd:annotation>
+				<xsd:documentation>0 - solidarność powodód i pozwanych  1 - inny   2 - inny powodowie 3 - inny pozwani  4 - in solidum </xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="typ" type="curr:typWybor0_2" use="required">
+			<xsd:annotation>
+				<xsd:documentation>0 - roszczenie cywilne  1 - roszczenie gospodarcze  2- roszczenie z prawa pracy</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="dataWymagalnosci" type="curr:typData" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>Data wymagalności roszczenia</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+	<xsd:complexType name="typLista">
+		<xsd:annotation>
+			<xsd:documentation>Definicja listy roszczeń w sprawie</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Roszczenie" type="curr:typRoszczenie" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="typDowod">
+		<xsd:annotation>
+			<xsd:documentation>Definicja dowodu w sprawie</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="FaktStwierdzany" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation> Cel powołania dowodu w sprawie</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Opis" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Opis dowodu w sprawie</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+		<xsd:attribute name="numer" type="xsd:byte" use="required">
+			<xsd:annotation>
+				<xsd:documentation>Unikalny numer dowodu, który posłuży do roszczenia z dowodem </xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="typDowodu" type="curr:typRodzajDowodu" use="required"/>
+		<xsd:attribute name="oznaczenie" type="curr:typNazwa120" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>Numer faktury, Oznaczenie aktu notarialnego </xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="dataDowodu" type="curr:typData" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>Data wystawienia faktury, Data sporządzenia aktu notarialnego </xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+	<xsd:complexType name="typListaDowodow">
+		<xsd:annotation>
+			<xsd:documentation>Definicja listy dowodów sprawie</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Dowod" type="curr:typDowod" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="typListaPowodow">
+		<xsd:annotation>
+			<xsd:documentation>Definicja listy powodow w sprawie</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Powod" type="curr:typStrona" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="typListaPozwanych">
+		<xsd:annotation>
+			<xsd:documentation>Definicja listy pozwanych w sprawie</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Pozwany" type="curr:typStrona" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="typAdresat">
+		<xsd:annotation>
+			<xsd:documentation>Adresatem jest sad do ktorego kierowany jest pozew. Dane sadu nie sa wykorzystywane w imporcie</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Nazwa" type="curr:typNazwa120"/>
+			<xsd:element name="Wydzial" type="curr:typNazwa120"/>
+			<xsd:element name="Adres" type="curr:typAdres" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="ID" type="xsd:unsignedLong" use="required">
+			<xsd:annotation>
+				<xsd:documentation>Lista ID sądów i wydziałów zostanie dostarczona</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+	<xsd:complexType name="typNakaz">
+		<xsd:annotation>
+			<xsd:documentation>Nakaz w EPU</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="IDNakazu" type="xsd:unsignedLong"/>
+			<xsd:element name="Sygnatura" type="curr:typNazwa30"/>
+			<xsd:element name="DataNakazu" type="curr:typData"/>
+			<xsd:element name="KodDecyzji" type="xsd:byte"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="typSadEPU">
+		<xsd:annotation>
+			<xsd:documentation>Sąd EPU który wydał nakaz</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Nazwa" type="curr:typNazwa120"/>
+			<xsd:element name="Wydzial" type="curr:typNazwa120"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="typKlauzula">
+		<xsd:annotation>
+			<xsd:documentation>Klauzula w EPU</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="IDNakazu" type="xsd:unsignedLong"/>
+			<!-- id nakazu, lub 0 jeśli wniosek został wystawiony do postanowienia-->
+			<xsd:element name="IDKlauzuli" type="xsd:unsignedLong"/>
+			<xsd:element name="Sygnatura" type="curr:typNazwa120"/>
+			<xsd:element name="DataKlauzuli" type="curr:typData"/>
+			<xsd:element name="KodKlauzuli" type="curr:typNazwa20"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="typKomornikWniosek">
+		<xsd:annotation>
+			<xsd:documentation>Adresatem jest komornik do ktorego kierowany jest wniosek.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Nazwa" type="curr:typNazwa200"/>
+		</xsd:sequence>
+		<xsd:attribute name="ID" type="xsd:unsignedLong" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="typKomornik">
+		<xsd:annotation>
+			<xsd:documentation>Komornik w EPU</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="IDKomornika" type="xsd:unsignedLong"/>
+			<xsd:element name="Nazwa" type="curr:typNazwa200"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="typRodzajCzynnosci">
+		<xsd:annotation>
+			<xsd:documentation>Słownik rodzajów czynności egzekucyjnych</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="podjęcie postępowania egzekucyjnego"/>
+			<xsd:enumeration value="koszty egzekucyjne poniesione przez wierzyciela"/>
+			<xsd:enumeration value="umorzono przez wyegzekwowanie w całości"/>
+			<xsd:enumeration value="umorzono przez wyegzekwowanie w części"/>
+			<xsd:enumeration value="umorzono w inny sposób"/>
+			<xsd:enumeration value="zwrot wniosku"/>
+			<xsd:enumeration value="przekazano sprawę"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="typRodzajZawiadomienie">
+		<xsd:annotation>
+			<xsd:documentation>Słownik rodzajów zawiadomień o wszczęciu egzekucji</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="0"/>
+			<xsd:enumeration value="1"/>
+			<xsd:enumeration value="2"/>
+			<xsd:enumeration value="3"/>
+			<xsd:enumeration value="4"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="typRodzajZawiadomieniaStatusOdbiorcy">
+		<xsd:annotation>
+			<xsd:documentation>Słownik rodzajów statusów odbiorców dla zawiadomienia o wszczęciu egzekucji</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="0"/>
+			<xsd:enumeration value="1"/>
+			<xsd:enumeration value="2"/>
+			<xsd:enumeration value="3"/>
+			<xsd:enumeration value="4"/>
+			<xsd:enumeration value="5"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="typRoszczenieNakaz">
+		<xsd:annotation>
+			<xsd:documentation>Roszczenie w nakazie sprawie</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Odsetki" type="curr:typOdsetki" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="numer" type="xsd:int" use="required">
+			<xsd:annotation>
+				<xsd:documentation>Kolejny numer roszczenia na liście. Bez znaczenia przy imporcie.</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="opisKwoty" type="xsd:string" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>Opis kwoty </xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="wartosc" type="xsd:decimal" use="required">
+			<xsd:annotation>
+				<xsd:documentation>Wartosc roszczenia</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="waluta" type="curr:typWaluta" use="required">
+			<xsd:annotation>
+				<xsd:documentation/>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="wartoscSlownie" type="xsd:string" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>słowny opis kwoty </xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="opis" type="xsd:string" use="optional">
+			<xsd:annotation>
+				<xsd:documentation>Opis roszczenia </xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="odsetki" use="required">
+			<xsd:simpleType>
+				<xsd:annotation>
+					<xsd:documentation>0 - nie  1 - tak </xsd:documentation>
+				</xsd:annotation>
+				<xsd:restriction base="xsd:byte">
+					<xsd:maxInclusive value="1"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+		<xsd:attribute name="solidarnie" type="curr:typWybor0_4" use="required">
+			<xsd:annotation>
+				<xsd:documentation>0 - solidarność powodód i pozwanych  1 - inny   2 - inny powodowie 3 - inny pozwani  4 - in solidum </xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="typ" type="curr:typRoszczenieNakazTypRoszczenia" use="required">
+			<xsd:annotation>
+				<xsd:documentation>Typy roszczeń. 0 - cywilne, 1 - gospodarcze, 2 - pracy, 13 - koszty procesu, 16 - łączna kwota (bez kosztów procesu)</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+	<xsd:complexType name="typStronaNakaz">
+		<xsd:annotation>
+			<xsd:documentation>Strona w nakazie</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Nazwa" type="curr:typNazwa300"/>
+			<xsd:element name="ID" type="xsd:unsignedLong"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="typListaPowodowNakaz">
+		<xsd:annotation>
+			<xsd:documentation>Definicja listy powodow  w nakazie</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Powod" type="curr:typStronaNakaz" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="typListaPozwanychNakaz">
+		<xsd:annotation>
+			<xsd:documentation>Definicja listy pozwanych w sprawie</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Pozwany" type="curr:typStronaNakaz" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="typOrzeczenie">
+		<xsd:annotation>
+			<xsd:documentation>Orzeczenie w EPU</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="IDOrzeczenia" type="xsd:unsignedLong"/>
+			<xsd:element name="Sygnatura" type="curr:typNazwa120"/>
+			<xsd:element name="KodDecyzji" type="xsd:byte"/>
+			<xsd:element name="DataOrzeczenia" type="xsd:date"/>
+			<xsd:element name="Opis" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="typRodzajInstytucji">
+		<xsd:annotation>
+			<xsd:documentation>Rodzaje Instytucji</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="inny"/>
+			<xsd:enumeration value="spółka z ograniczoną odpowiedzialnością"/>
+			<xsd:enumeration value="spółka akcyjna"/>
+			<xsd:enumeration value="spółka jawna"/>
+			<xsd:enumeration value="Skarb Państwa"/>
+			<xsd:enumeration value="fundacja"/>
+			<xsd:enumeration value="stowarzyszenie"/>
+			<xsd:enumeration value="bank"/>
+			<xsd:enumeration value="spółdzielnia mieszkaniowa"/>
+			<xsd:enumeration value="wspólnota mieszkaniowa"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="typRodzajSposobu">
+		<xsd:annotation>
+			<xsd:documentation>Rodzaje sposobów egzekucji</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="z ruchomości"/>
+			<xsd:enumeration value="z wynagrodzenia za pracę"/>
+			<xsd:enumeration value="z rachunków bankowych"/>
+			<xsd:enumeration value="z wierzytelności"/>
+			<xsd:enumeration value="z nieruchomości"/>
+			<xsd:enumeration value="inny"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="typSposobEgzekucji">
+		<xsd:annotation>
+			<xsd:documentation>Definicja listy sposobów egzekucji wobec dłuznika</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="SposobEgzekucji" minOccurs="0" maxOccurs="unbounded">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="Rodzaj" type="curr:typRodzajSposobu"/>
+						<xsd:element name="Opis" type="xsd:string"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="typDluznik">
+		<xsd:annotation>
+			<xsd:documentation>Definicja dluznika w sprawie</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="rodzaj" type="curr:typWybor0_3">
+				<xsd:annotation>
+					<xsd:documentation>0 - osoba fizyczna 1 - osoba fizyczna prowadząca działalność 2 - osoba prawna 3 - jednostka organizacyjna</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:choice>
+				<xsd:element name="OsobaFizyczna" type="curr:typOsobaFizyczna"/>
+				<xsd:element name="Instytucja" type="curr:typInstytucja"/>
+			</xsd:choice>
+			<xsd:element name="NIP" type="curr:typNIP" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>NIP Osoby Fizycznej lub Instytucji</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Adres" type="curr:typAdres" maxOccurs="1"/>
+			<xsd:element name="ListaSposobow" type="curr:typSposobEgzekucji"/>
+			<xsd:element name="Uwagi" type="curr:typTekstowy" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="ID" type="xsd:unsignedLong" use="required">
+			<xsd:annotation>
+				<xsd:documentation>Unikalny numer w ramach pojedynczego dokumentu XML</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+	<xsd:complexType name="typWierzyciel">
+		<xsd:annotation>
+			<xsd:documentation>Definicja wierzyciela w sprawie</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="rodzaj" type="curr:typWybor0_3">
+				<xsd:annotation>
+					<xsd:documentation>0 - osoba fizyczna 1 - osoba fizyczna prowadząca działalność 2 - osoba prawna 3 - jednostka organizacyjna</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:choice>
+				<xsd:element name="OsobaFizyczna" type="curr:typOsobaFizyczna"/>
+				<xsd:element name="Instytucja" type="curr:typInstytucja"/>
+			</xsd:choice>
+			<xsd:element name="NIP" type="curr:typNIP" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>NIP Osoby Fizycznej lub Instytucji</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Adres" type="curr:typAdres" maxOccurs="1"/>
+			<xsd:element name="NazwaBanku" type="curr:typNazwa100" minOccurs="0"/>
+			<xsd:element name="KontoBankowe" type="curr:typNazwa30" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="ID" type="xsd:unsignedLong" use="required">
+			<xsd:annotation>
+				<xsd:documentation>Unikalny numer w ramach pojedynczego dokumentu XML</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+	<xsd:complexType name="typListaWierzycieli">
+		<xsd:annotation>
+			<xsd:documentation>Definicja wierzyciela w sprawie</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Wierzyciel" type="curr:typWierzyciel" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="typListaDluznikow">
+		<xsd:annotation>
+			<xsd:documentation>Definicja listy dluznikow w sprawie</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Dluznik" type="curr:typDluznik" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="typSad">
+		<xsd:annotation>
+			<xsd:documentation>Sad Własciwy w EPU</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="IDInstytucji" type="xsd:unsignedLong"/>
+			<xsd:element name="Sad" type="curr:typNazwa200"/>
+			<xsd:element name="Wydzial" type="curr:typNazwa200"/>
+			<xsd:element name="Sedzia" type="curr:typNazwa120"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="typRachunekDoZwrotuOplat">
+		<xsd:annotation>
+			<xsd:documentation>Numer i nazwa właściciela rachunku do zwrotu opłat sądowych w EPU</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="NumerRachunkuDoZwrotuOplat" type="curr:numerKonta"/>
+			<xsd:element name="WlascicielRachunku" type="curr:typNazwa150"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="typRodzajZmiany">
+		<xsd:annotation>
+			<xsd:documentation>Słownik rodzajów zmiany nakazu</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="uchylono"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="typWartosc_10_2">
+		<xsd:restriction base="xsd:decimal">
+			<xsd:totalDigits value="10"/>
+			<xsd:fractionDigits value="2"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="typWybor0_2">
+		<xsd:annotation>
+			<xsd:documentation>3 pola do wyboru</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:byte">
+			<xsd:enumeration value="0"/>
+			<xsd:enumeration value="1"/>
+			<xsd:enumeration value="2"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="typWybor0_18">
+		<xsd:annotation>
+			<xsd:documentation>19 pól do wyboru</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:byte">
+			<xsd:enumeration value="0"/>
+			<xsd:enumeration value="1"/>
+			<xsd:enumeration value="2"/>
+			<xsd:enumeration value="3"/>
+			<xsd:enumeration value="4"/>
+			<xsd:enumeration value="5"/>
+			<xsd:enumeration value="6"/>
+			<xsd:enumeration value="7"/>
+			<xsd:enumeration value="8"/>
+			<xsd:enumeration value="9"/>
+			<xsd:enumeration value="10"/>
+			<xsd:enumeration value="11"/>
+			<xsd:enumeration value="12"/>
+			<xsd:enumeration value="13"/>
+			<xsd:enumeration value="14"/>
+			<xsd:enumeration value="15"/>
+			<xsd:enumeration value="16"/>
+			<xsd:enumeration value="17"/>
+			<xsd:enumeration value="18"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="typWybor0_3">
+		<xsd:annotation>
+			<xsd:documentation>4 pola do wyboru</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:byte">
+			<xsd:enumeration value="0"/>
+			<xsd:enumeration value="1"/>
+			<xsd:enumeration value="2"/>
+			<xsd:enumeration value="3"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="typWybor0_4">
+		<xsd:annotation>
+			<xsd:documentation>5 pol do wyboru</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:byte">
+			<xsd:enumeration value="0"/>
+			<xsd:enumeration value="1"/>
+			<xsd:enumeration value="2"/>
+			<xsd:enumeration value="3"/>
+			<xsd:enumeration value="4"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:element name="Types">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="ala" type="curr:typRodzajCzynnosci"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:simpleType name="numerKonta">
+		<xsd:annotation>
+			<xsd:documentation>Numer konta</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="[0-9]{26}"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="typWybor1or4">
+		<xsd:annotation>
+			<xsd:documentation>2 pola do wyboru</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:byte">
+			<xsd:enumeration value="1"/>
+			<xsd:enumeration value="4"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="typWybor3_6">
+		<xsd:annotation>
+			<xsd:documentation>7 pól do wyboru</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:byte">
+			<xsd:enumeration value="3"/>
+			<xsd:enumeration value="4"/>
+			<xsd:enumeration value="5"/>
+			<xsd:enumeration value="6"/>
+			<xsd:enumeration value="13"/>
+			<xsd:enumeration value="14"/>
+			<xsd:enumeration value="51"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="typRoszczenieNakazTypRoszczenia">
+		<xsd:annotation>
+			<xsd:documentation>Typy roszczeń. 0 - cywilne, 1 - gospodarcze, 2 - pracy, 13 - koszty procesu, 16 - łączna kwota (bez kosztów procesu)</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:byte">
+			<xsd:enumeration value="0"/>
+			<xsd:enumeration value="1"/>
+			<xsd:enumeration value="2"/>
+			<xsd:enumeration value="13"/>
+			<xsd:enumeration value="16"/>
+		</xsd:restriction>
+	</xsd:simpleType>
 </xsd:schema>
