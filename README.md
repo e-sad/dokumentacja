@@ -1,5 +1,7 @@
 # E-Sąd - Dokumentacja API
 
+Moved to: https://gitlab.com/e-sad/dokumentacja
+
 Dokumentacja techniczna XSD Systemu EPU - e-Sąd
 
 Z powodu słabej czytelności i beznadziejnej organizacji oficjalnej strony e-Sądu powstało to repozytorium w celu prostszego dostępu do dokumentacji technicznej usługi sieciowej e-Sądu.
