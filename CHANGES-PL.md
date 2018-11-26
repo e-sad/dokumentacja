@@ -4,7 +4,9 @@
  * version="2.0"
 
 * Dodany nowy typ: **"odsetkiOpis"**
-
 * Zmiana typu atrybutu **"czyUstawowe"** z **"curr:typWybor0_3""** na **"curr:typWybor0_18"**
 
-PS. W eSądzie jak zwykle - bałagan i rozpiździaj.
+## 2018.11.26
+
+* Aktualizacja Dokumentacji oraz plików XSD (patrz commity)
+* Usunięcie angielskiej wersji pliku CHANGES
