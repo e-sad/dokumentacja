@@ -21,12 +21,18 @@
 			<xsd:element name="Rodzaj" type="curr:typWybor3_6">
 				<xsd:annotation>
 					<xsd:documentation>
-							3 - pismo 
-							4 - wniosek 
-							5 - uzupełnienie adresu 
-							6 - uzupełnienie braków 
-							13 - rezygnacja z pełnomocnictwa 
-							14 - zgłoszenie pełnomocnika do sprawy
+						3 - pismo
+						4 - wniosek
+						5 - uzupełnienie adresu
+						6 - uzupełnienie braków
+						13 - rezygnacja z pełnomocnictwa
+						14 - zgłoszenie pełnomocnika do sprawy
+						16 - wniosek o wydanie dalszego tytułu wykonawczego
+						17 - wniosek o sprostowanie
+						18 - wniosek o udzielenie kodu dostępu
+						19 - wniosek o reasumpcję
+						21 - cofnięcie powództwa w całości
+						51 - informacja o wszczęciu egzekucji
 					</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>

@@ -1,6 +1,7 @@
-# E-Sąd - Dokumentacja API
+# EPU Dokumentacaj - Dokumentacja API eSąd (Elektroniczne Postępowanie Upominawcze)
 
-Moved to: https://gitlab.com/e-sad/dokumentacja
+* Adres projektu: https://gitlab.com/e-sad/dokumentacja
+* Dokumentacja EPU: https://www.e-sad.gov.pl/Subpage.aspx?page_id=32
 
 Dokumentacja techniczna XSD Systemu EPU - e-Sąd
 
@@ -10,10 +11,9 @@ Z powodu słabej czytelności i beznadziejnej organizacji oficjalnej strony e-S�
 
 Zadaniem usługi jest umożliwienie pracy powodom masowym/pełnomocnikom lub komornikom sądowym bez konieczności posługiwania się interfejsem WWW systemu EPU.
 
-## Odnośniki
+## Dokumentacja WSDL
 
-https://www.e-sad.gov.pl/Subpage.aspx?page_id=32
-
+Definicja WSDL: https://www.e-sad.gov.pl/api2/EpuWS.EpuService.svc?wsdl
 
 ### Autor
 

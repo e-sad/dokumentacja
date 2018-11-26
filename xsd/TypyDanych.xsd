@@ -1,4 +1,4 @@
-<xsd:schema xmlns:curr="http://www.e-sad.gov.pl/epu" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.e-sad.gov.pl/epu" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.0" xml:lang="pl">
+﻿<xsd:schema xmlns:curr="http://www.e-sad.gov.pl/epu" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.e-sad.gov.pl/epu" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.0" xml:lang="pl">
 	<xsd:simpleType name="typNIP">
 		<xsd:annotation>
 			<xsd:documentation>Numer NIP</xsd:documentation>
@@ -1147,7 +1147,20 @@
 	</xsd:simpleType>
 	<xsd:simpleType name="typWybor3_6">
 		<xsd:annotation>
-			<xsd:documentation>7 pól do wyboru</xsd:documentation>
+			<xsd:documentation>
+				3 - pismo
+				4 - wniosek
+				5 - uzupełnienie adresu
+				6 - uzupełnienie braków
+				13 - rezygnacja z pełnomocnictwa
+				14 - zgłoszenie pełnomocnika do sprawy
+				16 - wniosek o wydanie dalszego tytułu wykonawczego
+				17 - wniosek o sprostowanie
+				18 - wniosek o udzielenie kodu dostępu
+				19 - wniosek o reasumpcję
+				21 - cofnięcie powództwa w całości
+				51 - informacja o wszczęciu egzekucji			
+			</xsd:documentation>
 		</xsd:annotation>
 		<xsd:restriction base="xsd:byte">
 			<xsd:enumeration value="3"/>
@@ -1157,6 +1170,11 @@
 			<xsd:enumeration value="13"/>
 			<xsd:enumeration value="14"/>
 			<xsd:enumeration value="51"/>
+			<xsd:enumeration value="16"/>
+			<xsd:enumeration value="17"/>
+			<xsd:enumeration value="18"/>
+			<xsd:enumeration value="19"/>
+			<xsd:enumeration value="21"/>
 		</xsd:restriction>
 	</xsd:simpleType>
 	<xsd:simpleType name="typRoszczenieNakazTypRoszczenia">
