@@ -6,5 +6,3 @@
 * New type added: **"odsetkiOpis"**
 
 * Change of attribute **"czyUstawowe"** type from **"curr:typWybor0_3""** to **"curr:typWybor0_18"**
-
-PS. W eSądzie jak zwykle - bałagan i rozpizdziaj.
