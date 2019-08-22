@@ -1,4 +1,4 @@
-# EPU Dokumentacaj - Dokumentacja API eSąd (Elektroniczne Postępowanie Upominawcze)
+# EPU Dokumentacja - Dokumentacja API eSąd (Elektroniczne Postępowanie Upominawcze)
 
 * Adres projektu: https://gitlab.com/e-sad/dokumentacja
 * Dokumentacja EPU: https://www.e-sad.gov.pl/Subpage.aspx?page_id=32
