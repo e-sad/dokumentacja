@@ -1,93 +1,95 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<curr:Pozwy xmlns:curr="http://www.currenda.pl/epu" OznaczeniePaczki="2018091016b">
-  <curr:PozewEPU xmlns:curr="http://www.currenda.pl/epu" ID="1" version="2.0" dataZlozenia="2018-09-10">
-    <curr:Oswiadczenie>nie</curr:Oswiadczenie>
-    <curr:Adresat ID="0">
-      <curr:Nazwa>Sąd Rejonowy Lublin-Zachód w Lublinie</curr:Nazwa>
-      <curr:Wydzial>VI Wydział Cywilny</curr:Wydzial>
-      <curr:Adres ulica="ul. Boczna Lubomelskiej" nr_domu="13" kod="20070" miejscowosc="Lublin"/>
-    </curr:Adresat>
-    <curr:SadWlasciwy ID="0">
-      <curr:Nazwa>SĄD REJONOWY w BOCHNI</curr:Nazwa>
-      <curr:Wydzial>I WYDZIAŁ CYWILNY</curr:Wydzial>
-      <curr:Adres ulica="KOŚCIUSZKI" nr_domu="4" kod="32700" miejscowosc="BOCHNIA"/>
-    </curr:SadWlasciwy>
-    <curr:OsobaSkladajaca pelnomocnik="1" podstawa="Pełnomocnictwo procesowe nr xxxx/yyyyy, wydane w Wąchocku dnia 1 listopada 1899 roku Pani Kundegundzie Kowalskiej - Radca Prawny, wpisanej na listę radców prawnych Okręgowej Izby Radców Prawnych w Wąchocku pod numerem RADCA12345 do reprezentowania Spółki &quot;Kozia Broda&quot; sp. z o.o. przed sądami powszechnymi w zakresie windykacji należności z tytułu podkradania trawy, podpisane przez Prezesa Zarządu Złota Bródka.">
-      <curr:Osoba>
-        <curr:Imie>Kunegunda</curr:Imie>
-        <curr:Nazwisko>Kowalska</curr:Nazwisko>
-        <curr:PESEL>1122334455667</curr:PESEL>
-        <curr:stanowisko>Radca prawny</curr:stanowisko>
-      </curr:Osoba>
-      <curr:Nazwa>Spółka Kozia Trawa</curr:Nazwa>
-      <curr:Adres ulica="Łąkowa" nr_domu="1" kod="12345" miejscowosc="Wąpiersko"/>
-    </curr:OsobaSkladajaca>
-    <curr:ListaPowodow>
-      <curr:Powod ID="1">
-        <curr:ObcokrajowiecString/>
-        <curr:Obcokrajowiec>false</curr:Obcokrajowiec>
-        <curr:BrakNumerowIdentyfikacyjnych>false</curr:BrakNumerowIdentyfikacyjnych>
-        <curr:reprezentacja>1</curr:reprezentacja>
-        <curr:rodzajStrony>2</curr:rodzajStrony>
-        <curr:Instytucja>
-          <curr:Nazwa>Trawy Lokalne Sp. z o.o.</curr:Nazwa>
-          <curr:Siedziba>Wąpiersko ul. Łąkowa 1</curr:Siedziba>
-          <curr:REGON>12345678</curr:REGON>
-          <curr:czyRejestr>1</curr:czyRejestr>
-          <curr:KRS>0000012345</curr:KRS>
-        </curr:Instytucja>
-        <curr:NIP>123456789</curr:NIP>
-        <curr:Adres ulica="Łąkowa" nr_domu="1" kod="12345" miejscowosc="Kraków" kraj="PL" wojewodztwo="MAŁOPOLSKIE"/>
-        <curr:numerKonta>123456789012345677899</curr:numerKonta>
-      </curr:Powod>
-    </curr:ListaPowodow>
-    <curr:ListaPozwanych>
-      <curr:Pozwany ID="1">
-        <curr:ObcokrajowiecString>obywatelstwo polskie</curr:ObcokrajowiecString>
-        <curr:Obcokrajowiec>false</curr:Obcokrajowiec>
-        <curr:BrakNumerowIdentyfikacyjnych>false</curr:BrakNumerowIdentyfikacyjnych>
-        <curr:reprezentacja>1</curr:reprezentacja>
-        <curr:rodzajStrony>0</curr:rodzajStrony>
-        <curr:OsobaFizyczna>
-          <curr:Imie>Czarna</curr:Imie>
-          <curr:Nazwisko>Koza</curr:Nazwisko>
-          <curr:PESEL>1234567890</curr:PESEL>
-        </curr:OsobaFizyczna>
-        <curr:Adres ulica="ŚW. Trawy" nr_domu="2" nr_mieszkania="3" kod="12345" miejscowosc="Pole" poczta="Pole" wojewodztwo="12" gmina="Pole"/>
-      </curr:Pozwany>
-    </curr:ListaPozwanych>
-    <curr:SprawaWgPowoda>TRAWA12345</curr:SprawaWgPowoda>
-    <curr:WartoscSporu>1.19</curr:WartoscSporu>
-    <curr:OplataSadowa wartosc="30.00" zwolnienie="0" zasadzenie="1"/>
-    <curr:KosztyZastepstwa wartosc="0.00" zasadzenie="1" wgNorm="1"/>
-    <curr:InneKoszty wartosc="0.00" zasadzenie="0" wgNorm="0" opis="Opłata manipulacyjna"/>
-    <curr:RachunekDoZwrotuOplat>
-      <curr:NumerRachunkuDoZwrotuOplat>123456789012345678</curr:NumerRachunkuDoZwrotuOplat>
-      <curr:WlascicielRachunku>Trawy Lokalne Sp. z o.o.</curr:WlascicielRachunku>
-    </curr:RachunekDoZwrotuOplat>
-    <curr:ListaRoszczen>
-      <curr:Roszczenie numer="1" wartosc="1.19" waluta="PLN" opis="wezwanie-protokół nr TRAWA12345 z dnia 1899-12-20" odsetki="1" solidarnie="1" typ="0" dataWymagalnosci="1900-01-01">
-        <curr:Odsetki>
-          <curr:OkresOdsetkowy dataOd="1900-01-01" czyUstawowe="8"/>
-        </curr:Odsetki>
-        <curr:Dowody>
-          <curr:Dowod>1</curr:Dowod>
-        </curr:Dowody>
-      </curr:Roszczenie>
-    </curr:ListaRoszczen>
-    <curr:ListaDowodow>
-      <curr:Dowod numer="1" typDowodu="inny" oznaczenie="wezwanie-protokół TRAWA12345" dataDowodu="1899-12-20">
-        <curr:FaktStwierdzany>kradzież trawy z łąki</curr:FaktStwierdzany>
-      </curr:Dowod>
-    </curr:ListaDowodow>
-    <curr:Uzasadnienie>W dniu 1899-12-20 pozwany Koza Czarna ukradł trawę z łąki sąsiada. Powód wystawił wezwanie-protokół nr TRAWA12345 w dniu 1899-12-20 na kwotę 1.19 PLN.  z określonym 14-dniowym terminem zapłaty.</curr:Uzasadnienie>
-    <curr:ListaPodpisow>
-      <curr:Podpis>
-        <curr:Imie>Kunegunda</curr:Imie>
-        <curr:Nazwisko>Kowalska</curr:Nazwisko>
-        <curr:PESEL>1234567890</curr:PESEL>
-        <curr:stanowisko>Radca prawny</curr:stanowisko>
-      </curr:Podpis>
-    </curr:ListaPodpisow>
-  </curr:PozewEPU>
-</curr:Pozwy>
+<?xml version="1.0" encoding="UTF-8"?>
+<curr:Pozwy OznaczeniePaczki="2024-03-12/1" xmlns:curr="http://www.currenda.pl/epu">
+    <curr:PozewEPU ID="1" version="2" dataZlozenia="2024-03-12" CzyWniosekUmorzBrakPodst="1" CzyWniosekUmorzUchylenie="1" xmlns:curr="http://www.currenda.pl/epu">
+        <curr:Oswiadczenie>nie</curr:Oswiadczenie>
+		<curr:Adresat ID="1">
+            <curr:Nazwa>Sąd Rejonowy Lublin-Zachód w Lublinie</curr:Nazwa>
+            <curr:Wydzial>VI Wydział Cywilny</curr:Wydzial>
+            <curr:Adres ulica="ul. Boczna Lubomelskiej" nr_domu="13" kod="20070" miejscowosc="Lublin"/>
+        	</curr:Adresat>
+        <curr:OsobaSkladajaca pelnomocnik="1" podstawa="pełnomocnictwo z dnia 26 marca 2010r.">
+            <curr:Osoba>
+                <curr:Imie>Tymothy</curr:Imie>
+                <curr:Nazwisko>Nedzvetskyi</curr:Nazwisko>
+                <curr:PESEL>62117502705</curr:PESEL>
+                <curr:stanowisko>Radca prawny</curr:stanowisko>
+            </curr:Osoba>
+            <curr:Adres ulica="Długa" nr_domu="16" kod="99-300" miejscowosc="Krosno" poczta="Krosno"/>
+        </curr:OsobaSkladajaca>
+        <curr:ListaPowodow>
+            <curr:Powod ID="1">
+                <curr:ObcokrajowiecString/>
+                <curr:Obcokrajowiec>0</curr:Obcokrajowiec>
+                <curr:BrakNumerowIdentyfikacyjnych>0</curr:BrakNumerowIdentyfikacyjnych>
+                <curr:reprezentacja>1</curr:reprezentacja>
+                <curr:rodzajStrony>2</curr:rodzajStrony>
+                <curr:Instytucja>
+                    <curr:Nazwa>TEST POLSKA S.A.</curr:Nazwa>
+                    <curr:Siedziba>Warszawie</curr:Siedziba>
+                    <curr:REGON>012267870</curr:REGON>
+                    <curr:czyRejestr>1</curr:czyRejestr>
+                    <curr:KRS>0000028261</curr:KRS>
+                </curr:Instytucja>
+                <curr:NIP>5251565015</curr:NIP>
+                <curr:Adres ulica="Jerozolimskie" nr_domu="134" kod="02-305" miejscowosc="WARSZAWA" poczta="WARSZAWA" kraj="Polska"/>
+                <curr:numerKonta>60100000073657612520588038</curr:numerKonta>
+            </curr:Powod>
+        </curr:ListaPowodow>
+        <curr:ListaPozwanych>
+            <curr:Pozwany ID="1">
+                <curr:ObcokrajowiecString/>
+                <curr:Obcokrajowiec>false</curr:Obcokrajowiec>
+                <curr:BrakNumerowIdentyfikacyjnych>false</curr:BrakNumerowIdentyfikacyjnych>
+                <curr:reprezentacja>1</curr:reprezentacja>
+                <curr:rodzajStrony>2</curr:rodzajStrony>
+                <curr:Instytucja>
+                    <curr:Nazwa>Więzienie wykluczone z EPO</curr:Nazwa>
+                    <curr:Siedziba>Warszawa Ul. Wiezienna 1/1</curr:Siedziba>
+                    <curr:REGON>010145512</curr:REGON>
+                    <curr:czyRejestr>0</curr:czyRejestr>
+                </curr:Instytucja>
+                <curr:NIP>5251565015</curr:NIP>
+                <curr:Adres ulica="Wiezienna" nr_domu="1" nr_mieszkania="BRAK" kod="01-001" miejscowosc="Warszawa" poczta="Warszawa" kraj="Polska"/>
+            </curr:Pozwany>
+        </curr:ListaPozwanych>
+        <curr:SprawaWgPowoda>TEST/12/03/2024/T-1</curr:SprawaWgPowoda>
+        <curr:WartoscSporu>900</curr:WartoscSporu>
+		<curr:OplataSadowa wartosc="300" zasadzenie="1" zwolnienie="0" ObnizenieKosztowOplatySadowej="0" czyobnizplanowanieprzestrzenne="0" czyobnizmediacja="0"/>
+        <curr:KosztyZastepstwa wartosc="180" zasadzenie="1" wgNorm="0"/>
+        <curr:RachunekDoZwrotuOplat>
+            <curr:NumerRachunkuDoZwrotuOplat>60100000073657612520588038</curr:NumerRachunkuDoZwrotuOplat>
+            <curr:WlascicielRachunku>TEST POLSKA S.A.</curr:WlascicielRachunku>
+        </curr:RachunekDoZwrotuOplat>
+        <curr:ListaRoszczen>
+            <curr:Roszczenie numer="1" wartosc="400" waluta="PLN" opis="" odsetki="1" solidarnie="0" typ="1" dataWymagalnosci="2019-09-01">
+                <curr:Odsetki>
+                    <curr:OkresOdsetkowy dataOd="2017-01-01" czyUstawowe="0"/>
+                </curr:Odsetki>
+                <curr:Dowody>
+                    <curr:Dowod>1</curr:Dowod>
+                    <curr:Dowod>2</curr:Dowod>
+                </curr:Dowody>
+            </curr:Roszczenie>
+			<curr:Roszczenie numer="1" wartosc="500" waluta="PLN" opis="Opis roszczenia" odsetki="1" solidarnie="0" typ="1" dataWymagalnosci="2019-09-01">
+                <curr:Odsetki>
+                    <curr:OkresOdsetkowy dataOd="2017-01-01" czyUstawowe="0"/>
+                </curr:Odsetki>
+                <curr:Dowody>
+                    <curr:Dowod>1</curr:Dowod>
+                    <curr:Dowod>2</curr:Dowod>
+                </curr:Dowody>
+            </curr:Roszczenie>
+        </curr:ListaRoszczen>
+        <curr:ListaDowodow>
+            <curr:Dowod typDowodu="inny" numer="1">
+                <curr:FaktStwierdzany>Potwierdzenie zawarcia umowy ubezpieczenia.</curr:FaktStwierdzany>
+                <curr:Opis>Polisa2.</curr:Opis>
+            </curr:Dowod>
+            <curr:Dowod typDowodu="inny" numer="2">
+                <curr:FaktStwierdzany>Wezwanie do zapłaty</curr:FaktStwierdzany>
+                <curr:Opis>Wezwanie do zapłaty wraz z dowodem nadania listem poleconym.</curr:Opis>
+            </curr:Dowod>
+        </curr:ListaDowodow>
+        <curr:Uzasadnienie>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus rutrum posuere mi eu maximus. Cras commodo vestibulum odio. Donec viverra auctor ex, at porta lorem fermentum et. Morbi tempus, felis quis dapibus varius, eros tortor interdum metus, eu ultrices libero turpis a elit. Maecenas sit ame</curr:Uzasadnienie>
+    </curr:PozewEPU>
+   </curr:Pozwy>

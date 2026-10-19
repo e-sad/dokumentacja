@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:curr="http://www.currenda.pl/epu"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://www.currenda.pl/epu"
+            elementFormDefault="qualified"
+            attributeFormDefault="unqualified"
+            version="1.0"
+            xml:lang="pl">
+
+  <xsd:include schemaLocation="TypyDanych.xsd"/>
+
+  <xsd:element name="UzasadnienieEPU">
+    <xsd:annotation>
+      <xsd:documentation>
+        Dokument „Uzasadnienie” w EPU – uzasadnienie rozstrzygnięcia (orzeczenia/nakazu) wraz z metryką sprawy.
+      </xsd:documentation>
+    </xsd:annotation>
+
+    <xsd:complexType>
+      <xsd:sequence>
+
+        <xsd:element name="SadEPU" type="curr:typSadEPU">
+          <xsd:annotation>
+            <xsd:documentation>
+              Dane sądu EPU (nazwa i wydział) właściwego dla dokumentu.
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+
+        <xsd:element name="Sygnatura" type="curr:typNazwa30">
+          <xsd:annotation>
+            <xsd:documentation>
+              Sygnatura akt sprawy w EPU.
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+
+        <xsd:element name="DoOrzeczenia" type="curr:typTekstowy" minOccurs="0">
+          <xsd:annotation>
+            <xsd:documentation>
+              Odniesienie do orzeczenia, którego dotyczy uzasadnienie (np. opis/tekst „do nakazu z dnia ...”).
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+
+        <xsd:element name="Sedzia" type="curr:typNazwa120">
+          <xsd:annotation>
+            <xsd:documentation>
+              Imię i nazwisko sędziego orzekającego.
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+
+        <xsd:element name="ListaPowodow" type="curr:typListaPowodowNakaz">
+          <xsd:annotation>
+            <xsd:documentation>
+              Lista powodów (wierzycieli) występujących w sprawie.
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+
+        <xsd:element name="Uzasadnienie" type="curr:typTekstowy">
+          <xsd:annotation>
+            <xsd:documentation>
+              Treść uzasadnienia (tekst).
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+
+        <xsd:element name="Nakaz" type="curr:typNakaz" minOccurs="0">
+          <xsd:annotation>
+            <xsd:documentation>
+              Dane nakazu zapłaty powiązanego z uzasadnieniem (jeśli występuje).
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+
+        <xsd:element name="SprawaWgPowoda" type="curr:typNazwa60" minOccurs="0">
+          <xsd:annotation>
+            <xsd:documentation>
+              Oznaczenie sprawy/sygnatura nadana przez powoda (numer sprawy u powoda) – jeżeli podano.
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+
+      </xsd:sequence>
+
+      <xsd:attribute name="ID" type="xsd:unsignedLong" use="required">
+        <xsd:annotation>
+          <xsd:documentation>
+            Identyfikator dokumentu w systemie źródłowym (unikalny w ramach przekazywanego zestawu).
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+
+      <xsd:attribute name="KOD" type="xsd:string" use="optional">
+        <xsd:annotation>
+          <xsd:documentation>
+            Dodatkowy kod/identyfikator dokumentu przekazywany przez system źródłowy (jeśli występuje).
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+
+      <xsd:attribute name="version" type="curr:typNazwa10" use="required">
+        <xsd:annotation>
+          <xsd:documentation>
+            Wersja formatu dokumentu (oznaczenie wersji).
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+
+      <xsd:attribute name="dataOrzeczenia" type="curr:typData" use="required">
+        <xsd:annotation>
+          <xsd:documentation>
+            Data wydania orzeczenia, którego dotyczy uzasadnienie (format RRRR-MM-DD).
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+
+      <xsd:attribute name="kodDecyzji" type="xsd:unsignedByte" use="required">
+        <xsd:annotation>
+          <xsd:documentation>
+            Kod decyzji/rozstrzygnięcia. Wartość słownikowa, lista Typów decyzji publikowaną jest na stronie (Usługa sieciowa e-Sąd > Pliki do Pobrania).
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+
+      <xsd:attribute name="nazwaOrzeczenia" type="xsd:string" use="required">
+        <xsd:annotation>
+          <xsd:documentation>
+            Nazwa dokumentu/orzeczenia.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+
+    </xsd:complexType>
+  </xsd:element>
+
+</xsd:schema>

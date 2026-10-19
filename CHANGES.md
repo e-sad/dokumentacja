@@ -10,3 +10,7 @@
 
 * Aktualizacja Dokumentacji oraz plików XSD (patrz commity)
 * Usunięcie angielskiej wersji pliku CHANGES
+
+## 2026.10.19
+
+* Pobranie najnowszych plików ze strony e-Sądu: https://e-sad.gov.pl/Subpage.aspx?page_id=32

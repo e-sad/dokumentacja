@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+        <curr:WnioskiEgzekucyjneEPU  OznaczeniePaczki="13/03/2024/1" xsi:schemaLocation="http://www.currenda.pl/epu WniosekEgzekucyjny.xsd" xmlns:curr="http://www.currenda.pl/epu" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><curr:WniosekEgzekucyjny xmlns:curr="http://www.currenda.pl/epu" ID="67" version="1.0" dataWniosku="2024-03-13">
+	<curr:Komornik xmlns:curr="http://www.currenda.pl/epu" ID="2545">
+		<curr:Nazwa>Komornik Sądowy przy Sądzie Rejonowym Lublin-Wschód w Lublinie Marcin Ciesielczuk Kancelaria Komornicza nr III w Lublinie</curr:Nazwa>
+	</curr:Komornik>
+	<curr:Sad xmlns:curr="http://www.currenda.pl/epu">
+		<curr:Nazwa>Sąd Rejonowy Lublin-Zachód w Lublinie</curr:Nazwa>
+		<curr:Wydzial>VI Wydział Cywilny</curr:Wydzial>
+	</curr:Sad>
+	<curr:Nakaz xmlns:curr="http://www.currenda.pl/epu">
+		<curr:IDNakazu>18011479</curr:IDNakazu>
+		<curr:Sygnatura>Nc-e 448540/21</curr:Sygnatura>
+		<curr:DataNakazu>2021-04-07</curr:DataNakazu>
+		<curr:KodDecyzji>5</curr:KodDecyzji>
+	</curr:Nakaz>
+	<curr:Klauzula xmlns:curr="http://www.currenda.pl/epu">
+		<curr:IDNakazu>18011479</curr:IDNakazu>
+		<curr:IDKlauzuli>16502573</curr:IDKlauzuli>
+		<curr:Sygnatura>Nc-e 5192/21</curr:Sygnatura>
+		<curr:DataKlauzuli>2021-05-19</curr:DataKlauzuli>
+		<curr:KodKlauzuli>0614b6c68f4cdb71a490</curr:KodKlauzuli>
+	</curr:Klauzula>
+	<curr:OsobaSkladajaca xmlns:curr="http://www.currenda.pl/epu" pelnomocnik="1" podstawa="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus rutrum posuere mi eu maximus. Cras commodo vestibulum odio. Donec viverra auctor ex, at porta lorem fermentum et. Morbi tempus, felis quis dapibus varius, eros tortor interdum metus, eu ultrices libero turpis a elit. Maecenas sit ame">
+		<curr:Osoba>
+			<curr:Imie>Tymothy</curr:Imie>
+			<curr:Nazwisko>Nedzvetskyi</curr:Nazwisko>
+			<curr:PESEL>62117502705</curr:PESEL>
+		</curr:Osoba>
+		<curr:Nazwa>BRAK z siedzibą w Warszawie</curr:Nazwa>
+		<curr:Adres ulica="Długa" nr_domu="1" nr_mieszkania="" kod="00-189" miejscowosc="Warszawa" />
+	</curr:OsobaSkladajaca>
+	<curr:ListaWierzycieli xmlns:curr="http://www.currenda.pl/epu">
+		<curr:Wierzyciel ID="1">
+			<curr:rodzaj>2</curr:rodzaj>
+			<curr:Instytucja>
+				<curr:Nazwa>BRAK z siedzibą w Warszawie</curr:Nazwa>
+				<curr:Siedziba>Warszawa</curr:Siedziba>
+				<curr:czyRejestr>1</curr:czyRejestr>
+				<curr:KRS>0000000982</curr:KRS>
+			</curr:Instytucja>
+			<curr:NIP>4484589054</curr:NIP>
+			<curr:Adres ulica="Długa" nr_domu="1" kod="00-189" miejscowosc="Warszawa" />
+			<curr:KontoBankowe>25132000060867049094800989</curr:KontoBankowe>
+		</curr:Wierzyciel>
+	</curr:ListaWierzycieli>
+	<curr:ListaDluznikow xmlns:curr="http://www.currenda.pl/epu">
+		<curr:Dluznik ID="2965556">
+			<curr:rodzaj>0</curr:rodzaj>
+			<curr:OsobaFizyczna>
+				<curr:Imie>Florence</curr:Imie>
+				<curr:Nazwisko>Rokot</curr:Nazwisko>
+				<curr:PESEL>45022484083</curr:PESEL>
+				<curr:NrDokumentu>ARF791474</curr:NrDokumentu>
+			</curr:OsobaFizyczna>
+			<curr:NIP />
+			<curr:Adres ulica="Głeboka" nr_domu="79" kod="20-081" miejscowosc="Lublin" />
+			<curr:ListaSposobow xmlns:curr="http://www.currenda.pl/epu">
+				<curr:SposobEgzekucji>
+					<curr:Rodzaj>z ruchomości</curr:Rodzaj>
+					<curr:Opis />
+				</curr:SposobEgzekucji>
+				<curr:SposobEgzekucji>
+					<curr:Rodzaj>z rachunków bankowych</curr:Rodzaj>
+					<curr:Opis />
+				</curr:SposobEgzekucji>
+				<curr:SposobEgzekucji>
+					<curr:Rodzaj>z wynagrodzenia za pracę</curr:Rodzaj>
+					<curr:Opis />
+				</curr:SposobEgzekucji>
+				<curr:SposobEgzekucji>
+					<curr:Rodzaj>z wierzytelności</curr:Rodzaj>
+					<curr:Opis />
+				</curr:SposobEgzekucji>
+				<curr:SposobEgzekucji>
+					<curr:Rodzaj>inny</curr:Rodzaj>
+					<curr:Opis>- z nadpłaty podatku we właściwym Urzędzie Skarbowym</curr:Opis>
+				</curr:SposobEgzekucji>
+				<curr:SposobEgzekucji>
+					<curr:Rodzaj>inny</curr:Rodzaj>
+					<curr:Opis>- ze świadczeń emerytalno-rentowych</curr:Opis>
+				</curr:SposobEgzekucji>
+			</curr:ListaSposobow>
+		</curr:Dluznik>
+	</curr:ListaDluznikow>
+	<curr:ListaRoszczen xmlns:curr="http://www.currenda.pl/epu">
+		<curr:Roszczenie numer="1" wartosc="11278.27" waluta="PLN" wartoscSlownie="jedenaście tysięcy dwieście siedemdziesiąt osiem zł dwadzieścia siedem gr" odsetki="1" solidarnie="1" typ="0" opis="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus rutrum posuere mi eu maximus. Cras commodo vestibulum odio. Donec viverra auctor ex, at porta lorem fermentum et. Morbi tempus, felis quis dapibus varius, eros tortor interdum metus, eu ultrices libero turpis a elit. Maecenas sit ame">
+			<curr:Odsetki>
+				<curr:OkresOdsetkowy dataOd="2021-03-24" czyUstawowe="11" odWniesienia="1" doZaplaty="1" />
+			</curr:Odsetki>
+		</curr:Roszczenie>
+		<curr:Roszczenie numer="2" wartosc="2588.00" waluta="PLN" wartoscSlownie="dwa tysiące pięćset osiemdziesiąt osiem zł zero gr" odsetki="0" solidarnie="0" typ="0" opis="Koszty procesowe" />
+	</curr:ListaRoszczen>
+	<curr:InformacjeDodatkowe>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus rutrum posuere mi eu maximus. Cras commodo vestibulum odio. Donec viverra auctor ex, at porta lorem fermentum et. Morbi tempus, felis quis dapibus varius, eros tortor interdum metus, eu ultrices libero turpis a elit. Maecenas sit ame</curr:InformacjeDodatkowe>
+	<curr:KosztyZastepstwa wartosc="0" zasadzenie="1" wgNorm="1" />
+	<curr:ZleceniePoszukiwaniaMajatku>0</curr:ZleceniePoszukiwaniaMajatku>
+	<curr:ZlecenieProwadzeniaArt85>1</curr:ZlecenieProwadzeniaArt85>
+</curr:WniosekEgzekucyjny></curr:WnioskiEgzekucyjneEPU>

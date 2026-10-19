@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:curr="http://www.currenda.pl/epu" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.currenda.pl/epu" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" xml:lang="pl">
+	<xsd:include schemaLocation="TypyDanych.xsd"/>
+	<xsd:element name="NakazEPU">
+		<xsd:annotation>
+			<xsd:documentation>Nakaz w elektronicznym postêpowaniu upominawczym</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="SadEPU" type="curr:typSadEPU"/>
+				<xsd:element name="Sygnatura" type="curr:typNazwa30"/>
+				<xsd:element name="DataWplywu" type="curr:typData"/>
+				<xsd:element name="WSkladzie" type="xsd:string"/>
+				<xsd:element name="Sedzia" type="curr:typNazwa120"/>
+				<xsd:element name="NaPosiedzeniu" type="xsd:string"/>
+				<xsd:element name="Przez" type="xsd:string"/>
+				<xsd:element name="ListaPowodow" type="curr:typListaPowodowNakaz"/>
+				<xsd:element name="NakazujeAby" type="xsd:string"/>
+				<xsd:element name="ListaPozwanych" type="curr:typListaPozwanychNakaz"/>
+				<xsd:element name="ZaplacilPowodowi" type="xsd:string"/>
+				<xsd:element name="ListaRoszczen">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="Roszczenie" type="curr:typRoszczenieNakaz" minOccurs="0" maxOccurs="unbounded"/>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="WTerminie" type="xsd:string"/>
+				<xsd:element name="Uzasadnienie" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="SprawaWgPowoda" type="curr:typNazwa60" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Sygnatura / oznaczenie sprawy nadane przez powoda </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			</xsd:sequence>
+			<xsd:attribute name="ID" type="xsd:unsignedLong" use="required"/>
+			<xsd:attribute name="KOD" type="xsd:string" use="required"/>
+			<xsd:attribute name="version" type="curr:typNazwa10" use="required">
+				<xsd:annotation>
+					<xsd:documentation>Oznaczenie wersji formatu </xsd:documentation>
+				</xsd:annotation>
+			</xsd:attribute>
+			<xsd:attribute name="dataNakazu" type="curr:typData" use="required"/>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

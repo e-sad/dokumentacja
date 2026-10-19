@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<curr:DokumentyEPU xmlns:curr="http://www.currenda.pl/epu" OznaczeniePaczki="2022-11-03/1 - jedna sprawa">
+	<curr:DokumentEPU xmlns:curr="http://www.currenda.pl/epu">
+			<curr:IDSprawy>23916104</curr:IDSprawy>
+			<curr:Sygnatura>Nc-e 5183/21</curr:Sygnatura>
+			<curr:DataZlozenia>2024-03-12T00:00:00.000</curr:DataZlozenia>
+			<curr:Rodzaj>4</curr:Rodzaj>
+		<curr:OsobaSkladajaca xmlns:curr="http://www.currenda.pl/epu" pelnomocnik="1" podstawa="Pełnomocnictwo procesowe ogólne z dnia 9 kwietnia 2017 dla radcy prawnego">
+			<curr:Osoba>
+				<curr:Imie>Tymothy</curr:Imie>
+				<curr:Nazwisko>Nedzvetskyi</curr:Nazwisko>
+				<curr:PESEL>62117502705</curr:PESEL>
+			</curr:Osoba>
+			<curr:Adres ulica="Długa" nr_domu="16" nr_mieszkania="" kod="99-300" miejscowosc="Krosno" />
+		</curr:OsobaSkladajaca>
+		<curr:ListaPowodow xmlns:curr="http://www.currenda.pl/epu">
+			<curr:Powod ID="47949059">
+				<curr:ObcokrajowiecString />
+				<curr:Obcokrajowiec>false</curr:Obcokrajowiec>
+				<curr:BrakNumerowIdentyfikacyjnych>false</curr:BrakNumerowIdentyfikacyjnych>
+				<curr:reprezentacja>1</curr:reprezentacja>
+				<curr:rodzajStrony>2</curr:rodzajStrony>
+				<curr:Instytucja>
+					<curr:Nazwa>TEST POLSKA S.A.</curr:Nazwa>
+					<curr:Siedziba>WARSZAWA</curr:Siedziba>
+					<curr:REGON>012267870</curr:REGON>
+					<curr:czyRejestr>1</curr:czyRejestr>
+					<curr:KRS>0000028261</curr:KRS>
+				</curr:Instytucja>
+				<curr:NIP>5251565015</curr:NIP>
+				<curr:Adres miejscowosc="WARSZAWA" kod="02-305" nr_domu="134" ulica="Jerozolimskie" poczta="WARSZAWA" kraj="Polska"/>
+				<curr:numerKonta>66120000900001113020011111</curr:numerKonta>
+			</curr:Powod>
+		</curr:ListaPowodow>
+		<curr:ListaPozwanych xmlns:curr="http://www.currenda.pl/epu">
+			<curr:Pozwany ID="47949060">
+				<curr:ObcokrajowiecString>obywatelstwo polskie</curr:ObcokrajowiecString>
+				<curr:Obcokrajowiec>false</curr:Obcokrajowiec>
+				<curr:BrakNumerowIdentyfikacyjnych>false</curr:BrakNumerowIdentyfikacyjnych>
+				<curr:reprezentacja>1</curr:reprezentacja>
+				<curr:rodzajStrony>2</curr:rodzajStrony>
+					<curr:Instytucja>
+					<curr:Nazwa>Więzienie wykluczone</curr:Nazwa>
+					<curr:Siedziba>Warszawa Ul. Wiezienna 1/1</curr:Siedziba>
+					<curr:REGON>010145512</curr:REGON>
+					<curr:czyRejestr>0</curr:czyRejestr>
+					</curr:Instytucja>
+				<curr:NIP>5251565015</curr:NIP>
+				<curr:Adres miejscowosc="Warszawa" kod="01-001" nr_domu="1" ulica="Wiezienna" poczta="Warszawa" kraj="Polska" nr_mieszkania="1"/>
+			</curr:Pozwany>
+		</curr:ListaPozwanych>
+		<curr:Tresc>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus rutrum posuere mi eu maximus. Cras commodo vestibulum odio. Donec viverra auctor ex, at porta lorem fermentum et. Morbi tempus, felis quis dapibus varius, eros tortor interdum metus, eu ultrices libero turpis a elit. Maecenas sit ame</curr:Tresc>
+	</curr:DokumentEPU>
+</curr:DokumentyEPU>
