@@ -1,5 +1,14 @@
-<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:curr="http://www.currenda.pl/epu" xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:link="http://www.xbrl.org/2003/linkbase" xmlns:xbrldi="http://xbrl.org/2006/xbrldi" xmlns:xbrli="http://www.xbrl.org/2003/instance" xmlns:xdt="http://www.w3.org/2005/xpath-datatypes" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:altova="http://www.altova.com" version="1.0" exclude-result-prefixes="curr fn link xbrldi xbrli xdt xlink xs xsd xsi">
-  <xsl:output version="5.0" method="html" indent="no" encoding="UTF-8" doctype-public="-//W3C//DTD HTML 4.01 Transitional//EN" doctype-system="http://www.w3.org/TR/html4/loose.dtd" />
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+  xmlns:curr="http://www.currenda.pl/epu" xmlns:fn="http://www.w3.org/2005/xpath-functions"
+  xmlns:link="http://www.xbrl.org/2003/linkbase" xmlns:xbrldi="http://xbrl.org/2006/xbrldi"
+  xmlns:xbrli="http://www.xbrl.org/2003/instance" xmlns:xdt="http://www.w3.org/2005/xpath-datatypes"
+  xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:altova="http://www.altova.com" version="1.0"
+  exclude-result-prefixes="curr fn link xbrldi xbrli xdt xlink xs xsd xsi">
+  <xsl:output version="5.0" method="html" indent="no" encoding="UTF-8"
+    doctype-public="-//W3C//DTD HTML 4.01 Transitional//EN"
+    doctype-system="http://www.w3.org/TR/html4/loose.dtd" />
   <xsl:param name="SV_OutputFormat" select="'HTML'" />
   <xsl:param name="ukryjDatWymagalnosci" />
   <xsl:param name="peselePelnomocReprezent" />
@@ -14,28 +23,32 @@
         </span>
       </xsl:for-each>
     </xsl:if>
-    <xsl:if test="@okres=1">
+    <xsl:if
+      test="@okres=1">
       <xsl:for-each select="@okres">
         <span>
           <xsl:text> kwartalnie </xsl:text>
         </span>
       </xsl:for-each>
     </xsl:if>
-    <xsl:if test="@okres=2">
+    <xsl:if
+      test="@okres=2">
       <xsl:for-each select="@okres">
         <span>
           <xsl:text> miesięcznie</xsl:text>
         </span>
       </xsl:for-each>
     </xsl:if>
-    <xsl:if test="@okres=3">
+    <xsl:if
+      test="@okres=3">
       <xsl:for-each select="@okres">
         <span>
           <xsl:text> tygodniowo</xsl:text>
         </span>
       </xsl:for-each>
     </xsl:if>
-    <xsl:if test="@okres=4">
+    <xsl:if
+      test="@okres=4">
       <xsl:for-each select="@okres">
         <span>
           <xsl:text> dziennie</xsl:text>
@@ -68,7 +81,8 @@
           </xsl:for-each>
         </xsl:for-each>
       </div>
-      <div align="right">
+      <div
+        align="right">
         <span>
           <xsl:text> </xsl:text>
         </span>
@@ -80,11 +94,13 @@
           </xsl:for-each>
         </xsl:for-each>
       </div>
-      <div align="right">
+      <div
+        align="right">
         <xsl:for-each select="curr:PozewEPU">
           <xsl:for-each select="curr:Adresat">
             <xsl:choose>
-              <xsl:when test="number(number(translate(substring(../@dataZlozenia,1,10),'-','')) &gt; translate(substring($DataZmiany,1,10),'-',''))">
+              <xsl:when
+                test="number(number(translate(substring(../@dataZlozenia,1,10),'-','')) &gt; translate(substring($DataZmiany,1,10),'-',''))">
                 <xsl:text>VI Wydział Cywilny</xsl:text>
               </xsl:when>
               <xsl:otherwise>
@@ -94,13 +110,15 @@
               </xsl:otherwise>
             </xsl:choose>
             <br />
-            <xsl:for-each select="curr:Adres">
+            <xsl:for-each
+              select="curr:Adres">
               <xsl:for-each select="@ulica">
                 <span>
                   <xsl:value-of select="string(.)" />
                 </span>
               </xsl:for-each>
-              <xsl:for-each select="@nr_domu">
+              <xsl:for-each
+                select="@nr_domu">
                 <span>
                   <xsl:text> </xsl:text>
                 </span>
@@ -108,7 +126,8 @@
                   <xsl:value-of select="string(.)" />
                 </span>
               </xsl:for-each>
-              <xsl:if test="name(@nr_mieszkania) and  name(@nr_mieszkania)!='' and string-length( normalize-space( @nr_mieszkania)) &gt;0">
+              <xsl:if
+                test="name(@nr_mieszkania) and  name(@nr_mieszkania)!='' and string-length( normalize-space( @nr_mieszkania)) &gt;0">
                 <xsl:for-each select="@nr_mieszkania">
                   <span>
                     <xsl:text>/</xsl:text>
@@ -119,7 +138,8 @@
                 </xsl:for-each>
               </xsl:if>
               <br />
-              <xsl:if test="string-length( @kod )!=5">
+              <xsl:if
+                test="string-length( @kod )!=5">
                 <xsl:for-each select="@kod">
                   <span>
                     <xsl:text> </xsl:text>
@@ -129,7 +149,8 @@
                   </span>
                 </xsl:for-each>
               </xsl:if>
-              <xsl:if test="string-length( @kod )=5">
+              <xsl:if
+                test="string-length( @kod )=5">
                 <xsl:for-each select="@kod">
                   <span>
                     <xsl:text> </xsl:text>
@@ -139,7 +160,8 @@
                   </span>
                 </xsl:for-each>
               </xsl:if>
-              <xsl:for-each select="@miejscowosc">
+              <xsl:for-each
+                select="@miejscowosc">
                 <span>
                   <xsl:text> </xsl:text>
                 </span>
@@ -166,19 +188,22 @@
                   <xsl:text> </xsl:text>
                 </span>
               </xsl:for-each>
-              <xsl:for-each select="curr:Imie2">
+              <xsl:for-each
+                select="curr:Imie2">
                 <xsl:apply-templates />
                 <span>
                   <xsl:text> </xsl:text>
                 </span>
               </xsl:for-each>
-              <xsl:for-each select="curr:Nazwisko">
+              <xsl:for-each
+                select="curr:Nazwisko">
                 <xsl:apply-templates />
               </xsl:for-each>
               <span>
                 <xsl:text> </xsl:text>
               </span>
-              <xsl:if test="contains($peselePelnomocReprezent, curr:PESEL)=false">
+              <xsl:if
+                test="contains($peselePelnomocReprezent, curr:PESEL)=false">
                 <xsl:for-each select="curr:PESEL">
                   <span>
                     <xsl:text>   PESEL </xsl:text>
@@ -187,11 +212,13 @@
                 </xsl:for-each>
               </xsl:if>
               <br />
-              <xsl:for-each select="curr:stanowisko">
+              <xsl:for-each
+                select="curr:stanowisko">
                 <xsl:apply-templates />
               </xsl:for-each>
             </xsl:for-each>
-            <xsl:for-each select="curr:Nazwa">
+            <xsl:for-each
+              select="curr:Nazwa">
               <xsl:apply-templates />
             </xsl:for-each>
           </xsl:for-each>
@@ -209,7 +236,8 @@
                   <xsl:text> </xsl:text>
                 </span>
               </xsl:for-each>
-              <xsl:if test="string-length(@ulica) &lt; 3">
+              <xsl:if
+                test="string-length(@ulica) &lt; 3">
                 <xsl:for-each select="@miejscowosc">
                   <span>
                     <xsl:value-of select="string(.)" />
@@ -219,7 +247,8 @@
                   </span>
                 </xsl:for-each>
               </xsl:if>
-              <xsl:for-each select="@nr_domu">
+              <xsl:for-each
+                select="@nr_domu">
                 <span>
                   <xsl:value-of select="string(.)" />
                 </span>
@@ -230,8 +259,10 @@
               <span>
                 <xsl:text> </xsl:text>
               </span>
-              <xsl:if test="string-length( @nr_mieszkania )&gt;0">
-                <xsl:if test="name(@nr_mieszkania) and  name(@nr_mieszkania)!='' and string-length( normalize-space( @nr_mieszkania)) &gt;0">
+              <xsl:if
+                test="string-length( @nr_mieszkania )&gt;0">
+                <xsl:if
+                  test="name(@nr_mieszkania) and  name(@nr_mieszkania)!='' and string-length( normalize-space( @nr_mieszkania)) &gt;0">
                   <xsl:for-each select="@nr_mieszkania">
                     <span>
                       <xsl:text>/</xsl:text>
@@ -245,7 +276,8 @@
                   </xsl:for-each>
                 </xsl:if>
               </xsl:if>
-              <xsl:if test="string-length( @kod )!=5">
+              <xsl:if
+                test="string-length( @kod )!=5">
                 <xsl:for-each select="@kod">
                   <span>
                     <xsl:text> </xsl:text>
@@ -268,7 +300,8 @@
                   </span>
                 </xsl:for-each>
               </xsl:if>
-              <xsl:if test="string-length(@ulica)&gt;2">
+              <xsl:if
+                test="string-length(@ulica)&gt;2">
                 <xsl:for-each select="@miejscowosc">
                   <span>
                     <xsl:text> </xsl:text>
@@ -281,7 +314,8 @@
               <span>
                 <xsl:text> </xsl:text>
               </span>
-              <xsl:if test="@poczta!=@miejscowosc or string-length( @ulica )&lt;3">
+              <xsl:if
+                test="@poczta!=@miejscowosc or string-length( @ulica )&lt;3">
                 <xsl:for-each select="@poczta">
                   <span>
                     <xsl:text> </xsl:text>
@@ -293,78 +327,92 @@
               </xsl:if>
               <br />
             </xsl:for-each>
-            <xsl:for-each select="@podstawa">
+            <xsl:for-each
+              select="@podstawa">
               <br />
               <span>
                 <xsl:value-of select="string(.)" />
               </span>
               <br />
             </xsl:for-each>
-            <xsl:for-each select="$XML">
+            <xsl:for-each
+              select="$XML">
               <xsl:for-each select="curr:PozewEPU">
                 <xsl:for-each select="curr:ListaPowodow">
-                  <xsl:if test="( curr:Powod/curr:reprezentacja=1 ) or ( curr:Powod/curr:reprezentacja=3 ) or ( curr:Powod/curr:reprezentacja=4 )">
+                  <xsl:if
+                    test="( curr:Powod/curr:reprezentacja=1 ) or ( curr:Powod/curr:reprezentacja=3 ) or ( curr:Powod/curr:reprezentacja=4 )">
                     <span style="text-decoration:underline; ">
                       <xsl:text>W imieniu: </xsl:text>
                     </span>
                   </xsl:if>
-                  <xsl:for-each select="curr:Powod[curr:reprezentacja!=0 and curr:reprezentacja!=2]">
+                  <xsl:for-each
+                    select="curr:Powod[curr:reprezentacja!=0 and curr:reprezentacja!=2]">
                     <xsl:for-each select="curr:OsobaFizyczna">
                       <xsl:for-each select="curr:Imie">
                         <br />
                         <xsl:apply-templates />
                       </xsl:for-each>
-                      <xsl:for-each select="curr:Imie2">
+                      <xsl:for-each
+                        select="curr:Imie2">
                         <span>
                           <xsl:text> </xsl:text>
                         </span>
                         <xsl:apply-templates />
                       </xsl:for-each>
-                      <xsl:for-each select="curr:Nazwisko">
+                      <xsl:for-each
+                        select="curr:Nazwisko">
                         <span>
                           <xsl:text> </xsl:text>
                         </span>
                         <xsl:apply-templates />
                       </xsl:for-each>
                     </xsl:for-each>
-                    <xsl:for-each select="curr:Instytucja">
+                    <xsl:for-each
+                      select="curr:Instytucja">
                       <xsl:for-each select="curr:Nazwa">
                         <xsl:apply-templates />
                       </xsl:for-each>
-                      <xsl:if test="contains( curr:Siedziba , 'z siedzibą' )=false">
+                      <xsl:if
+                        test="contains( curr:Siedziba , 'z siedzibą' )=false">
                         <xsl:for-each select="curr:Siedziba">
                           <span>
-                            <xsl:if test="((starts-with((.), 'W') or starts-with((.), 'F'))and (not(contains('AĄEĘIOÓUY',substring((.),2,1)) or contains('aąeęioóuy', substring((.),2,1)))))">
+                            <xsl:if
+                              test="((starts-with((.), 'W') or starts-with((.), 'F'))and (not(contains('AĄEĘIOÓUY',substring((.),2,1)) or contains('aąeęioóuy', substring((.),2,1)))))">
                               <xsl:text> z siedzibą we</xsl:text>
                             </xsl:if>
-                            <xsl:if test="not(((starts-with((.), 'W') or starts-with((.), 'F')) and (not(contains('AĄEĘIOÓUY',substring((.),2,1)) or contains('aąeęioóuy', substring((.),2,1)) ) ) ))">
+                            <xsl:if
+                              test="not(((starts-with((.), 'W') or starts-with((.), 'F')) and (not(contains('AĄEĘIOÓUY',substring((.),2,1)) or contains('aąeęioóuy', substring((.),2,1)) ) ) ))">
                               <xsl:text> z siedzibą w</xsl:text>
                             </xsl:if>
                           </span>
                         </xsl:for-each>
                       </xsl:if>
-                      <xsl:for-each select="curr:Siedziba">
+                      <xsl:for-each
+                        select="curr:Siedziba">
                         <span>
                           <xsl:text> </xsl:text>
                         </span>
                         <xsl:apply-templates />
                       </xsl:for-each>
                     </xsl:for-each>
-                    <xsl:if test="curr:reprezentacja=1">
+                    <xsl:if
+                      test="curr:reprezentacja=1">
                       <xsl:for-each select="curr:reprezentacja">
                         <span>
                           <xsl:text> (pełnomocnik)</xsl:text>
                         </span>
                       </xsl:for-each>
                     </xsl:if>
-                    <xsl:if test="curr:reprezentacja=3">
+                    <xsl:if
+                      test="curr:reprezentacja=3">
                       <xsl:for-each select="curr:reprezentacja">
                         <span>
                           <xsl:text> (przedstawiciel ustawowy)</xsl:text>
                         </span>
                       </xsl:for-each>
                     </xsl:if>
-                    <xsl:if test="curr:reprezentacja=4">
+                    <xsl:if
+                      test="curr:reprezentacja=4">
                       <xsl:for-each select="curr:reprezentacja">
                         <span>
                           <xsl:text> (osoba reprezentująca) </xsl:text>
@@ -379,14 +427,16 @@
         </xsl:for-each>
       </div>
       <br />
-      <xsl:if test="count( curr:PozewEPU/curr:ListaPowodow/curr:Powod )&gt;1">
+      <xsl:if
+        test="count( curr:PozewEPU/curr:ListaPowodow/curr:Powod )&gt;1">
         <div>
           <span style="text-decoration:underline; ">
             <xsl:text>Powodowie</xsl:text>
           </span>
         </div>
       </xsl:if>
-      <xsl:if test="count( curr:PozewEPU/curr:ListaPowodow/curr:Powod )&lt;=1">
+      <xsl:if
+        test="count( curr:PozewEPU/curr:ListaPowodow/curr:Powod )&lt;=1">
         <div>
           <span style="text-decoration:underline; ">
             <xsl:text>Powód</xsl:text>
@@ -403,7 +453,8 @@
                     <xsl:apply-templates />
                   </span>
                 </xsl:for-each>
-                <xsl:for-each select="curr:Imie2">
+                <xsl:for-each
+                  select="curr:Imie2">
                   <span style="font-weight:bold; ">
                     <xsl:text> </xsl:text>
                   </span>
@@ -411,7 +462,8 @@
                     <xsl:apply-templates />
                   </span>
                 </xsl:for-each>
-                <xsl:for-each select="curr:Nazwisko">
+                <xsl:for-each
+                  select="curr:Nazwisko">
                   <span>
                     <xsl:text> </xsl:text>
                   </span>
@@ -419,13 +471,15 @@
                     <xsl:apply-templates />
                   </span>
                 </xsl:for-each>
-                <xsl:for-each select="curr:Nazwa">
+                <xsl:for-each
+                  select="curr:Nazwa">
                   <span>
                     <xsl:text> </xsl:text>
                   </span>
                   <xsl:apply-templates />
                 </xsl:for-each>
-                <xsl:if test="curr:PESEL != ''">
+                <xsl:if
+                  test="curr:PESEL != ''">
                   <xsl:for-each select="curr:PESEL">
                     <span>
                       <xsl:text> PESEL </xsl:text>
@@ -434,28 +488,34 @@
                   </xsl:for-each>
                 </xsl:if>
               </xsl:for-each>
-              <xsl:for-each select="curr:Instytucja">
+              <xsl:for-each
+                select="curr:Instytucja">
                 <xsl:for-each select="curr:Nazwa">
                   <span style="font-weight:bold; ">
                     <xsl:apply-templates />
                   </span>
                 </xsl:for-each>
-                <xsl:if test="contains( curr:Siedziba , 'z siedzibą' )=false">
+                <xsl:if
+                  test="contains( curr:Siedziba , 'z siedzibą' )=false">
                   <xsl:for-each select="curr:Siedziba">
                     <span>
                       <xsl:text> </xsl:text>
                     </span>
-                    <span style="font-weight:bold; ">
-                      <xsl:if test="((starts-with((.), 'W') or starts-with((.), 'F'))and (not(contains('AĄEĘIOÓUY',substring((.),2,1)) or contains('aąeęioóuy', substring((.),2,1)))))">
+                    <span
+                      style="font-weight:bold; ">
+                      <xsl:if
+                        test="((starts-with((.), 'W') or starts-with((.), 'F'))and (not(contains('AĄEĘIOÓUY',substring((.),2,1)) or contains('aąeęioóuy', substring((.),2,1)))))">
                         <xsl:text>z siedzibą we</xsl:text>
                       </xsl:if>
-                      <xsl:if test="not(((starts-with((.), 'W') or starts-with((.), 'F')) and (not(contains('AĄEĘIOÓUY',substring((.),2,1)) or contains('aąeęioóuy', substring((.),2,1)) ) ) ))">
+                      <xsl:if
+                        test="not(((starts-with((.), 'W') or starts-with((.), 'F')) and (not(contains('AĄEĘIOÓUY',substring((.),2,1)) or contains('aąeęioóuy', substring((.),2,1)) ) ) ))">
                         <xsl:text>z siedzibą w</xsl:text>
                       </xsl:if>
                     </span>
                   </xsl:for-each>
                 </xsl:if>
-                <xsl:for-each select="curr:Siedziba">
+                <xsl:for-each
+                  select="curr:Siedziba">
                   <span>
                     <xsl:text> </xsl:text>
                   </span>
@@ -463,7 +523,8 @@
                     <xsl:apply-templates />
                   </span>
                 </xsl:for-each>
-                <xsl:if test="curr:KRS != '' and curr:czyRejestr = 1">
+                <xsl:if
+                  test="curr:KRS != '' and curr:czyRejestr = 1">
                   <xsl:for-each select="curr:KRS">
                     <span>
                       <xsl:text> KRS </xsl:text>
@@ -471,7 +532,8 @@
                     <xsl:apply-templates />
                   </xsl:for-each>
                 </xsl:if>
-                <xsl:if test="curr:czyRejestr = 2">
+                <xsl:if
+                  test="curr:czyRejestr = 2">
                   <xsl:for-each select="curr:InnyRejestr">
                     <xsl:for-each select="@typ">
                       <span>
@@ -481,7 +543,8 @@
                         <xsl:value-of select="string(.)" />
                       </span>
                     </xsl:for-each>
-                    <xsl:for-each select="@organ">
+                    <xsl:for-each
+                      select="@organ">
                       <span>
                         <xsl:text> </xsl:text>
                       </span>
@@ -489,7 +552,8 @@
                         <xsl:value-of select="string(.)" />
                       </span>
                     </xsl:for-each>
-                    <xsl:for-each select="@numer">
+                    <xsl:for-each
+                      select="@numer">
                       <span>
                         <xsl:text> </xsl:text>
                       </span>
@@ -499,7 +563,8 @@
                     </xsl:for-each>
                   </xsl:for-each>
                 </xsl:if>
-                <xsl:if test="curr:REGON != ''">
+                <xsl:if
+                  test="curr:REGON != ''">
                   <xsl:for-each select="curr:REGON">
                     <span>
                       <xsl:text> REGON </xsl:text>
@@ -508,7 +573,8 @@
                   </xsl:for-each>
                 </xsl:if>
               </xsl:for-each>
-              <xsl:if test="curr:NIP != ''">
+              <xsl:if
+                test="curr:NIP != ''">
                 <xsl:for-each select="curr:NIP">
                   <span>
                     <xsl:text> NIP </xsl:text>
@@ -516,21 +582,24 @@
                   <xsl:apply-templates />
                 </xsl:for-each>
               </xsl:if>
-              <xsl:for-each select="curr:Adres">
+              <xsl:for-each
+                select="curr:Adres">
                 <xsl:for-each select="@ulica">
                   <br />
                   <span>
                     <xsl:value-of select="string(.)" />
                   </span>
                 </xsl:for-each>
-                <xsl:if test="string-length(@ulica) &lt; 3">
+                <xsl:if
+                  test="string-length(@ulica) &lt; 3">
                   <xsl:for-each select="@miejscowosc">
                     <span>
                       <xsl:value-of select="string(.)" />
                     </span>
                   </xsl:for-each>
                 </xsl:if>
-                <xsl:for-each select="@nr_domu">
+                <xsl:for-each
+                  select="@nr_domu">
                   <span>
                     <xsl:text> </xsl:text>
                   </span>
@@ -538,7 +607,8 @@
                     <xsl:value-of select="string(.)" />
                   </span>
                 </xsl:for-each>
-                <xsl:if test="name(@nr_mieszkania) and  name(@nr_mieszkania)!='' and string-length( normalize-space( @nr_mieszkania)) &gt;0">
+                <xsl:if
+                  test="name(@nr_mieszkania) and  name(@nr_mieszkania)!='' and string-length( normalize-space( @nr_mieszkania)) &gt;0">
                   <xsl:for-each select="@nr_mieszkania">
                     <span>
                       <xsl:text>/</xsl:text>
@@ -551,7 +621,8 @@
                     </span>
                   </xsl:for-each>
                 </xsl:if>
-                <xsl:if test="string-length( @kod )!=5">
+                <xsl:if
+                  test="string-length( @kod )!=5">
                   <xsl:for-each select="@kod">
                     <span>
                       <xsl:text> </xsl:text>
@@ -561,17 +632,20 @@
                     </span>
                   </xsl:for-each>
                 </xsl:if>
-                <xsl:if test="string-length( @kod )=5">
+                <xsl:if
+                  test="string-length( @kod )=5">
                   <xsl:for-each select="@kod">
                     <span>
                       <xsl:text> </xsl:text>
                     </span>
                     <span>
-                      <xsl:value-of select="concat(substring( . ,1, 2 ) ,'-', substring( . , 3 , 3 ) )" />
+                      <xsl:value-of
+                        select="concat(substring( . ,1, 2 ) ,'-', substring( . , 3 , 3 ) )" />
                     </span>
                   </xsl:for-each>
                 </xsl:if>
-                <xsl:if test="string-length(@ulica)&gt;2">
+                <xsl:if
+                  test="string-length(@ulica)&gt;2">
                   <xsl:for-each select="@miejscowosc">
                     <span>
                       <xsl:text> </xsl:text>
@@ -581,7 +655,8 @@
                     </span>
                   </xsl:for-each>
                 </xsl:if>
-                <xsl:if test="@poczta!=@miejscowosc or string-length( @ulica )&lt;3">
+                <xsl:if
+                  test="@poczta!=@miejscowosc or string-length( @ulica )&lt;3">
                   <xsl:for-each select="@poczta">
                     <span>
                       <xsl:text> </xsl:text>
@@ -592,8 +667,10 @@
                   </xsl:for-each>
                 </xsl:if>
                 <br />
-                <xsl:if test="string-length( @wojewodztwo )&gt;0">
-                  <xsl:if test="name(@wojewodztwo) and  name(@wojewodztwo)!='' and string-length( normalize-space( @wojewodztwo)) &gt;0">
+                <xsl:if
+                  test="string-length( @wojewodztwo )&gt;0">
+                  <xsl:if
+                    test="name(@wojewodztwo) and  name(@wojewodztwo)!='' and string-length( normalize-space( @wojewodztwo)) &gt;0">
                     <xsl:for-each select="@wojewodztwo">
                       <span>
                         <xsl:text>Województwo: </xsl:text>
@@ -609,21 +686,24 @@
                 </xsl:if>
               </xsl:for-each>
               <br />
-              <xsl:value-of select="curr:ObcokrajowiecString" />
+              <xsl:value-of
+                select="curr:ObcokrajowiecString" />
               <br />
               <br />
             </xsl:for-each>
           </xsl:for-each>
         </xsl:for-each>
       </div>
-      <xsl:if test="count( curr:PozewEPU/curr:ListaPozwanych/curr:Pozwany )&gt;1">
+      <xsl:if
+        test="count( curr:PozewEPU/curr:ListaPozwanych/curr:Pozwany )&gt;1">
         <div>
           <span style="text-decoration:underline; ">
             <xsl:text>Pozwani</xsl:text>
           </span>
         </div>
       </xsl:if>
-      <xsl:if test="count( curr:PozewEPU/curr:ListaPozwanych/curr:Pozwany )&lt;=1">
+      <xsl:if
+        test="count( curr:PozewEPU/curr:ListaPozwanych/curr:Pozwany )&lt;=1">
         <div>
           <span style="text-decoration:underline; ">
             <xsl:text>Pozwany</xsl:text>
@@ -640,7 +720,8 @@
                     <xsl:apply-templates />
                   </span>
                 </xsl:for-each>
-                <xsl:for-each select="curr:Imie2">
+                <xsl:for-each
+                  select="curr:Imie2">
                   <span>
                     <xsl:text> </xsl:text>
                   </span>
@@ -648,7 +729,8 @@
                     <xsl:apply-templates />
                   </span>
                 </xsl:for-each>
-                <xsl:for-each select="curr:Nazwisko">
+                <xsl:for-each
+                  select="curr:Nazwisko">
                   <span>
                     <xsl:text> </xsl:text>
                   </span>
@@ -656,13 +738,15 @@
                     <xsl:apply-templates />
                   </span>
                 </xsl:for-each>
-                <xsl:for-each select="curr:Nazwa">
+                <xsl:for-each
+                  select="curr:Nazwa">
                   <span>
                     <xsl:text> </xsl:text>
                   </span>
                   <xsl:apply-templates />
                 </xsl:for-each>
-                <xsl:if test="curr:PESEL != ''">
+                <xsl:if
+                  test="curr:PESEL != ''">
                   <xsl:for-each select="curr:PESEL">
                     <span>
                       <xsl:text> PESEL </xsl:text>
@@ -671,28 +755,34 @@
                   </xsl:for-each>
                 </xsl:if>
               </xsl:for-each>
-              <xsl:for-each select="curr:Instytucja">
+              <xsl:for-each
+                select="curr:Instytucja">
                 <xsl:for-each select="curr:Nazwa">
                   <span style="font-weight:bold; ">
                     <xsl:apply-templates />
                   </span>
                 </xsl:for-each>
-                <xsl:if test="contains( curr:Siedziba , 'z siedzibą' )=false">
+                <xsl:if
+                  test="contains( curr:Siedziba , 'z siedzibą' )=false">
                   <xsl:for-each select="curr:Siedziba">
                     <span>
                       <xsl:text> </xsl:text>
                     </span>
-                    <span style="font-weight:bold; ">
-                      <xsl:if test="((starts-with((.), 'W') or starts-with((.), 'F'))and (not(contains('AĄEĘIOÓUY',substring((.),2,1)) or contains('aąeęioóuy', substring((.),2,1)))))">
+                    <span
+                      style="font-weight:bold; ">
+                      <xsl:if
+                        test="((starts-with((.), 'W') or starts-with((.), 'F'))and (not(contains('AĄEĘIOÓUY',substring((.),2,1)) or contains('aąeęioóuy', substring((.),2,1)))))">
                         <xsl:text>z siedzibą we</xsl:text>
                       </xsl:if>
-                      <xsl:if test="not(((starts-with((.), 'W') or starts-with((.), 'F')) and (not(contains('AĄEĘIOÓUY',substring((.),2,1)) or contains('aąeęioóuy', substring((.),2,1)) ) ) ))">
+                      <xsl:if
+                        test="not(((starts-with((.), 'W') or starts-with((.), 'F')) and (not(contains('AĄEĘIOÓUY',substring((.),2,1)) or contains('aąeęioóuy', substring((.),2,1)) ) ) ))">
                         <xsl:text>z siedzibą w</xsl:text>
                       </xsl:if>
                     </span>
                   </xsl:for-each>
                 </xsl:if>
-                <xsl:for-each select="curr:Siedziba">
+                <xsl:for-each
+                  select="curr:Siedziba">
                   <span style="font-weight:bold; ">
                     <xsl:text> </xsl:text>
                   </span>
@@ -700,7 +790,8 @@
                     <xsl:apply-templates />
                   </span>
                 </xsl:for-each>
-                <xsl:if test="curr:KRS != '' and curr:czyRejestr = 1">
+                <xsl:if
+                  test="curr:KRS != '' and curr:czyRejestr = 1">
                   <xsl:for-each select="curr:KRS">
                     <span>
                       <xsl:text> KRS </xsl:text>
@@ -708,7 +799,8 @@
                     <xsl:apply-templates />
                   </xsl:for-each>
                 </xsl:if>
-                <xsl:if test="curr:czyRejestr = 2">
+                <xsl:if
+                  test="curr:czyRejestr = 2">
                   <xsl:for-each select="curr:InnyRejestr">
                     <xsl:for-each select="@typ">
                       <span>
@@ -718,7 +810,8 @@
                         <xsl:value-of select="string(.)" />
                       </span>
                     </xsl:for-each>
-                    <xsl:for-each select="@organ">
+                    <xsl:for-each
+                      select="@organ">
                       <span>
                         <xsl:text> </xsl:text>
                       </span>
@@ -726,7 +819,8 @@
                         <xsl:value-of select="string(.)" />
                       </span>
                     </xsl:for-each>
-                    <xsl:for-each select="@numer">
+                    <xsl:for-each
+                      select="@numer">
                       <span>
                         <xsl:text> </xsl:text>
                       </span>
@@ -736,7 +830,8 @@
                     </xsl:for-each>
                   </xsl:for-each>
                 </xsl:if>
-                <xsl:if test="curr:REGON != ''">
+                <xsl:if
+                  test="curr:REGON != ''">
                   <xsl:for-each select="curr:REGON">
                     <span>
                       <xsl:text> REGON </xsl:text>
@@ -745,7 +840,8 @@
                   </xsl:for-each>
                 </xsl:if>
               </xsl:for-each>
-              <xsl:if test="curr:NIP != ''">
+              <xsl:if
+                test="curr:NIP != ''">
                 <xsl:for-each select="curr:NIP">
                   <span>
                     <xsl:text> NIP </xsl:text>
@@ -753,21 +849,24 @@
                   <xsl:apply-templates />
                 </xsl:for-each>
               </xsl:if>
-              <xsl:for-each select="curr:Adres">
+              <xsl:for-each
+                select="curr:Adres">
                 <xsl:for-each select="@ulica">
                   <br />
                   <span>
                     <xsl:value-of select="string(.)" />
                   </span>
                 </xsl:for-each>
-                <xsl:if test="string-length(@ulica) &lt; 3">
+                <xsl:if
+                  test="string-length(@ulica) &lt; 3">
                   <xsl:for-each select="@miejscowosc">
                     <span>
                       <xsl:value-of select="string(.)" />
                     </span>
                   </xsl:for-each>
                 </xsl:if>
-                <xsl:for-each select="@nr_domu">
+                <xsl:for-each
+                  select="@nr_domu">
                   <span>
                     <xsl:text> </xsl:text>
                   </span>
@@ -775,7 +874,8 @@
                     <xsl:value-of select="string(.)" />
                   </span>
                 </xsl:for-each>
-                <xsl:if test="name(@nr_mieszkania) and  name(@nr_mieszkania)!='' and string-length( normalize-space( @nr_mieszkania)) &gt;0">
+                <xsl:if
+                  test="name(@nr_mieszkania) and  name(@nr_mieszkania)!='' and string-length( normalize-space( @nr_mieszkania)) &gt;0">
                   <xsl:for-each select="@nr_mieszkania">
                     <span>
                       <xsl:text>/</xsl:text>
@@ -788,7 +888,8 @@
                     </span>
                   </xsl:for-each>
                 </xsl:if>
-                <xsl:if test="string-length( @kod )!=5">
+                <xsl:if
+                  test="string-length( @kod )!=5">
                   <xsl:for-each select="@kod">
                     <span>
                       <xsl:text> </xsl:text>
@@ -798,17 +899,20 @@
                     </span>
                   </xsl:for-each>
                 </xsl:if>
-                <xsl:if test="string-length( @kod )=5">
+                <xsl:if
+                  test="string-length( @kod )=5">
                   <xsl:for-each select="@kod">
                     <span>
                       <xsl:text> </xsl:text>
                     </span>
                     <span>
-                      <xsl:value-of select="concat( substring( . ,1, 2 ) ,'-', substring( . , 3 , 3 ) )" />
+                      <xsl:value-of
+                        select="concat( substring( . ,1, 2 ) ,'-', substring( . , 3 , 3 ) )" />
                     </span>
                   </xsl:for-each>
                 </xsl:if>
-                <xsl:if test="string-length(@ulica)&gt;2">
+                <xsl:if
+                  test="string-length(@ulica)&gt;2">
                   <xsl:for-each select="@miejscowosc">
                     <span>
                       <xsl:text> </xsl:text>
@@ -818,7 +922,8 @@
                     </span>
                   </xsl:for-each>
                 </xsl:if>
-                <xsl:if test="@poczta!=@miejscowosc or string-length( @ulica )&lt;3">
+                <xsl:if
+                  test="@poczta!=@miejscowosc or string-length( @ulica )&lt;3">
                   <xsl:for-each select="@poczta">
                     <span>
                       <xsl:text> </xsl:text>
@@ -829,8 +934,10 @@
                   </xsl:for-each>
                 </xsl:if>
                 <br />
-                <xsl:if test="string-length( @wojewodztwo )&gt;0">
-                  <xsl:if test="name(@wojewodztwo) and  name(@wojewodztwo)!='' and string-length( normalize-space( @wojewodztwo)) &gt;0">
+                <xsl:if
+                  test="string-length( @wojewodztwo )&gt;0">
+                  <xsl:if
+                    test="name(@wojewodztwo) and  name(@wojewodztwo)!='' and string-length( normalize-space( @wojewodztwo)) &gt;0">
                     <xsl:for-each select="@wojewodztwo">
                       <span>
                         <xsl:text>Województwo: </xsl:text>
@@ -846,7 +953,8 @@
                 </xsl:if>
               </xsl:for-each>
               <br />
-              <xsl:value-of select="curr:ObcokrajowiecString" />
+              <xsl:value-of
+                select="curr:ObcokrajowiecString" />
               <br />
               <br />
             </xsl:for-each>
@@ -860,9 +968,11 @@
               <xsl:text>Wartość przedmiotu sporu   </xsl:text>
             </span>
             <span style="font-weight:bold; ">
-              <xsl:value-of select="format-number(number(translate(translate(string(.), ' ',''),',','.')), '### ##0,00', 'european')" />
+              <xsl:value-of
+                select="format-number(number(translate(translate(string(.), ' ',''),',','.')), '### ##0,00', 'european')" />
             </span>
-            <span style="font-weight:bold; ">
+            <span
+              style="font-weight:bold; ">
               <xsl:text> PLN</xsl:text>
             </span>
           </xsl:for-each>
@@ -953,7 +1063,8 @@
                   <xsl:text> dowody</xsl:text>
                 </span>
               </th>
-              <xsl:if test="count( curr:PozewEPU/curr:ListaRoszczen/curr:Roszczenie[@dataWymagalnosci] )&gt;0 and $ukryjDatWymagalnosci != 'true'">
+              <xsl:if
+                test="count( curr:PozewEPU/curr:ListaRoszczen/curr:Roszczenie[@dataWymagalnosci] )&gt;0 and $ukryjDatWymagalnosci != 'true'">
                 <th>
                   <span>
                     <xsl:text>data wymagalności</xsl:text>
@@ -979,7 +1090,8 @@
                         <td align="right">
                           <xsl:for-each select="@wartosc">
                             <span>
-                              <xsl:value-of select="format-number(number(translate(translate(string(.), ' ',''),',','.')), '### ##0,00', 'european')" />
+                              <xsl:value-of
+                                select="format-number(number(translate(translate(string(.), ' ',''),',','.')), '### ##0,00', 'european')" />
                             </span>
                           </xsl:for-each>
                         </td>
@@ -991,7 +1103,8 @@
                           </xsl:for-each>
                         </td>
                         <td style="width:1px; ">
-                          <xsl:if test="(@solidarnie=0 or (@solidarnie=1 and (string-length( @opis )=0 or name(@opis)=''))) and (count( ../../curr:ListaPowodow/curr:Powod )+count(../../curr:ListaPozwanych/curr:Pozwany)&gt;2)">
+                          <xsl:if
+                            test="(@solidarnie=0 or (@solidarnie=1 and (string-length( @opis )=0 or name(@opis)=''))) and (count( ../../curr:ListaPowodow/curr:Powod )+count(../../curr:ListaPozwanych/curr:Pozwany)&gt;2)">
                             <span>
                               <xsl:text>solidarnie</xsl:text>
                             </span>
@@ -1045,7 +1158,8 @@
                                     <xsl:call-template name="okresTemplate" />
                                     <xsl:text> ale nie więcej niż w wysokości odsetek maksymalnych </xsl:text>
                                     <xsl:choose>
-                                      <xsl:when test="@odWniesienia='1' or boolean(@dataOd)=false or @dataOd = ''">
+                                      <xsl:when
+                                        test="@odWniesienia='1' or boolean(@dataOd)=false or @dataOd = ''">
                                         <span>
                                           <xsl:text> od dnia wniesienia pozwu </xsl:text>
                                         </span>
@@ -1062,7 +1176,8 @@
                                       </xsl:otherwise>
                                     </xsl:choose>
                                     <xsl:choose>
-                                      <xsl:when test="@doZaplaty='1' or boolean(@dataDo)=false or @dataDo = ''">
+                                      <xsl:when
+                                        test="@doZaplaty='1' or boolean(@dataDo)=false or @dataDo = ''">
                                         <span>
                                           <xsl:text> do dnia zapłaty</xsl:text>
                                         </span>
@@ -1084,7 +1199,8 @@
                                   <span>
                                     <xsl:text>umownymi w wysokości czterokrotności stopy lombardowej NBP rocznie ale nie więcej niż w wysokości odsetek maksymalnych</xsl:text>
                                     <xsl:choose>
-                                      <xsl:when test="@odWniesienia='1' or boolean(@dataOd)=false or @dataOd = ''">
+                                      <xsl:when
+                                        test="@odWniesienia='1' or boolean(@dataOd)=false or @dataOd = ''">
                                         <span>
                                           <xsl:text> od dnia wniesienia pozwu </xsl:text>
                                         </span>
@@ -1103,7 +1219,8 @@
                                   </span>
                                   <span>
                                     <xsl:choose>
-                                      <xsl:when test="@doZaplaty='1' or boolean(@dataDo)=false or @dataDo = ''">
+                                      <xsl:when
+                                        test="@doZaplaty='1' or boolean(@dataDo)=false or @dataDo = ''">
                                         <span>
                                           <xsl:text> do dnia zapłaty</xsl:text>
                                         </span>
@@ -1125,7 +1242,8 @@
                                   <span>
                                     <xsl:text>umownymi w wysokości czterokrotności stopy lombardowej NBP rocznie </xsl:text>
                                     <xsl:choose>
-                                      <xsl:when test="@odWniesienia='1' or boolean(@dataOd)=false or @dataOd = ''">
+                                      <xsl:when
+                                        test="@odWniesienia='1' or boolean(@dataOd)=false or @dataOd = ''">
                                         <span>
                                           <xsl:text> od dnia wniesienia pozwu </xsl:text>
                                         </span>
@@ -1143,7 +1261,8 @@
                                     </xsl:choose>
                                     <xsl:text> do dnia 31 grudnia 2015 roku i odsetkami umownymi w wysokości czterokrotności stopy lombardowej NBP rocznie ale nie więcej niż w wysokości odsetek maksymalnych od dnia 1 stycznia 2016 roku </xsl:text>
                                     <xsl:choose>
-                                      <xsl:when test="@doZaplaty='1' or boolean(@dataDo)=false or @dataDo = ''">
+                                      <xsl:when
+                                        test="@doZaplaty='1' or boolean(@dataDo)=false or @dataDo = ''">
                                         <span>
                                           <xsl:text> do dnia zapłaty</xsl:text>
                                         </span>
@@ -1165,7 +1284,8 @@
                                   <span>
                                     <xsl:text>umownymi w wysokości odsetek maksymalnych </xsl:text>
                                     <xsl:choose>
-                                      <xsl:when test="@odWniesienia='1' or boolean(@dataOd)=false or @dataOd = ''">
+                                      <xsl:when
+                                        test="@odWniesienia='1' or boolean(@dataOd)=false or @dataOd = ''">
                                         <span>
                                           <xsl:text> od dnia wniesienia pozwu </xsl:text>
                                         </span>
@@ -1182,7 +1302,8 @@
                                       </xsl:otherwise>
                                     </xsl:choose>
                                     <xsl:choose>
-                                      <xsl:when test="@doZaplaty='1' or boolean(@dataDo)=false or @dataDo = ''">
+                                      <xsl:when
+                                        test="@doZaplaty='1' or boolean(@dataDo)=false or @dataDo = ''">
                                         <span>
                                           <xsl:text> do dnia zapłaty</xsl:text>
                                         </span>
@@ -1204,7 +1325,8 @@
                                   <span>
                                     <xsl:text>ustawowymi za opóźnienie </xsl:text>
                                     <xsl:choose>
-                                      <xsl:when test="@odWniesienia='1' or boolean(@dataOd)=false or @dataOd = ''">
+                                      <xsl:when
+                                        test="@odWniesienia='1' or boolean(@dataOd)=false or @dataOd = ''">
                                         <span>
                                           <xsl:text> od dnia wniesienia pozwu </xsl:text>
                                         </span>
@@ -1221,7 +1343,8 @@
                                       </xsl:otherwise>
                                     </xsl:choose>
                                     <xsl:choose>
-                                      <xsl:when test="@doZaplaty='1' or boolean(@dataDo)=false or @dataDo = ''">
+                                      <xsl:when
+                                        test="@doZaplaty='1' or boolean(@dataDo)=false or @dataDo = ''">
                                         <span>
                                           <xsl:text> do dnia zapłaty</xsl:text>
                                         </span>
@@ -1243,7 +1366,8 @@
                                   <span>
                                     <xsl:text>ustawowymi </xsl:text>
                                     <xsl:choose>
-                                      <xsl:when test="@odWniesienia='1' or boolean(@dataOd)=false or @dataOd = ''">
+                                      <xsl:when
+                                        test="@odWniesienia='1' or boolean(@dataOd)=false or @dataOd = ''">
                                         <span>
                                           <xsl:text> od dnia wniesienia pozwu </xsl:text>
                                         </span>
@@ -1261,7 +1385,8 @@
                                     </xsl:choose>
                                     <xsl:text> do dnia 31 grudnia 2015 roku i odsetkami ustawowymi za opóźnienie od dnia 1 stycznia 2016 roku</xsl:text>
                                     <xsl:choose>
-                                      <xsl:when test="@doZaplaty='1' or boolean(@dataDo)=false or @dataDo = ''">
+                                      <xsl:when
+                                        test="@doZaplaty='1' or boolean(@dataDo)=false or @dataDo = ''">
                                         <span>
                                           <xsl:text> do dnia zapłaty</xsl:text>
                                         </span>
@@ -1287,7 +1412,8 @@
                                     <xsl:call-template name="okresTemplate" />
                                     <xsl:text>  ale nie więcej niż w wysokości odsetek maksymalnych za opóźnienie </xsl:text>
                                     <xsl:choose>
-                                      <xsl:when test="@odWniesienia='1' or boolean(@dataOd)=false or @dataOd = ''">
+                                      <xsl:when
+                                        test="@odWniesienia='1' or boolean(@dataOd)=false or @dataOd = ''">
                                         <span>
                                           <xsl:text> od dnia wniesienia pozwu </xsl:text>
                                         </span>
@@ -1304,7 +1430,8 @@
                                       </xsl:otherwise>
                                     </xsl:choose>
                                     <xsl:choose>
-                                      <xsl:when test="@doZaplaty='1' or boolean(@dataDo)=false or @dataDo = ''">
+                                      <xsl:when
+                                        test="@doZaplaty='1' or boolean(@dataDo)=false or @dataDo = ''">
                                         <span>
                                           <xsl:text> do dnia zapłaty</xsl:text>
                                         </span>
@@ -1326,7 +1453,8 @@
                                   <span>
                                     <xsl:text>umownymi w wysokości odsetek maksymalnych za opóźnienie </xsl:text>
                                     <xsl:choose>
-                                      <xsl:when test="@odWniesienia='1' or boolean(@dataOd)=false or @dataOd = ''">
+                                      <xsl:when
+                                        test="@odWniesienia='1' or boolean(@dataOd)=false or @dataOd = ''">
                                         <span>
                                           <xsl:text> od dnia wniesienia pozwu </xsl:text>
                                         </span>
@@ -1343,7 +1471,8 @@
                                       </xsl:otherwise>
                                     </xsl:choose>
                                     <xsl:choose>
-                                      <xsl:when test="@doZaplaty='1' or boolean(@dataDo)=false or @dataDo = ''">
+                                      <xsl:when
+                                        test="@doZaplaty='1' or boolean(@dataDo)=false or @dataDo = ''">
                                         <span>
                                           <xsl:text> do dnia zapłaty</xsl:text>
                                         </span>
@@ -1365,7 +1494,8 @@
                                   <span>
                                     <xsl:text>umownymi w wysokości czterokrotności stopy lombardowej NBP rocznie </xsl:text>
                                     <xsl:choose>
-                                      <xsl:when test="@odWniesienia='1' or boolean(@dataOd)=false or @dataOd = ''">
+                                      <xsl:when
+                                        test="@odWniesienia='1' or boolean(@dataOd)=false or @dataOd = ''">
                                         <span>
                                           <xsl:text> od dnia wniesienia pozwu </xsl:text>
                                         </span>
@@ -1383,7 +1513,8 @@
                                     </xsl:choose>
                                     <xsl:text> do dnia 31 grudnia 2015 roku i odsetkami umownymi w wysokości czterokrotności stopy lombardowej NBP rocznie ale nie więcej niż w wysokości odsetek maksymalnych za opóźnienie od dnia 1 stycznia 2016 roku</xsl:text>
                                     <xsl:choose>
-                                      <xsl:when test="@doZaplaty='1' or boolean(@dataDo)=false or @dataDo = ''">
+                                      <xsl:when
+                                        test="@doZaplaty='1' or boolean(@dataDo)=false or @dataDo = ''">
                                         <span>
                                           <xsl:text> do dnia zapłaty</xsl:text>
                                         </span>
@@ -1405,7 +1536,8 @@
                                   <span>
                                     <xsl:text>umownymi w wysokości czterokrotności stopy lombardowej NBP rocznie ale nie więcej niż w wysokości odsetek maksymalnych za opóźnienie </xsl:text>
                                     <xsl:choose>
-                                      <xsl:when test="@odWniesienia='1' or boolean(@dataOd)=false or @dataOd = ''">
+                                      <xsl:when
+                                        test="@odWniesienia='1' or boolean(@dataOd)=false or @dataOd = ''">
                                         <span>
                                           <xsl:text> od dnia wniesienia pozwu </xsl:text>
                                         </span>
@@ -1422,7 +1554,8 @@
                                       </xsl:otherwise>
                                     </xsl:choose>
                                     <xsl:choose>
-                                      <xsl:when test="@doZaplaty='1' or boolean(@dataDo)=false or @dataDo = ''">
+                                      <xsl:when
+                                        test="@doZaplaty='1' or boolean(@dataDo)=false or @dataDo = ''">
                                         <span>
                                           <xsl:text> do dnia zapłaty</xsl:text>
                                         </span>
@@ -1448,7 +1581,8 @@
                                     <xsl:call-template name="okresTemplate" />
                                     <xsl:text> ale nie więcej niż w wysokości czterokrotności stopy lombardowej NBP rocznie </xsl:text>
                                     <xsl:choose>
-                                      <xsl:when test="@odWniesienia='1' or boolean(@dataOd)=false or @dataOd = ''">
+                                      <xsl:when
+                                        test="@odWniesienia='1' or boolean(@dataOd)=false or @dataOd = ''">
                                         <span>
                                           <xsl:text> od dnia wniesienia pozwu </xsl:text>
                                         </span>
@@ -1470,7 +1604,8 @@
                                     <xsl:call-template name="okresTemplate" />
                                     <xsl:text> ale nie więcej niż w wysokości odsetek maksymalnych za opóźnienie od dnia 1 stycznia 2016 roku</xsl:text>
                                     <xsl:choose>
-                                      <xsl:when test="@doZaplaty='1' or boolean(@dataDo)=false or @dataDo = ''">
+                                      <xsl:when
+                                        test="@doZaplaty='1' or boolean(@dataDo)=false or @dataDo = ''">
                                         <span>
                                           <xsl:text> do dnia zapłaty</xsl:text>
                                         </span>
@@ -1492,7 +1627,8 @@
                                   <span>
                                     <xsl:text>ustawowymi za opóźnienie w transakcjach handlowych </xsl:text>
                                     <xsl:choose>
-                                      <xsl:when test="@odWniesienia='1' or boolean(@dataOd)=false or @dataOd = ''">
+                                      <xsl:when
+                                        test="@odWniesienia='1' or boolean(@dataOd)=false or @dataOd = ''">
                                         <span>
                                           <xsl:text> od dnia wniesienia pozwu </xsl:text>
                                         </span>
@@ -1509,7 +1645,8 @@
                                       </xsl:otherwise>
                                     </xsl:choose>
                                     <xsl:choose>
-                                      <xsl:when test="@doZaplaty='1' or boolean(@dataDo)=false or @dataDo = ''">
+                                      <xsl:when
+                                        test="@doZaplaty='1' or boolean(@dataDo)=false or @dataDo = ''">
                                         <span>
                                           <xsl:text> do dnia zapłaty</xsl:text>
                                         </span>
@@ -1531,7 +1668,8 @@
                                   <span>
                                     <xsl:text>ustawowymi </xsl:text>
                                     <xsl:choose>
-                                      <xsl:when test="@odWniesienia='1' or boolean(@dataOd)=false or @dataOd = ''">
+                                      <xsl:when
+                                        test="@odWniesienia='1' or boolean(@dataOd)=false or @dataOd = ''">
                                         <span>
                                           <xsl:text> od dnia wniesienia pozwu </xsl:text>
                                         </span>
@@ -1549,7 +1687,8 @@
                                     </xsl:choose>
                                     <xsl:text> do dnia 31 grudnia 2015 roku i odsetkami ustawowymi za opóźnienie w transakcjach handlowych od dnia 1 stycznia 2016 roku</xsl:text>
                                     <xsl:choose>
-                                      <xsl:when test="@doZaplaty='1' or boolean(@dataDo)=false or @dataDo = ''">
+                                      <xsl:when
+                                        test="@doZaplaty='1' or boolean(@dataDo)=false or @dataDo = ''">
                                         <span>
                                           <xsl:text> do dnia zapłaty</xsl:text>
                                         </span>
@@ -1571,7 +1710,8 @@
                                   <span>
                                     <xsl:text>w wysokości odsetek za zwłokę określanej na podstawie art. 56 § 1 ustawy z dnia 29 sierpnia 1997 r. - Ordynacja podatkowa </xsl:text>
                                     <xsl:choose>
-                                      <xsl:when test="@odWniesienia='1' or boolean(@dataOd)=false or @dataOd = ''">
+                                      <xsl:when
+                                        test="@odWniesienia='1' or boolean(@dataOd)=false or @dataOd = ''">
                                         <span>
                                           <xsl:text> od dnia wniesienia pozwu </xsl:text>
                                         </span>
@@ -1589,7 +1729,8 @@
                                     </xsl:choose>
                                     <xsl:text> do dnia 31 grudnia 2015 roku i odsetkami ustawowymi za opóźnienie w transakcjach handlowych od dnia 1 stycznia 2016 roku</xsl:text>
                                     <xsl:choose>
-                                      <xsl:when test="@doZaplaty='1' or boolean(@dataDo)=false or @dataDo = ''">
+                                      <xsl:when
+                                        test="@doZaplaty='1' or boolean(@dataDo)=false or @dataDo = ''">
                                         <span>
                                           <xsl:text> do dnia zapłaty</xsl:text>
                                         </span>
@@ -1616,13 +1757,15 @@
                               <span>
                                 <xsl:text> </xsl:text>
                               </span>
-                              <xsl:if test="number(translate(translate(string(@kwota),',','.'),' ',''))!=0 and number(translate(translate(string(@kwota),',','.'),' ',''))!=../../@wartosc">
+                              <xsl:if
+                                test="number(translate(translate(string(@kwota),',','.'),' ',''))!=0 and number(translate(translate(string(@kwota),',','.'),' ',''))!=../../@wartosc">
                                 <xsl:for-each select="@kwota">
                                   <span>
                                     <xsl:text> od kwoty </xsl:text>
                                   </span>
                                   <span>
-                                    <xsl:value-of select="format-number(number(translate(translate(string(.), ' ',''),',','.')), '### ##0,00', 'european')" />
+                                    <xsl:value-of
+                                      select="format-number(number(translate(translate(string(.), ' ',''),',','.')), '### ##0,00', 'european')" />
                                   </span>
                                 </xsl:for-each>
                                 <span>
@@ -1636,7 +1779,8 @@
                                 <xsl:text> </xsl:text>
                               </span>
                             </xsl:for-each>
-                            <xsl:for-each select="curr:OkresOdsetkowy[(@czyUstawowe=0 or @czyUstawowe=3) ]">
+                            <xsl:for-each
+                              select="curr:OkresOdsetkowy[(@czyUstawowe=0 or @czyUstawowe=3) ]">
                               <xsl:choose>
                                 <xsl:when test="@czyUstawowe=0">
                                   <span>
@@ -1653,7 +1797,8 @@
                                 <xsl:text> </xsl:text>
                               </span>
                               <xsl:choose>
-                                <xsl:when test="@odWniesienia='1' or boolean(@dataOd)=false or @dataOd = ''">
+                                <xsl:when
+                                  test="@odWniesienia='1' or boolean(@dataOd)=false or @dataOd = ''">
                                   <span>
                                     <xsl:text> od dnia wniesienia pozwu </xsl:text>
                                   </span>
@@ -1670,7 +1815,8 @@
                                 </xsl:otherwise>
                               </xsl:choose>
                               <xsl:choose>
-                                <xsl:when test="@doZaplaty='1' or boolean(@dataDo)=false or @dataDo = ''">
+                                <xsl:when
+                                  test="@doZaplaty='1' or boolean(@dataDo)=false or @dataDo = ''">
                                   <span>
                                     <xsl:text> do dnia zapłaty</xsl:text>
                                   </span>
@@ -1686,13 +1832,15 @@
                                   </xsl:for-each>
                                 </xsl:otherwise>
                               </xsl:choose>
-                              <xsl:if test="number(translate(translate(string(@kwota),',','.'),' ',''))!=0 and number(translate(translate(string(@kwota),',','.'),' ',''))!=../../@wartosc">
+                              <xsl:if
+                                test="number(translate(translate(string(@kwota),',','.'),' ',''))!=0 and number(translate(translate(string(@kwota),',','.'),' ',''))!=../../@wartosc">
                                 <xsl:for-each select="@kwota">
                                   <span>
                                     <xsl:text> od kwoty </xsl:text>
                                   </span>
                                   <span>
-                                    <xsl:value-of select="format-number(number(translate(translate(string(.), ' ',''),',','.')), '### ##0,00', 'european')" />
+                                    <xsl:value-of
+                                      select="format-number(number(translate(translate(string(.), ' ',''),',','.')), '### ##0,00', 'european')" />
                                   </span>
                                 </xsl:for-each>
                                 <span>
@@ -1706,17 +1854,20 @@
                                 </span>
                               </xsl:if>
                             </xsl:for-each>
-                            <xsl:for-each select="curr:OkresOdsetkowy[(@czyUstawowe=1 or @czyUstawowe=2) and name(@dataDo)]">
+                            <xsl:for-each
+                              select="curr:OkresOdsetkowy[(@czyUstawowe=1 or @czyUstawowe=2) and name(@dataDo)]">
                               <span>
                                 <xsl:text>umownymi </xsl:text>
                               </span>
-                              <xsl:if test="number(translate(translate(string(@kwota),',','.'),' ',''))!=0 and number(translate(translate(string(@kwota),',','.'),' ',''))!=../../@wartosc">
+                              <xsl:if
+                                test="number(translate(translate(string(@kwota),',','.'),' ',''))!=0 and number(translate(translate(string(@kwota),',','.'),' ',''))!=../../@wartosc">
                                 <xsl:for-each select="@kwota">
                                   <span>
                                     <xsl:text> od kwoty </xsl:text>
                                   </span>
                                   <span>
-                                    <xsl:value-of select="format-number(number(translate(translate(string(.), ' ',''),',','.')), '### ##0,00', 'european')" />
+                                    <xsl:value-of
+                                      select="format-number(number(translate(translate(string(.), ' ',''),',','.')), '### ##0,00', 'european')" />
                                   </span>
                                 </xsl:for-each>
                                 <span>
@@ -1729,7 +1880,8 @@
                                   <xsl:text> </xsl:text>
                                 </span>
                               </xsl:if>
-                              <xsl:for-each select="@stopa">
+                              <xsl:for-each
+                                select="@stopa">
                                 <span>
                                   <xsl:text> </xsl:text>
                                 </span>
@@ -1743,35 +1895,40 @@
                               <span>
                                 <xsl:text> </xsl:text>
                               </span>
-                              <xsl:if test="@okres=0">
+                              <xsl:if
+                                test="@okres=0">
                                 <xsl:for-each select="@okres">
                                   <span>
                                     <xsl:text> rocznie </xsl:text>
                                   </span>
                                 </xsl:for-each>
                               </xsl:if>
-                              <xsl:if test="@okres=1">
+                              <xsl:if
+                                test="@okres=1">
                                 <xsl:for-each select="@okres">
                                   <span>
                                     <xsl:text> kwartalnie </xsl:text>
                                   </span>
                                 </xsl:for-each>
                               </xsl:if>
-                              <xsl:if test="@okres=2">
+                              <xsl:if
+                                test="@okres=2">
                                 <xsl:for-each select="@okres">
                                   <span>
                                     <xsl:text> miesięcznie</xsl:text>
                                   </span>
                                 </xsl:for-each>
                               </xsl:if>
-                              <xsl:if test="@okres=3">
+                              <xsl:if
+                                test="@okres=3">
                                 <xsl:for-each select="@okres">
                                   <span>
                                     <xsl:text> tygodniowo</xsl:text>
                                   </span>
                                 </xsl:for-each>
                               </xsl:if>
-                              <xsl:if test="@okres=4">
+                              <xsl:if
+                                test="@okres=4">
                                 <xsl:for-each select="@okres">
                                   <span>
                                     <xsl:text> dziennie</xsl:text>
@@ -1779,7 +1936,8 @@
                                 </xsl:for-each>
                               </xsl:if>
                               <xsl:choose>
-                                <xsl:when test="@odWniesienia='1' or boolean(@dataOd)=false or @dataOd = ''">
+                                <xsl:when
+                                  test="@odWniesienia='1' or boolean(@dataOd)=false or @dataOd = ''">
                                   <span>
                                     <xsl:text> od dnia wniesienia pozwu </xsl:text>
                                   </span>
@@ -1795,7 +1953,8 @@
                                   </xsl:for-each>
                                 </xsl:otherwise>
                               </xsl:choose>
-                              <xsl:for-each select="@dataDo">
+                              <xsl:for-each
+                                select="@dataDo">
                                 <br />
                                 <span>
                                   <xsl:text> do </xsl:text>
@@ -1804,23 +1963,27 @@
                                   <xsl:value-of select="string(.)" />
                                 </span>
                               </xsl:for-each>
-                              <xsl:if test="@czyUstawowe=2">
+                              <xsl:if
+                                test="@czyUstawowe=2">
                                 <span>
                                   <xsl:text> ale nie więcej niż czterokrotność stopy lombardowej NBP</xsl:text>
                                 </span>
                               </xsl:if>
                             </xsl:for-each>
-                            <xsl:for-each select="curr:OkresOdsetkowy[(@czyUstawowe=1 or @czyUstawowe=2) and (not(name(@dataDo)) or name(@dataDo)='')]">
+                            <xsl:for-each
+                              select="curr:OkresOdsetkowy[(@czyUstawowe=1 or @czyUstawowe=2) and (not(name(@dataDo)) or name(@dataDo)='')]">
                               <span>
                                 <xsl:text>umownymi </xsl:text>
                               </span>
-                              <xsl:if test="number(translate(translate(string(@kwota),',','.'),' ',''))!=0 and number(translate(translate(string(@kwota),',','.'),' ',''))!=../../@wartosc">
+                              <xsl:if
+                                test="number(translate(translate(string(@kwota),',','.'),' ',''))!=0 and number(translate(translate(string(@kwota),',','.'),' ',''))!=../../@wartosc">
                                 <xsl:for-each select="@kwota">
                                   <span>
                                     <xsl:text> od kwoty </xsl:text>
                                   </span>
                                   <span>
-                                    <xsl:value-of select="format-number(number(translate(translate(string(.), ' ',''),',','.')), '### ##0,00', 'european')" />
+                                    <xsl:value-of
+                                      select="format-number(number(translate(translate(string(.), ' ',''),',','.')), '### ##0,00', 'european')" />
                                   </span>
                                 </xsl:for-each>
                                 <span>
@@ -1833,7 +1996,8 @@
                               <span>
                                 <xsl:text>  </xsl:text>
                               </span>
-                              <xsl:for-each select="@stopa">
+                              <xsl:for-each
+                                select="@stopa">
                                 <span>
                                   <xsl:value-of select="string(.)" />
                                 </span>
@@ -1841,35 +2005,40 @@
                                   <xsl:text> %</xsl:text>
                                 </span>
                               </xsl:for-each>
-                              <xsl:if test="@okres=0">
+                              <xsl:if
+                                test="@okres=0">
                                 <xsl:for-each select="@okres">
                                   <span>
                                     <xsl:text> rocznie </xsl:text>
                                   </span>
                                 </xsl:for-each>
                               </xsl:if>
-                              <xsl:if test="@okres=1">
+                              <xsl:if
+                                test="@okres=1">
                                 <xsl:for-each select="@okres">
                                   <span>
                                     <xsl:text> kwartalnie </xsl:text>
                                   </span>
                                 </xsl:for-each>
                               </xsl:if>
-                              <xsl:if test="@okres=2">
+                              <xsl:if
+                                test="@okres=2">
                                 <xsl:for-each select="@okres">
                                   <span>
                                     <xsl:text> miesięcznie</xsl:text>
                                   </span>
                                 </xsl:for-each>
                               </xsl:if>
-                              <xsl:if test="@okres=3">
+                              <xsl:if
+                                test="@okres=3">
                                 <xsl:for-each select="@okres">
                                   <span>
                                     <xsl:text> tygodniowo</xsl:text>
                                   </span>
                                 </xsl:for-each>
                               </xsl:if>
-                              <xsl:if test="@okres=4">
+                              <xsl:if
+                                test="@okres=4">
                                 <xsl:for-each select="@okres">
                                   <span>
                                     <xsl:text> dziennie</xsl:text>
@@ -1880,7 +2049,8 @@
                                 <xsl:text> </xsl:text>
                               </span>
                               <xsl:choose>
-                                <xsl:when test="@odWniesienia='1' or boolean(@dataOd)=false or @dataOd = ''">
+                                <xsl:when
+                                  test="@odWniesienia='1' or boolean(@dataOd)=false or @dataOd = ''">
                                   <span>
                                     <xsl:text> od dnia wniesienia pozwu </xsl:text>
                                   </span>
@@ -1899,7 +2069,8 @@
                               <span>
                                 <xsl:text> do dnia zapłaty </xsl:text>
                               </span>
-                              <xsl:if test="@czyUstawowe=2">
+                              <xsl:if
+                                test="@czyUstawowe=2">
                                 <span>
                                   <xsl:text> ale nie więcej niż czterokrotność stopy lombardowej NBP </xsl:text>
                                 </span>
@@ -1930,7 +2101,8 @@
                             </td>
                           </xsl:when>
                           <xsl:otherwise>
-                            <xsl:if test="count( ../curr:Roszczenie[@dataWymagalnosci] )&gt;0  and $ukryjDatWymagalnosci != 'true'">
+                            <xsl:if
+                              test="count( ../curr:Roszczenie[@dataWymagalnosci] )&gt;0  and $ukryjDatWymagalnosci != 'true'">
                               <td>
                                 <span />
                               </td>
@@ -1955,7 +2127,8 @@
                         <td align="right">
                           <xsl:for-each select="@wartosc">
                             <span>
-                              <xsl:value-of select="format-number(number(translate(translate(string(.), ' ',''),',','.')), '### ##0,00', 'european')" />
+                              <xsl:value-of
+                                select="format-number(number(translate(translate(string(.), ' ',''),',','.')), '### ##0,00', 'european')" />
                             </span>
                           </xsl:for-each>
                         </td>
@@ -1967,7 +2140,8 @@
                           </xsl:for-each>
                         </td>
                         <td style="width:1px; ">
-                          <xsl:if test="(@solidarnie=0 or (@solidarnie=1 and (string-length( @opis )=0 or name(@opis)=''))) and (count( ../../curr:ListaPowodow/curr:Powod )+count(../../curr:ListaPozwanych/curr:Pozwany)&gt;2)">
+                          <xsl:if
+                            test="(@solidarnie=0 or (@solidarnie=1 and (string-length( @opis )=0 or name(@opis)=''))) and (count( ../../curr:ListaPowodow/curr:Powod )+count(../../curr:ListaPozwanych/curr:Pozwany)&gt;2)">
                             <span>
                               <xsl:text>solidarnie</xsl:text>
                             </span>
@@ -2020,7 +2194,8 @@
                                     <xsl:call-template name="okresTemplate" />
                                     <xsl:text> ale nie więcej niż w wysokości odsetek maksymalnych </xsl:text>
                                     <xsl:choose>
-                                      <xsl:when test="@odWniesienia='1' or boolean(@dataOd)=false or @dataOd = ''">
+                                      <xsl:when
+                                        test="@odWniesienia='1' or boolean(@dataOd)=false or @dataOd = ''">
                                         <span>
                                           <xsl:text> od dnia wniesienia pozwu </xsl:text>
                                         </span>
@@ -2037,7 +2212,8 @@
                                       </xsl:otherwise>
                                     </xsl:choose>
                                     <xsl:choose>
-                                      <xsl:when test="@doZaplaty='1' or boolean(@dataDo)=false or @dataDo = ''">
+                                      <xsl:when
+                                        test="@doZaplaty='1' or boolean(@dataDo)=false or @dataDo = ''">
                                         <span>
                                           <xsl:text> do dnia zapłaty</xsl:text>
                                         </span>
@@ -2059,7 +2235,8 @@
                                   <span>
                                     <xsl:text>umownymi w wysokości czterokrotności stopy lombardowej NBP rocznie ale nie więcej niż w wysokości odsetek maksymalnych</xsl:text>
                                     <xsl:choose>
-                                      <xsl:when test="@odWniesienia='1' or boolean(@dataOd)=false or @dataOd = ''">
+                                      <xsl:when
+                                        test="@odWniesienia='1' or boolean(@dataOd)=false or @dataOd = ''">
                                         <span>
                                           <xsl:text> od dnia wniesienia pozwu </xsl:text>
                                         </span>
@@ -2078,7 +2255,8 @@
                                   </span>
                                   <span>
                                     <xsl:choose>
-                                      <xsl:when test="@doZaplaty='1' or boolean(@dataDo)=false or @dataDo = ''">
+                                      <xsl:when
+                                        test="@doZaplaty='1' or boolean(@dataDo)=false or @dataDo = ''">
                                         <span>
                                           <xsl:text> do dnia zapłaty</xsl:text>
                                         </span>
@@ -2100,7 +2278,8 @@
                                   <span>
                                     <xsl:text>umownymi w wysokości czterokrotności stopy lombardowej NBP rocznie </xsl:text>
                                     <xsl:choose>
-                                      <xsl:when test="@odWniesienia='1' or boolean(@dataOd)=false or @dataOd = ''">
+                                      <xsl:when
+                                        test="@odWniesienia='1' or boolean(@dataOd)=false or @dataOd = ''">
                                         <span>
                                           <xsl:text> od dnia wniesienia pozwu </xsl:text>
                                         </span>
@@ -2118,7 +2297,8 @@
                                     </xsl:choose>
                                     <xsl:text> do dnia 31 grudnia 2015 roku i odsetkami umownymi w wysokości czterokrotności stopy lombardowej NBP rocznie ale nie więcej niż w wysokości odsetek maksymalnych od dnia 1 stycznia 2016 roku </xsl:text>
                                     <xsl:choose>
-                                      <xsl:when test="@doZaplaty='1' or boolean(@dataDo)=false or @dataDo = ''">
+                                      <xsl:when
+                                        test="@doZaplaty='1' or boolean(@dataDo)=false or @dataDo = ''">
                                         <span>
                                           <xsl:text> do dnia zapłaty</xsl:text>
                                         </span>
@@ -2140,7 +2320,8 @@
                                   <span>
                                     <xsl:text>umownymi w wysokości odsetek maksymalnych </xsl:text>
                                     <xsl:choose>
-                                      <xsl:when test="@odWniesienia='1' or boolean(@dataOd)=false or @dataOd = ''">
+                                      <xsl:when
+                                        test="@odWniesienia='1' or boolean(@dataOd)=false or @dataOd = ''">
                                         <span>
                                           <xsl:text> od dnia wniesienia pozwu </xsl:text>
                                         </span>
@@ -2157,7 +2338,8 @@
                                       </xsl:otherwise>
                                     </xsl:choose>
                                     <xsl:choose>
-                                      <xsl:when test="@doZaplaty='1' or boolean(@dataDo)=false or @dataDo = ''">
+                                      <xsl:when
+                                        test="@doZaplaty='1' or boolean(@dataDo)=false or @dataDo = ''">
                                         <span>
                                           <xsl:text> do dnia zapłaty</xsl:text>
                                         </span>
@@ -2179,7 +2361,8 @@
                                   <span>
                                     <xsl:text>ustawowymi za opóźnienie </xsl:text>
                                     <xsl:choose>
-                                      <xsl:when test="@odWniesienia='1' or boolean(@dataOd)=false or @dataOd = ''">
+                                      <xsl:when
+                                        test="@odWniesienia='1' or boolean(@dataOd)=false or @dataOd = ''">
                                         <span>
                                           <xsl:text> od dnia wniesienia pozwu </xsl:text>
                                         </span>
@@ -2196,7 +2379,8 @@
                                       </xsl:otherwise>
                                     </xsl:choose>
                                     <xsl:choose>
-                                      <xsl:when test="@doZaplaty='1' or boolean(@dataDo)=false or @dataDo = ''">
+                                      <xsl:when
+                                        test="@doZaplaty='1' or boolean(@dataDo)=false or @dataDo = ''">
                                         <span>
                                           <xsl:text> do dnia zapłaty</xsl:text>
                                         </span>
@@ -2218,7 +2402,8 @@
                                   <span>
                                     <xsl:text>ustawowymi </xsl:text>
                                     <xsl:choose>
-                                      <xsl:when test="@odWniesienia='1' or boolean(@dataOd)=false or @dataOd = ''">
+                                      <xsl:when
+                                        test="@odWniesienia='1' or boolean(@dataOd)=false or @dataOd = ''">
                                         <span>
                                           <xsl:text> od dnia wniesienia pozwu </xsl:text>
                                         </span>
@@ -2236,7 +2421,8 @@
                                     </xsl:choose>
                                     <xsl:text> od dnia 31 grudnia 2015 roku i odsetkami ustawowymi za opóźnienie od dnia 1 stycznia 2016 roku</xsl:text>
                                     <xsl:choose>
-                                      <xsl:when test="@doZaplaty='1' or boolean(@dataDo)=false or @dataDo = ''">
+                                      <xsl:when
+                                        test="@doZaplaty='1' or boolean(@dataDo)=false or @dataDo = ''">
                                         <span>
                                           <xsl:text> do dnia zapłaty</xsl:text>
                                         </span>
@@ -2262,7 +2448,8 @@
                                     <xsl:call-template name="okresTemplate" />
                                     <xsl:text>  ale nie więcej niż w wysokości odsetek maksymalnych za opóźnienie </xsl:text>
                                     <xsl:choose>
-                                      <xsl:when test="@odWniesienia='1' or boolean(@dataOd)=false or @dataOd = ''">
+                                      <xsl:when
+                                        test="@odWniesienia='1' or boolean(@dataOd)=false or @dataOd = ''">
                                         <span>
                                           <xsl:text> od dnia wniesienia pozwu </xsl:text>
                                         </span>
@@ -2279,7 +2466,8 @@
                                       </xsl:otherwise>
                                     </xsl:choose>
                                     <xsl:choose>
-                                      <xsl:when test="@doZaplaty='1' or boolean(@dataDo)=false or @dataDo = ''">
+                                      <xsl:when
+                                        test="@doZaplaty='1' or boolean(@dataDo)=false or @dataDo = ''">
                                         <span>
                                           <xsl:text> do dnia zapłaty</xsl:text>
                                         </span>
@@ -2301,7 +2489,8 @@
                                   <span>
                                     <xsl:text>umownymi w wysokości odsetek maksymalnych za opóźnienie </xsl:text>
                                     <xsl:choose>
-                                      <xsl:when test="@odWniesienia='1' or boolean(@dataOd)=false or @dataOd = ''">
+                                      <xsl:when
+                                        test="@odWniesienia='1' or boolean(@dataOd)=false or @dataOd = ''">
                                         <span>
                                           <xsl:text> od dnia wniesienia pozwu </xsl:text>
                                         </span>
@@ -2318,7 +2507,8 @@
                                       </xsl:otherwise>
                                     </xsl:choose>
                                     <xsl:choose>
-                                      <xsl:when test="@doZaplaty='1' or boolean(@dataDo)=false or @dataDo = ''">
+                                      <xsl:when
+                                        test="@doZaplaty='1' or boolean(@dataDo)=false or @dataDo = ''">
                                         <span>
                                           <xsl:text> do dnia zapłaty</xsl:text>
                                         </span>
@@ -2340,7 +2530,8 @@
                                   <span>
                                     <xsl:text>umownymi w wysokości czterokrotności stopy lombardowej NBP rocznie </xsl:text>
                                     <xsl:choose>
-                                      <xsl:when test="@odWniesienia='1' or boolean(@dataOd)=false or @dataOd = ''">
+                                      <xsl:when
+                                        test="@odWniesienia='1' or boolean(@dataOd)=false or @dataOd = ''">
                                         <span>
                                           <xsl:text> od dnia wniesienia pozwu </xsl:text>
                                         </span>
@@ -2358,7 +2549,8 @@
                                     </xsl:choose>
                                     <xsl:text> do dnia 31 grudnia 2015 roku i odsetkami umownymi w wysokości czterokrotności stopy lombardowej NBP rocznie ale nie więcej niż w wysokości odsetek maksymalnych za opóźnienie od dnia 1 stycznia 2016 roku</xsl:text>
                                     <xsl:choose>
-                                      <xsl:when test="@doZaplaty='1' or boolean(@dataDo)=false or @dataDo = ''">
+                                      <xsl:when
+                                        test="@doZaplaty='1' or boolean(@dataDo)=false or @dataDo = ''">
                                         <span>
                                           <xsl:text> do dnia zapłaty</xsl:text>
                                         </span>
@@ -2380,7 +2572,8 @@
                                   <span>
                                     <xsl:text>umownymi w wysokości czterokrotności stopy lombardowej NBP rocznie ale nie więcej niż w wysokości odsetek maksymalnych za opóźnienie </xsl:text>
                                     <xsl:choose>
-                                      <xsl:when test="@odWniesienia='1' or boolean(@dataOd)=false or @dataOd = ''">
+                                      <xsl:when
+                                        test="@odWniesienia='1' or boolean(@dataOd)=false or @dataOd = ''">
                                         <span>
                                           <xsl:text> od dnia wniesienia pozwu </xsl:text>
                                         </span>
@@ -2397,7 +2590,8 @@
                                       </xsl:otherwise>
                                     </xsl:choose>
                                     <xsl:choose>
-                                      <xsl:when test="@doZaplaty='1' or boolean(@dataDo)=false or @dataDo = ''">
+                                      <xsl:when
+                                        test="@doZaplaty='1' or boolean(@dataDo)=false or @dataDo = ''">
                                         <span>
                                           <xsl:text> do dnia zapłaty</xsl:text>
                                         </span>
@@ -2423,7 +2617,8 @@
                                     <xsl:call-template name="okresTemplate" />
                                     <xsl:text> ale nie więcej niż w wysokości czterokrotności stopy lombardowej NBP rocznie </xsl:text>
                                     <xsl:choose>
-                                      <xsl:when test="@odWniesienia='1' or boolean(@dataOd)=false or @dataOd = ''">
+                                      <xsl:when
+                                        test="@odWniesienia='1' or boolean(@dataOd)=false or @dataOd = ''">
                                         <span>
                                           <xsl:text> od dnia wniesienia pozwu </xsl:text>
                                         </span>
@@ -2445,7 +2640,8 @@
                                     <xsl:call-template name="okresTemplate" />
                                     <xsl:text> ale nie więcej niż w wysokości odsetek maksymalnych za opóźnienie od dnia 1 stycznia 2016 roku</xsl:text>
                                     <xsl:choose>
-                                      <xsl:when test="@doZaplaty='1' or boolean(@dataDo)=false or @dataDo = ''">
+                                      <xsl:when
+                                        test="@doZaplaty='1' or boolean(@dataDo)=false or @dataDo = ''">
                                         <span>
                                           <xsl:text> do dnia zapłaty</xsl:text>
                                         </span>
@@ -2467,7 +2663,8 @@
                                   <span>
                                     <xsl:text>ustawowymi za opóźnienie w transakcjach handlowych </xsl:text>
                                     <xsl:choose>
-                                      <xsl:when test="@odWniesienia='1' or boolean(@dataOd)=false or @dataOd = ''">
+                                      <xsl:when
+                                        test="@odWniesienia='1' or boolean(@dataOd)=false or @dataOd = ''">
                                         <span>
                                           <xsl:text> od dnia wniesienia pozwu </xsl:text>
                                         </span>
@@ -2484,7 +2681,8 @@
                                       </xsl:otherwise>
                                     </xsl:choose>
                                     <xsl:choose>
-                                      <xsl:when test="@doZaplaty='1' or boolean(@dataDo)=false or @dataDo = ''">
+                                      <xsl:when
+                                        test="@doZaplaty='1' or boolean(@dataDo)=false or @dataDo = ''">
                                         <span>
                                           <xsl:text> do dnia zapłaty</xsl:text>
                                         </span>
@@ -2506,7 +2704,8 @@
                                   <span>
                                     <xsl:text>ustawowymi </xsl:text>
                                     <xsl:choose>
-                                      <xsl:when test="@odWniesienia='1' or boolean(@dataOd)=false or @dataOd = ''">
+                                      <xsl:when
+                                        test="@odWniesienia='1' or boolean(@dataOd)=false or @dataOd = ''">
                                         <span>
                                           <xsl:text> od dnia wniesienia pozwu </xsl:text>
                                         </span>
@@ -2524,7 +2723,8 @@
                                     </xsl:choose>
                                     <xsl:text> do dnia 31 grudnia 2015 roku i odsetkami ustawowymi za opóźnienie w transakcjach handlowych od dnia 1 stycznia 2016 roku</xsl:text>
                                     <xsl:choose>
-                                      <xsl:when test="@doZaplaty='1' or boolean(@dataDo)=false or @dataDo = ''">
+                                      <xsl:when
+                                        test="@doZaplaty='1' or boolean(@dataDo)=false or @dataDo = ''">
                                         <span>
                                           <xsl:text> do dnia zapłaty</xsl:text>
                                         </span>
@@ -2546,7 +2746,8 @@
                                   <span>
                                     <xsl:text>w wysokości odsetek za zwłokę określanej na podstawie art. 56 § 1 ustawy z dnia 29 sierpnia 1997 r. - Ordynacja podatkowa </xsl:text>
                                     <xsl:choose>
-                                      <xsl:when test="@odWniesienia='1' or boolean(@dataOd)=false or @dataOd = ''">
+                                      <xsl:when
+                                        test="@odWniesienia='1' or boolean(@dataOd)=false or @dataOd = ''">
                                         <span>
                                           <xsl:text> od dnia wniesienia pozwu </xsl:text>
                                         </span>
@@ -2564,7 +2765,8 @@
                                     </xsl:choose>
                                     <xsl:text> do dnia 31 grudnia 2015 roku i odsetkami ustawowymi za opóźnienie w transakcjach handlowych od dnia 1 stycznia 2016 roku</xsl:text>
                                     <xsl:choose>
-                                      <xsl:when test="@doZaplaty='1' or boolean(@dataDo)=false or @dataDo = ''">
+                                      <xsl:when
+                                        test="@doZaplaty='1' or boolean(@dataDo)=false or @dataDo = ''">
                                         <span>
                                           <xsl:text> do dnia zapłaty</xsl:text>
                                         </span>
@@ -2591,13 +2793,15 @@
                               <span>
                                 <xsl:text> </xsl:text>
                               </span>
-                              <xsl:if test="number(translate(translate(string(@kwota),',','.'),' ',''))!=0 and number(translate(translate(string(@kwota),',','.'),' ',''))!=../../@wartosc">
+                              <xsl:if
+                                test="number(translate(translate(string(@kwota),',','.'),' ',''))!=0 and number(translate(translate(string(@kwota),',','.'),' ',''))!=../../@wartosc">
                                 <xsl:for-each select="@kwota">
                                   <span>
                                     <xsl:text> od kwoty </xsl:text>
                                   </span>
                                   <span>
-                                    <xsl:value-of select="format-number(number(translate(translate(string(.), ' ',''),',','.')), '### ###,00', 'european')" />
+                                    <xsl:value-of
+                                      select="format-number(number(translate(translate(string(.), ' ',''),',','.')), '### ###,00', 'european')" />
                                   </span>
                                 </xsl:for-each>
                                 <span>
@@ -2611,7 +2815,8 @@
                                 <xsl:text> </xsl:text>
                               </span>
                             </xsl:for-each>
-                            <xsl:for-each select="curr:OkresOdsetkowy[(@czyUstawowe=0 or @czyUstawowe=3) and name(@dataDo)]">
+                            <xsl:for-each
+                              select="curr:OkresOdsetkowy[(@czyUstawowe=0 or @czyUstawowe=3) and name(@dataDo)]">
                               <br />
                               <xsl:choose>
                                 <xsl:when test="@czyUstawowe=0">
@@ -2629,7 +2834,8 @@
                                 <xsl:text> </xsl:text>
                               </span>
                               <xsl:choose>
-                                <xsl:when test="@odWniesienia='1' or boolean(@dataOd)=false or @dataOd = ''">
+                                <xsl:when
+                                  test="@odWniesienia='1' or boolean(@dataOd)=false or @dataOd = ''">
                                   <span>
                                     <xsl:text> od dnia wniesienia pozwu </xsl:text>
                                   </span>
@@ -2648,7 +2854,8 @@
                               <span>
                                 <xsl:text> </xsl:text>
                               </span>
-                              <xsl:for-each select="@dataDo">
+                              <xsl:for-each
+                                select="@dataDo">
                                 <span>
                                   <xsl:text> do </xsl:text>
                                 </span>
@@ -2656,13 +2863,15 @@
                                   <xsl:value-of select="string(.)" />
                                 </span>
                               </xsl:for-each>
-                              <xsl:if test="number(translate(translate(string(@kwota),',','.'),' ',''))!=0 and number(translate(translate(string(@kwota),',','.'),' ',''))!=../../@wartosc">
+                              <xsl:if
+                                test="number(translate(translate(string(@kwota),',','.'),' ',''))!=0 and number(translate(translate(string(@kwota),',','.'),' ',''))!=../../@wartosc">
                                 <xsl:for-each select="@kwota">
                                   <span>
                                     <xsl:text> od kwoty </xsl:text>
                                   </span>
                                   <span>
-                                    <xsl:value-of select="format-number(number(translate(translate(string(.), ' ',''),',','.')), '### ##0,00', 'european')" />
+                                    <xsl:value-of
+                                      select="format-number(number(translate(translate(string(.), ' ',''),',','.')), '### ##0,00', 'european')" />
                                   </span>
                                 </xsl:for-each>
                                 <span>
@@ -2676,7 +2885,8 @@
                                 <xsl:text> </xsl:text>
                               </span>
                             </xsl:for-each>
-                            <xsl:for-each select="curr:OkresOdsetkowy[(@czyUstawowe=0 or @czyUstawowe=3) and (not(name(@dataDo)) or name(@dataDo)='')]">
+                            <xsl:for-each
+                              select="curr:OkresOdsetkowy[(@czyUstawowe=0 or @czyUstawowe=3) and (not(name(@dataDo)) or name(@dataDo)='')]">
                               <br />
                               <xsl:choose>
                                 <xsl:when test="@czyUstawowe=0">
@@ -2694,7 +2904,8 @@
                                 <xsl:text> </xsl:text>
                               </span>
                               <xsl:choose>
-                                <xsl:when test="@odWniesienia='1' or boolean(@dataOd)=false or @dataOd = ''">
+                                <xsl:when
+                                  test="@odWniesienia='1' or boolean(@dataOd)=false or @dataOd = ''">
                                   <span>
                                     <xsl:text> od dnia wniesienia pozwu </xsl:text>
                                   </span>
@@ -2713,13 +2924,15 @@
                               <span>
                                 <xsl:text> do dnia zapłaty</xsl:text>
                               </span>
-                              <xsl:if test="number(translate(translate(string(@kwota),',','.'),' ',''))!=0 and number(translate(translate(string(@kwota),',','.'),' ',''))!=../../@wartosc">
+                              <xsl:if
+                                test="number(translate(translate(string(@kwota),',','.'),' ',''))!=0 and number(translate(translate(string(@kwota),',','.'),' ',''))!=../../@wartosc">
                                 <xsl:for-each select="@kwota">
                                   <span>
                                     <xsl:text> od kwoty </xsl:text>
                                   </span>
                                   <span>
-                                    <xsl:value-of select="format-number(number(translate(translate(string(.), ' ',''),',','.')), '### ##0,00', 'european')" />
+                                    <xsl:value-of
+                                      select="format-number(number(translate(translate(string(.), ' ',''),',','.')), '### ##0,00', 'european')" />
                                   </span>
                                 </xsl:for-each>
                                 <span>
@@ -2733,18 +2946,21 @@
                                 </span>
                               </xsl:if>
                             </xsl:for-each>
-                            <xsl:for-each select="curr:OkresOdsetkowy[(@czyUstawowe=1 or @czyUstawowe=2) and name(@dataDo)]">
+                            <xsl:for-each
+                              select="curr:OkresOdsetkowy[(@czyUstawowe=1 or @czyUstawowe=2) and name(@dataDo)]">
                               <br />
                               <span>
                                 <xsl:text>umownymi </xsl:text>
                               </span>
-                              <xsl:if test="number(translate(translate(string(@kwota),',','.'),' ',''))!=0 and number(translate(translate(string(@kwota),',','.'),' ',''))!=../../@wartosc">
+                              <xsl:if
+                                test="number(translate(translate(string(@kwota),',','.'),' ',''))!=0 and number(translate(translate(string(@kwota),',','.'),' ',''))!=../../@wartosc">
                                 <xsl:for-each select="@kwota">
                                   <span>
                                     <xsl:text> od kwoty </xsl:text>
                                   </span>
                                   <span>
-                                    <xsl:value-of select="format-number(number(translate(translate(string(.), ' ',''),',','.')), '### ##0,00', 'european')" />
+                                    <xsl:value-of
+                                      select="format-number(number(translate(translate(string(.), ' ',''),',','.')), '### ##0,00', 'european')" />
                                   </span>
                                 </xsl:for-each>
                                 <span>
@@ -2757,7 +2973,8 @@
                                   <xsl:text> </xsl:text>
                                 </span>
                               </xsl:if>
-                              <xsl:for-each select="@stopa">
+                              <xsl:for-each
+                                select="@stopa">
                                 <span>
                                   <xsl:text> </xsl:text>
                                 </span>
@@ -2771,35 +2988,40 @@
                               <span>
                                 <xsl:text> </xsl:text>
                               </span>
-                              <xsl:if test="@okres=0">
+                              <xsl:if
+                                test="@okres=0">
                                 <xsl:for-each select="@okres">
                                   <span>
                                     <xsl:text> rocznie </xsl:text>
                                   </span>
                                 </xsl:for-each>
                               </xsl:if>
-                              <xsl:if test="@okres=1">
+                              <xsl:if
+                                test="@okres=1">
                                 <xsl:for-each select="@okres">
                                   <span>
                                     <xsl:text> kwartalnie </xsl:text>
                                   </span>
                                 </xsl:for-each>
                               </xsl:if>
-                              <xsl:if test="@okres=2">
+                              <xsl:if
+                                test="@okres=2">
                                 <xsl:for-each select="@okres">
                                   <span>
                                     <xsl:text> miesięcznie</xsl:text>
                                   </span>
                                 </xsl:for-each>
                               </xsl:if>
-                              <xsl:if test="@okres=3">
+                              <xsl:if
+                                test="@okres=3">
                                 <xsl:for-each select="@okres">
                                   <span>
                                     <xsl:text> tygodniowo</xsl:text>
                                   </span>
                                 </xsl:for-each>
                               </xsl:if>
-                              <xsl:if test="@okres=4">
+                              <xsl:if
+                                test="@okres=4">
                                 <xsl:for-each select="@okres">
                                   <span>
                                     <xsl:text> dziennie</xsl:text>
@@ -2807,7 +3029,8 @@
                                 </xsl:for-each>
                               </xsl:if>
                               <xsl:choose>
-                                <xsl:when test="@odWniesienia='1' or boolean(@dataOd)=false or @dataOd = ''">
+                                <xsl:when
+                                  test="@odWniesienia='1' or boolean(@dataOd)=false or @dataOd = ''">
                                   <span>
                                     <xsl:text> od dnia wniesienia pozwu </xsl:text>
                                   </span>
@@ -2823,7 +3046,8 @@
                                   </xsl:for-each>
                                 </xsl:otherwise>
                               </xsl:choose>
-                              <xsl:for-each select="@dataDo">
+                              <xsl:for-each
+                                select="@dataDo">
                                 <br />
                                 <span>
                                   <xsl:text> do </xsl:text>
@@ -2832,24 +3056,28 @@
                                   <xsl:value-of select="string(.)" />
                                 </span>
                               </xsl:for-each>
-                              <xsl:if test="@czyUstawowe=2">
+                              <xsl:if
+                                test="@czyUstawowe=2">
                                 <span>
                                   <xsl:text> ale nie więcej niż czterokrotność stopy lombardowej NBP</xsl:text>
                                 </span>
                               </xsl:if>
                             </xsl:for-each>
-                            <xsl:for-each select="curr:OkresOdsetkowy[(@czyUstawowe=1 or @czyUstawowe=2) and (not(name(@dataDo)) or name(@dataDo)='')]">
+                            <xsl:for-each
+                              select="curr:OkresOdsetkowy[(@czyUstawowe=1 or @czyUstawowe=2) and (not(name(@dataDo)) or name(@dataDo)='')]">
                               <br />
                               <span>
                                 <xsl:text>umownymi </xsl:text>
                               </span>
-                              <xsl:if test="number(translate(translate(string(@kwota),',','.'),' ',''))!=0 and number(translate(translate(string(@kwota),',','.'),' ',''))!=../../@wartosc">
+                              <xsl:if
+                                test="number(translate(translate(string(@kwota),',','.'),' ',''))!=0 and number(translate(translate(string(@kwota),',','.'),' ',''))!=../../@wartosc">
                                 <xsl:for-each select="@kwota">
                                   <span>
                                     <xsl:text> od kwoty </xsl:text>
                                   </span>
                                   <span>
-                                    <xsl:value-of select="format-number(number(translate(translate(string(.), ' ',''),',','.')), '### ##0,00', 'european')" />
+                                    <xsl:value-of
+                                      select="format-number(number(translate(translate(string(.), ' ',''),',','.')), '### ##0,00', 'european')" />
                                   </span>
                                 </xsl:for-each>
                                 <span>
@@ -2862,7 +3090,8 @@
                               <span>
                                 <xsl:text>  </xsl:text>
                               </span>
-                              <xsl:for-each select="@stopa">
+                              <xsl:for-each
+                                select="@stopa">
                                 <span>
                                   <xsl:value-of select="string(.)" />
                                 </span>
@@ -2870,35 +3099,40 @@
                                   <xsl:text> %</xsl:text>
                                 </span>
                               </xsl:for-each>
-                              <xsl:if test="@okres=0">
+                              <xsl:if
+                                test="@okres=0">
                                 <xsl:for-each select="@okres">
                                   <span>
                                     <xsl:text> rocznie </xsl:text>
                                   </span>
                                 </xsl:for-each>
                               </xsl:if>
-                              <xsl:if test="@okres=1">
+                              <xsl:if
+                                test="@okres=1">
                                 <xsl:for-each select="@okres">
                                   <span>
                                     <xsl:text> kwartalnie </xsl:text>
                                   </span>
                                 </xsl:for-each>
                               </xsl:if>
-                              <xsl:if test="@okres=2">
+                              <xsl:if
+                                test="@okres=2">
                                 <xsl:for-each select="@okres">
                                   <span>
                                     <xsl:text> miesięcznie</xsl:text>
                                   </span>
                                 </xsl:for-each>
                               </xsl:if>
-                              <xsl:if test="@okres=3">
+                              <xsl:if
+                                test="@okres=3">
                                 <xsl:for-each select="@okres">
                                   <span>
                                     <xsl:text> tygodniowo</xsl:text>
                                   </span>
                                 </xsl:for-each>
                               </xsl:if>
-                              <xsl:if test="@okres=4">
+                              <xsl:if
+                                test="@okres=4">
                                 <xsl:for-each select="@okres">
                                   <span>
                                     <xsl:text> dziennie</xsl:text>
@@ -2909,7 +3143,8 @@
                                 <xsl:text> </xsl:text>
                               </span>
                               <xsl:choose>
-                                <xsl:when test="@odWniesienia='1' or boolean(@dataOd)=false or @dataOd = ''">
+                                <xsl:when
+                                  test="@odWniesienia='1' or boolean(@dataOd)=false or @dataOd = ''">
                                   <span>
                                     <xsl:text> od dnia wniesienia pozwu </xsl:text>
                                   </span>
@@ -2928,7 +3163,8 @@
                               <span>
                                 <xsl:text> do dnia zapłaty </xsl:text>
                               </span>
-                              <xsl:if test="@czyUstawowe=2">
+                              <xsl:if
+                                test="@czyUstawowe=2">
                                 <span>
                                   <xsl:text> ale nie więcej niż czterokrotność stopy lombardowej NBP </xsl:text>
                                 </span>
@@ -2959,7 +3195,8 @@
                             </td>
                           </xsl:when>
                           <xsl:otherwise>
-                            <xsl:if test="count( ../curr:Roszczenie[@dataWymagalnosci] )&gt;0  and $ukryjDatWymagalnosci != 'true'">
+                            <xsl:if
+                              test="count( ../curr:Roszczenie[@dataWymagalnosci] )&gt;0  and $ukryjDatWymagalnosci != 'true'">
                               <td>
                                 <span />
                               </td>
@@ -2982,7 +3219,8 @@
           </xsl:for-each>
         </xsl:for-each>
       </div>
-      <xsl:if test="curr:PozewEPU/curr:OplataSadowa/@zasadzenie=1 or curr:PozewEPU/curr:KosztyZastepstwa/@zasadzenie=1 or curr:PozewEPU/curr:InneKoszty/@zasadzenie=1">
+      <xsl:if
+        test="curr:PozewEPU/curr:OplataSadowa/@zasadzenie=1 or curr:PozewEPU/curr:KosztyZastepstwa/@zasadzenie=1 or curr:PozewEPU/curr:InneKoszty/@zasadzenie=1">
         <div>
           <span>
             <xsl:text>oraz</xsl:text>
@@ -2997,28 +3235,32 @@
                 <xsl:text>zasądzenie zwrotu kosztów sądowych </xsl:text>
               </span>
               <span>
-                <xsl:value-of select="format-number(number(translate(translate(string(.), ' ',''),',','.')), '### ##0,00', 'european')" />
+                <xsl:value-of
+                  select="format-number(number(translate(translate(string(.), ' ',''),',','.')), '### ##0,00', 'european')" />
               </span>
               <span>
                 <xsl:text> zł</xsl:text>
               </span>
             </xsl:for-each>
           </xsl:for-each>
-          <xsl:for-each select="curr:KosztyZastepstwa[@zasadzenie=1 and @wartosc&gt;0]">
+          <xsl:for-each
+            select="curr:KosztyZastepstwa[@zasadzenie=1 and @wartosc&gt;0]">
             <br />
             <xsl:for-each select="@wartosc">
               <span>
                 <xsl:text>zasądzenie zwrotu kosztów zastępstwa procesowego </xsl:text>
               </span>
               <span>
-                <xsl:value-of select="format-number(number(translate(translate(string(.), ' ',''),',','.')), '### ##0,00', 'european')" />
+                <xsl:value-of
+                  select="format-number(number(translate(translate(string(.), ' ',''),',','.')), '### ##0,00', 'european')" />
               </span>
               <span>
                 <xsl:text> zł</xsl:text>
               </span>
             </xsl:for-each>
           </xsl:for-each>
-          <xsl:for-each select="curr:KosztyZastepstwa[@zasadzenie=1 and @wgNorm=1 and @wartosc=0]">
+          <xsl:for-each
+            select="curr:KosztyZastepstwa[@zasadzenie=1 and @wgNorm=1 and @wartosc=0]">
             <br />
             <span>
               <xsl:text>zasądzenie zwrotu kosztów zastępstwa procesowego wg norm przepisanych</xsl:text>
@@ -3034,13 +3276,15 @@
                 <xsl:text>zasądzenie zwrotu innych kosztów </xsl:text>
               </span>
               <span>
-                <xsl:value-of select="format-number(number(translate(translate(string(.), ' ',''),',','.')), '### ##0,00', 'european')" />
+                <xsl:value-of
+                  select="format-number(number(translate(translate(string(.), ' ',''),',','.')), '### ##0,00', 'european')" />
               </span>
               <span>
                 <xsl:text> zł</xsl:text>
               </span>
             </xsl:for-each>
-            <xsl:for-each select="@opis">
+            <xsl:for-each
+              select="@opis">
               <span>
                 <xsl:text> (</xsl:text>
               </span>
@@ -3054,7 +3298,8 @@
           </xsl:for-each>
         </xsl:for-each>
       </div>
-      <xsl:if test="curr:PozewEPU/curr:OplataSadowa/@zwolnienie&gt;=1">
+      <xsl:if
+        test="curr:PozewEPU/curr:OplataSadowa/@zwolnienie&gt;=1">
         <div>
           <xsl:for-each select="curr:PozewEPU">
             <xsl:for-each select="curr:PodstawaZwolnienia">
@@ -3069,7 +3314,8 @@
                   <xsl:value-of select="string(.)" />
                 </span>
               </xsl:for-each>
-              <xsl:for-each select="@opis">
+              <xsl:for-each
+                select="@opis">
                 <span>
                   <xsl:text> </xsl:text>
                 </span>
@@ -3081,21 +3327,24 @@
           </xsl:for-each>
         </div>
       </xsl:if>
-      <xsl:if test="curr:PozewEPU/curr:OplataSadowa/@ObnizenieKosztowOplatySadowej='true' or curr:PozewEPU/curr:OplataSadowa/@ObnizenieKosztowOplatySadowej='1'">
+      <xsl:if
+        test="curr:PozewEPU/curr:OplataSadowa/@ObnizenieKosztowOplatySadowej='true' or curr:PozewEPU/curr:OplataSadowa/@ObnizenieKosztowOplatySadowej='1'">
         <br />
         <xsl:text> 
 			Obniżenie opłaty sądowej w wypadku roszczeń wynikających z czynności bankowych, przysługujące konsumentom lub osobom fizycznym prowadzącym gospodarstwo rodzinne.
 				</xsl:text>
         <br />
       </xsl:if>
-      <xsl:if test="curr:PozewEPU/curr:OplataSadowa/@czyobnizplanowanieprzestrzenne='true' or curr:PozewEPU/curr:OplataSadowa/@czyobnizplanowanieprzestrzenne='1'">
+      <xsl:if
+        test="curr:PozewEPU/curr:OplataSadowa/@czyobnizplanowanieprzestrzenne='true' or curr:PozewEPU/curr:OplataSadowa/@czyobnizplanowanieprzestrzenne='1'">
         <br />
         <xsl:text> 
 			Obniżenie opłaty sądowej w wypadku roszczeń wynikających z art. 36 ustawy z dnia 27 marca 2003 r. o planowaniu i zagospodarowaniu przestrzennym (Dz.U. z 2018 r. poz. 1945 oraz z 2019 r. poz. 60, 235, 730 i 1009).
 				</xsl:text>
         <br />
       </xsl:if>
-      <xsl:if test="curr:PozewEPU/curr:OplataSadowa/@czyobnizmediacja='true' or curr:PozewEPU/curr:OplataSadowa/@czyobnizmediacja='1'">
+      <xsl:if
+        test="curr:PozewEPU/curr:OplataSadowa/@czyobnizmediacja='true' or curr:PozewEPU/curr:OplataSadowa/@czyobnizmediacja='1'">
         <br />
         <xsl:text> 
 			Obniżenie opłaty sądowej na podstawie art. 13e ustawy o kosztach sądowych w sprawach cywilnych.
@@ -3126,7 +3375,8 @@
                 <xsl:text>Lista dowodów </xsl:text>
               </span>
             </xsl:if>
-            <xsl:for-each select="curr:Dowod">
+            <xsl:for-each
+              select="curr:Dowod">
               <br />
               <xsl:for-each select="@numer">
                 <span>
@@ -3136,12 +3386,14 @@
                   <xsl:text>. </xsl:text>
                 </span>
               </xsl:for-each>
-              <xsl:for-each select="@typDowodu">
+              <xsl:for-each
+                select="@typDowodu">
                 <span>
                   <xsl:value-of select="string(.)" />
                 </span>
               </xsl:for-each>
-              <xsl:for-each select="@oznaczenie">
+              <xsl:for-each
+                select="@oznaczenie">
                 <span>
                   <xsl:text> </xsl:text>
                 </span>
@@ -3149,7 +3401,8 @@
                   <xsl:value-of select="string(.)" />
                 </span>
               </xsl:for-each>
-              <xsl:for-each select="@dataDowodu">
+              <xsl:for-each
+                select="@dataDowodu">
                 <span>
                   <xsl:text> z dnia </xsl:text>
                 </span>
@@ -3157,11 +3410,13 @@
                   <xsl:value-of select="string(.)" />
                 </span>
               </xsl:for-each>
-              <xsl:for-each select="curr:FaktStwierdzany">
+              <xsl:for-each
+                select="curr:FaktStwierdzany">
                 <br />
                 <xsl:apply-templates />
               </xsl:for-each>
-              <xsl:for-each select="curr:Opis">
+              <xsl:for-each
+                select="curr:Opis">
                 <br />
                 <xsl:apply-templates />
               </xsl:for-each>
@@ -3170,7 +3425,8 @@
         </xsl:for-each>
       </div>
       <br />
-      <xsl:if test="count( curr:PozewEPU/curr:ListaPodpisow/curr:Podpis )&gt;0">
+      <xsl:if
+        test="count( curr:PozewEPU/curr:ListaPodpisow/curr:Podpis )&gt;0">
         <div>
           <span style="text-decoration:underline; ">
             <xsl:text>Lista podpisów</xsl:text>
@@ -3185,19 +3441,22 @@
                 <br />
                 <xsl:apply-templates />
               </xsl:for-each>
-              <xsl:for-each select="curr:Imie2">
+              <xsl:for-each
+                select="curr:Imie2">
                 <span>
                   <xsl:text> </xsl:text>
                 </span>
                 <xsl:apply-templates />
               </xsl:for-each>
-              <xsl:for-each select="curr:Nazwisko">
+              <xsl:for-each
+                select="curr:Nazwisko">
                 <span>
                   <xsl:text> </xsl:text>
                 </span>
                 <xsl:apply-templates />
               </xsl:for-each>
-              <xsl:if test="contains($peselePelnomocReprezent, curr:PESEL)=false">
+              <xsl:if
+                test="contains($peselePelnomocReprezent, curr:PESEL)=false">
                 <xsl:for-each select="curr:PESEL">
                   <span>
                     <xsl:text>  PESEL </xsl:text>
@@ -3205,7 +3464,8 @@
                   <xsl:apply-templates />
                 </xsl:for-each>
               </xsl:if>
-              <xsl:for-each select="curr:stanowisko">
+              <xsl:for-each
+                select="curr:stanowisko">
                 <span>
                   <xsl:text> </xsl:text>
                 </span>
@@ -3215,7 +3475,8 @@
           </xsl:for-each>
         </xsl:for-each>
       </div>
-      <xsl:for-each select="curr:PozewEPU/curr:ListaPowodow/curr:Powod/curr:numerKonta">
+      <xsl:for-each
+        select="curr:PozewEPU/curr:ListaPowodow/curr:Powod/curr:numerKonta">
         <div>
           <br />
           <span style="text-decoration:underline; font-weight:700">
@@ -3233,37 +3494,44 @@
                   <br />
                   <xsl:apply-templates />
                 </xsl:for-each>
-                <xsl:for-each select="curr:Imie2">
+                <xsl:for-each
+                  select="curr:Imie2">
                   <span>
                     <xsl:text> </xsl:text>
                   </span>
                   <xsl:apply-templates />
                 </xsl:for-each>
-                <xsl:for-each select="curr:Nazwisko">
+                <xsl:for-each
+                  select="curr:Nazwisko">
                   <span>
                     <xsl:text> </xsl:text>
                   </span>
                   <xsl:apply-templates />
                 </xsl:for-each>
               </xsl:for-each>
-              <xsl:for-each select="curr:Instytucja">
+              <xsl:for-each
+                select="curr:Instytucja">
                 <xsl:for-each select="curr:Nazwa">
                   <br />
                   <xsl:apply-templates />
                 </xsl:for-each>
-                <xsl:if test="contains( curr:Siedziba , 'z siedzibą' )=false">
+                <xsl:if
+                  test="contains( curr:Siedziba , 'z siedzibą' )=false">
                   <xsl:for-each select="curr:Siedziba">
                     <span>
-                      <xsl:if test="((starts-with((.), 'W') or starts-with((.), 'F'))and (not(contains('AĄEĘIOÓUY',substring((.),2,1)) or contains('aąeęioóuy', substring((.),2,1)))))">
+                      <xsl:if
+                        test="((starts-with((.), 'W') or starts-with((.), 'F'))and (not(contains('AĄEĘIOÓUY',substring((.),2,1)) or contains('aąeęioóuy', substring((.),2,1)))))">
                         <xsl:text> z siedzibą we</xsl:text>
                       </xsl:if>
-                      <xsl:if test="not(((starts-with((.), 'W') or starts-with((.), 'F')) and (not(contains('AĄEĘIOÓUY',substring((.),2,1)) or contains('aąeęioóuy', substring((.),2,1)) ) ) ))">
+                      <xsl:if
+                        test="not(((starts-with((.), 'W') or starts-with((.), 'F')) and (not(contains('AĄEĘIOÓUY',substring((.),2,1)) or contains('aąeęioóuy', substring((.),2,1)) ) ) ))">
                         <xsl:text> z siedzibą w</xsl:text>
                       </xsl:if>
                     </span>
                   </xsl:for-each>
                 </xsl:if>
-                <xsl:for-each select="curr:Siedziba">
+                <xsl:for-each
+                  select="curr:Siedziba">
                   <span>
                     <xsl:text> </xsl:text>
                   </span>
@@ -3274,7 +3542,8 @@
           </span>
         </div>
       </xsl:for-each>
-      <xsl:for-each select="curr:PozewEPU/curr:RachunekDoZwrotuOplat">
+      <xsl:for-each
+        select="curr:PozewEPU/curr:RachunekDoZwrotuOplat">
         <br />
         <span style="text-decoration:underline; font-weight:700">
           <xsl:text>Numer konta do zwrotu opłaty sądowej</xsl:text>
@@ -3293,7 +3562,8 @@
         </span>
         <br />
       </xsl:for-each>
-      <xsl:if test="contains(curr:Oswiadczenie , 'tak' )=true">
+      <xsl:if
+        test="contains(curr:Oswiadczenie , 'tak' )=true">
         <xsl:for-each select="/curr:PozewEPU/curr:ListaPowodow">
           <xsl:for-each select="curr:Powod">
             <xsl:if test="contains(curr:Obcokrajowiec , 'true')&gt;0">
@@ -3302,13 +3572,15 @@
                 <xsl:for-each select="curr:Imie">
                   <xsl:apply-templates />
                 </xsl:for-each>
-                <xsl:for-each select="curr:Imie2">
+                <xsl:for-each
+                  select="curr:Imie2">
                   <span>
                     <xsl:text> </xsl:text>
                   </span>
                   <xsl:apply-templates />
                 </xsl:for-each>
-                <xsl:for-each select="curr:Nazwisko">
+                <xsl:for-each
+                  select="curr:Nazwisko">
                   <span>
                     <xsl:text> </xsl:text>
                   </span>
@@ -3321,18 +3593,22 @@
               </span>
               <br />
             </xsl:if>
-            <xsl:if test="contains(curr:BrakNumerowIdentyfikacyjnych , 'true')&gt;0">
+            <xsl:if
+              test="contains(curr:BrakNumerowIdentyfikacyjnych , 'true')&gt;0">
               <br />
               <xsl:for-each select="curr:Instytucja">
                 <xsl:for-each select="curr:Nazwa">
                   <xsl:apply-templates />
                 </xsl:for-each>
-                <xsl:for-each select="curr:Siedziba">
+                <xsl:for-each
+                  select="curr:Siedziba">
                   <span>
-                    <xsl:if test="((starts-with((.), 'W') or starts-with((.), 'F'))and (not(contains('AĄEĘIOÓUY',substring((.),2,1)) or contains('aąeęioóuy', substring((.),2,1)))))">
+                    <xsl:if
+                      test="((starts-with((.), 'W') or starts-with((.), 'F'))and (not(contains('AĄEĘIOÓUY',substring((.),2,1)) or contains('aąeęioóuy', substring((.),2,1)))))">
                       <xsl:text> z siedzibą we </xsl:text>
                     </xsl:if>
-                    <xsl:if test="not(((starts-with((.), 'W') or starts-with((.), 'F')) and (not(contains('AĄEĘIOÓUY',substring((.),2,1)) or contains('aąeęioóuy', substring((.),2,1)) ) ) ))">
+                    <xsl:if
+                      test="not(((starts-with((.), 'W') or starts-with((.), 'F')) and (not(contains('AĄEĘIOÓUY',substring((.),2,1)) or contains('aąeęioóuy', substring((.),2,1)) ) ) ))">
                       <xsl:text> z siedzibą w </xsl:text>
                     </xsl:if>
                   </span>
@@ -3348,7 +3624,8 @@
           </xsl:for-each>
         </xsl:for-each>
       </xsl:if>
-      <xsl:if test="contains(curr:Oswiadczenie , 'tak' )=true">
+      <xsl:if
+        test="contains(curr:Oswiadczenie , 'tak' )=true">
         <xsl:for-each select="/curr:PozewEPU/curr:ListaPozwanych">
           <xsl:for-each select="curr:Pozwany">
             <xsl:if test="contains(curr:Obcokrajowiec , 'true')&gt;0">
@@ -3357,13 +3634,15 @@
                 <xsl:for-each select="curr:Imie">
                   <xsl:apply-templates />
                 </xsl:for-each>
-                <xsl:for-each select="curr:Imie2">
+                <xsl:for-each
+                  select="curr:Imie2">
                   <span>
                     <xsl:text> </xsl:text>
                   </span>
                   <xsl:apply-templates />
                 </xsl:for-each>
-                <xsl:for-each select="curr:Nazwisko">
+                <xsl:for-each
+                  select="curr:Nazwisko">
                   <span>
                     <xsl:text> </xsl:text>
                   </span>
@@ -3376,18 +3655,22 @@
               </span>
               <br />
             </xsl:if>
-            <xsl:if test="contains(curr:BrakNumerowIdentyfikacyjnych , 'true')&gt;0">
+            <xsl:if
+              test="contains(curr:BrakNumerowIdentyfikacyjnych , 'true')&gt;0">
               <br />
               <xsl:for-each select="curr:Instytucja">
                 <xsl:for-each select="curr:Nazwa">
                   <xsl:apply-templates />
                 </xsl:for-each>
-                <xsl:for-each select="curr:Siedziba">
+                <xsl:for-each
+                  select="curr:Siedziba">
                   <span>
-                    <xsl:if test="((starts-with((.), 'W') or starts-with((.), 'F'))and (not(contains('AĄEĘIOÓUY',substring((.),2,1)) or contains('aąeęioóuy', substring((.),2,1)))))">
+                    <xsl:if
+                      test="((starts-with((.), 'W') or starts-with((.), 'F'))and (not(contains('AĄEĘIOÓUY',substring((.),2,1)) or contains('aąeęioóuy', substring((.),2,1)))))">
                       <xsl:text> z siedzibą we </xsl:text>
                     </xsl:if>
-                    <xsl:if test="not(((starts-with((.), 'W') or starts-with((.), 'F')) and (not(contains('AĄEĘIOÓUY',substring((.),2,1)) or contains('aąeęioóuy', substring((.),2,1)) ) ) ))">
+                    <xsl:if
+                      test="not(((starts-with((.), 'W') or starts-with((.), 'F')) and (not(contains('AĄEĘIOÓUY',substring((.),2,1)) or contains('aąeęioóuy', substring((.),2,1)) ) ) ))">
                       <xsl:text> z siedzibą w </xsl:text>
                     </xsl:if>
                   </span>
@@ -3403,8 +3686,10 @@
           </xsl:for-each>
         </xsl:for-each>
       </xsl:if>
-      <!--wniosek o umorzenie-->
-      <xsl:if test="curr:PozewEPU/@CzyWniosekUmorzBrakPodst = 1">
+      <!--wniosek
+      o umorzenie-->
+      <xsl:if
+        test="curr:PozewEPU/@CzyWniosekUmorzBrakPodst = 1">
         <div style=" page-break-before: always;" />
         <!-- Data złożenia -->
         <div align="right">
@@ -3416,7 +3701,8 @@
         </div>
         <!-- Osoba składająca -->
         <br />
-        <span style="text-decoration:underline; ">
+        <span
+          style="text-decoration:underline; ">
           <xsl:text>Osoba składająca</xsl:text>
         </span>
         <xsl:for-each select="curr:PozewEPU">
@@ -3424,19 +3710,22 @@
             <br />
             <xsl:value-of select="curr:Imie" />
             <xsl:text> </xsl:text>
-            <xsl:value-of select="curr:Imie2" />
+            <xsl:value-of
+              select="curr:Imie2" />
             <xsl:text> </xsl:text>
             <xsl:value-of select="curr:Nazwisko" />
             <!-- 	<xsl:if test="contains($peselePelnomocReprezent, curr:PESEL)=false">
 						<xsl:text> PESEL: </xsl:text>
 						<xsl:value-of select="curr:PESEL"/>
 					</xsl:if> -->
-            <xsl:if test="curr:stanowisko!=''">
+            <xsl:if
+              test="curr:stanowisko!=''">
               <br />
               <xsl:value-of select="curr:stanowisko" />
             </xsl:if>
           </xsl:for-each>
-          <xsl:for-each select="curr:OsobaSkladajaca/curr:Adres">
+          <xsl:for-each
+            select="curr:OsobaSkladajaca/curr:Adres">
             <br />
             <xsl:for-each select="@ulica">
               <span>
@@ -3446,7 +3735,8 @@
                 <xsl:text> </xsl:text>
               </span>
             </xsl:for-each>
-            <xsl:if test="string-length(@ulica) &lt; 3">
+            <xsl:if
+              test="string-length(@ulica) &lt; 3">
               <xsl:for-each select="@miejscowosc">
                 <span>
                   <xsl:value-of select="string(.)" />
@@ -3456,7 +3746,8 @@
                 </span>
               </xsl:for-each>
             </xsl:if>
-            <xsl:for-each select="@nr_domu">
+            <xsl:for-each
+              select="@nr_domu">
               <span>
                 <xsl:value-of select="string(.)" />
               </span>
@@ -3467,8 +3758,10 @@
             <span>
               <xsl:text> </xsl:text>
             </span>
-            <xsl:if test="string-length( @nr_mieszkania )&gt;0">
-              <xsl:if test="name(@nr_mieszkania) and  name(@nr_mieszkania)!='' and string-length( normalize-space( @nr_mieszkania)) &gt;0">
+            <xsl:if
+              test="string-length( @nr_mieszkania )&gt;0">
+              <xsl:if
+                test="name(@nr_mieszkania) and  name(@nr_mieszkania)!='' and string-length( normalize-space( @nr_mieszkania)) &gt;0">
                 <xsl:for-each select="@nr_mieszkania">
                   <span>
                     <xsl:text>/</xsl:text>
@@ -3482,7 +3775,8 @@
                 </xsl:for-each>
               </xsl:if>
             </xsl:if>
-            <xsl:if test="string-length( @kod )!=5">
+            <xsl:if
+              test="string-length( @kod )!=5">
               <xsl:for-each select="@kod">
                 <span>
                   <xsl:text> </xsl:text>
@@ -3505,7 +3799,8 @@
                 </span>
               </xsl:for-each>
             </xsl:if>
-            <xsl:if test="string-length(@ulica)&gt;2">
+            <xsl:if
+              test="string-length(@ulica)&gt;2">
               <xsl:for-each select="@miejscowosc">
                 <span>
                   <xsl:text> </xsl:text>
@@ -3518,7 +3813,8 @@
             <span>
               <xsl:text> </xsl:text>
             </span>
-            <xsl:if test="@poczta!=@miejscowosc or string-length( @ulica )&lt;3">
+            <xsl:if
+              test="@poczta!=@miejscowosc or string-length( @ulica )&lt;3">
               <xsl:for-each select="@poczta">
                 <span>
                   <xsl:text> </xsl:text>
@@ -3531,7 +3827,8 @@
             <br />
           </xsl:for-each>
           <!-- jesli pełnomocnictwo -->
-          <xsl:if test="curr:OsobaSkladajaca[@pelnomocnik=1]">
+          <xsl:if
+            test="curr:OsobaSkladajaca[@pelnomocnik=1]">
             <xsl:for-each select="curr:OsobaSkladajaca">
               <br />
               <xsl:value-of select="@podstawa" />
@@ -3540,19 +3837,23 @@
           <!-- w imieniu -->
           <br />
           <br />
-          <span style="text-decoration:underline; ">
+          <span
+            style="text-decoration:underline; ">
             <xsl:text>W imieniu</xsl:text>
           </span>
-          <xsl:for-each select="curr:ListaPowodow/curr:Powod">
+          <xsl:for-each
+            select="curr:ListaPowodow/curr:Powod">
             <xsl:for-each select="curr:Instytucja">
               <br />
               <xsl:value-of select="curr:Nazwa" />
             </xsl:for-each>
-            <xsl:for-each select="curr:OsobaFizyczna">
+            <xsl:for-each
+              select="curr:OsobaFizyczna">
               <br />
               <xsl:value-of select="curr:Imie" />
               <xsl:text> </xsl:text>
-              <xsl:value-of select="curr:Imie2" />
+              <xsl:value-of
+                select="curr:Imie2" />
               <xsl:text> </xsl:text>
               <xsl:value-of select="curr:Nazwisko" />
               <!-- 		<xsl:if test="contains($peselePelnomocReprezent, curr:PESEL)=false">
@@ -3561,7 +3862,8 @@
 							<xsl:text> </xsl:text>
 						</xsl:if> -->
             </xsl:for-each>
-            <xsl:for-each select="curr:Adres">
+            <xsl:for-each
+              select="curr:Adres">
               <br />
               <xsl:for-each select="@ulica">
                 <span>
@@ -3571,7 +3873,8 @@
                   <xsl:text> </xsl:text>
                 </span>
               </xsl:for-each>
-              <xsl:if test="string-length(@ulica) &lt; 3">
+              <xsl:if
+                test="string-length(@ulica) &lt; 3">
                 <xsl:for-each select="@miejscowosc">
                   <span>
                     <xsl:value-of select="string(.)" />
@@ -3581,7 +3884,8 @@
                   </span>
                 </xsl:for-each>
               </xsl:if>
-              <xsl:for-each select="@nr_domu">
+              <xsl:for-each
+                select="@nr_domu">
                 <span>
                   <xsl:value-of select="string(.)" />
                 </span>
@@ -3592,8 +3896,10 @@
               <span>
                 <xsl:text> </xsl:text>
               </span>
-              <xsl:if test="string-length( @nr_mieszkania )&gt;0">
-                <xsl:if test="name(@nr_mieszkania) and  name(@nr_mieszkania)!='' and string-length( normalize-space( @nr_mieszkania)) &gt;0">
+              <xsl:if
+                test="string-length( @nr_mieszkania )&gt;0">
+                <xsl:if
+                  test="name(@nr_mieszkania) and  name(@nr_mieszkania)!='' and string-length( normalize-space( @nr_mieszkania)) &gt;0">
                   <xsl:for-each select="@nr_mieszkania">
                     <span>
                       <xsl:text>/</xsl:text>
@@ -3607,7 +3913,8 @@
                   </xsl:for-each>
                 </xsl:if>
               </xsl:if>
-              <xsl:if test="string-length( @kod )!=5">
+              <xsl:if
+                test="string-length( @kod )!=5">
                 <xsl:for-each select="@kod">
                   <span>
                     <xsl:text> </xsl:text>
@@ -3630,7 +3937,8 @@
                   </span>
                 </xsl:for-each>
               </xsl:if>
-              <xsl:if test="string-length(@ulica)&gt;2">
+              <xsl:if
+                test="string-length(@ulica)&gt;2">
                 <xsl:for-each select="@miejscowosc">
                   <span>
                     <xsl:text> </xsl:text>
@@ -3643,7 +3951,8 @@
               <span>
                 <xsl:text> </xsl:text>
               </span>
-              <xsl:if test="@poczta!=@miejscowosc or string-length( @ulica )&lt;3">
+              <xsl:if
+                test="@poczta!=@miejscowosc or string-length( @ulica )&lt;3">
                 <xsl:for-each select="@poczta">
                   <span>
                     <xsl:text> </xsl:text>
@@ -3673,7 +3982,8 @@
 					</xsl:text>
         </xsl:for-each>
       </xsl:if>
-      <xsl:if test="curr:PozewEPU/@CzyWniosekUmorzUchylenie = 1">
+      <xsl:if
+        test="curr:PozewEPU/@CzyWniosekUmorzUchylenie = 1">
         <div style=" page-break-before: always;" />
         <!-- Data złożenia -->
         <div align="right">
@@ -3685,7 +3995,8 @@
         </div>
         <!-- Osoba składająca -->
         <br />
-        <span style="text-decoration:underline; ">
+        <span
+          style="text-decoration:underline; ">
           <xsl:text>Osoba składająca</xsl:text>
         </span>
         <xsl:for-each select="curr:PozewEPU">
@@ -3693,19 +4004,22 @@
             <br />
             <xsl:value-of select="curr:Imie" />
             <xsl:text> </xsl:text>
-            <xsl:value-of select="curr:Imie2" />
+            <xsl:value-of
+              select="curr:Imie2" />
             <xsl:text> </xsl:text>
             <xsl:value-of select="curr:Nazwisko" />
             <!-- 	<xsl:if test="contains($peselePelnomocReprezent, curr:PESEL)=false">
 						<xsl:text> PESEL: </xsl:text>
 						<xsl:value-of select="curr:PESEL"/>
 					</xsl:if> -->
-            <xsl:if test="curr:stanowisko!=''">
+            <xsl:if
+              test="curr:stanowisko!=''">
               <br />
               <xsl:value-of select="curr:stanowisko" />
             </xsl:if>
           </xsl:for-each>
-          <xsl:for-each select="curr:OsobaSkladajaca/curr:Adres">
+          <xsl:for-each
+            select="curr:OsobaSkladajaca/curr:Adres">
             <br />
             <xsl:for-each select="@ulica">
               <span>
@@ -3715,7 +4029,8 @@
                 <xsl:text> </xsl:text>
               </span>
             </xsl:for-each>
-            <xsl:if test="string-length(@ulica) &lt; 3">
+            <xsl:if
+              test="string-length(@ulica) &lt; 3">
               <xsl:for-each select="@miejscowosc">
                 <span>
                   <xsl:value-of select="string(.)" />
@@ -3725,7 +4040,8 @@
                 </span>
               </xsl:for-each>
             </xsl:if>
-            <xsl:for-each select="@nr_domu">
+            <xsl:for-each
+              select="@nr_domu">
               <span>
                 <xsl:value-of select="string(.)" />
               </span>
@@ -3736,8 +4052,10 @@
             <span>
               <xsl:text> </xsl:text>
             </span>
-            <xsl:if test="string-length( @nr_mieszkania )&gt;0">
-              <xsl:if test="name(@nr_mieszkania) and  name(@nr_mieszkania)!='' and string-length( normalize-space( @nr_mieszkania)) &gt;0">
+            <xsl:if
+              test="string-length( @nr_mieszkania )&gt;0">
+              <xsl:if
+                test="name(@nr_mieszkania) and  name(@nr_mieszkania)!='' and string-length( normalize-space( @nr_mieszkania)) &gt;0">
                 <xsl:for-each select="@nr_mieszkania">
                   <span>
                     <xsl:text>/</xsl:text>
@@ -3751,7 +4069,8 @@
                 </xsl:for-each>
               </xsl:if>
             </xsl:if>
-            <xsl:if test="string-length( @kod )!=5">
+            <xsl:if
+              test="string-length( @kod )!=5">
               <xsl:for-each select="@kod">
                 <span>
                   <xsl:text> </xsl:text>
@@ -3774,7 +4093,8 @@
                 </span>
               </xsl:for-each>
             </xsl:if>
-            <xsl:if test="string-length(@ulica)&gt;2">
+            <xsl:if
+              test="string-length(@ulica)&gt;2">
               <xsl:for-each select="@miejscowosc">
                 <span>
                   <xsl:text> </xsl:text>
@@ -3787,7 +4107,8 @@
             <span>
               <xsl:text> </xsl:text>
             </span>
-            <xsl:if test="@poczta!=@miejscowosc or string-length( @ulica )&lt;3">
+            <xsl:if
+              test="@poczta!=@miejscowosc or string-length( @ulica )&lt;3">
               <xsl:for-each select="@poczta">
                 <span>
                   <xsl:text> </xsl:text>
@@ -3800,7 +4121,8 @@
             <br />
           </xsl:for-each>
           <!-- jesli pełnomocnictwo -->
-          <xsl:if test="curr:OsobaSkladajaca[@pelnomocnik=1]">
+          <xsl:if
+            test="curr:OsobaSkladajaca[@pelnomocnik=1]">
             <xsl:for-each select="curr:OsobaSkladajaca">
               <br />
               <xsl:value-of select="@podstawa" />
@@ -3809,19 +4131,23 @@
           <!-- w imieniu -->
           <br />
           <br />
-          <span style="text-decoration:underline; ">
+          <span
+            style="text-decoration:underline; ">
             <xsl:text>W imieniu</xsl:text>
           </span>
-          <xsl:for-each select="curr:ListaPowodow/curr:Powod">
+          <xsl:for-each
+            select="curr:ListaPowodow/curr:Powod">
             <xsl:for-each select="curr:Instytucja">
               <br />
               <xsl:value-of select="curr:Nazwa" />
             </xsl:for-each>
-            <xsl:for-each select="curr:OsobaFizyczna">
+            <xsl:for-each
+              select="curr:OsobaFizyczna">
               <br />
               <xsl:value-of select="curr:Imie" />
               <xsl:text> </xsl:text>
-              <xsl:value-of select="curr:Imie2" />
+              <xsl:value-of
+                select="curr:Imie2" />
               <xsl:text> </xsl:text>
               <xsl:value-of select="curr:Nazwisko" />
               <!-- 		<xsl:if test="contains($peselePelnomocReprezent, curr:PESEL)=false">
@@ -3830,7 +4156,8 @@
 							<xsl:text> </xsl:text>
 						</xsl:if> -->
             </xsl:for-each>
-            <xsl:for-each select="curr:Adres">
+            <xsl:for-each
+              select="curr:Adres">
               <br />
               <xsl:for-each select="@ulica">
                 <span>
@@ -3840,7 +4167,8 @@
                   <xsl:text> </xsl:text>
                 </span>
               </xsl:for-each>
-              <xsl:if test="string-length(@ulica) &lt; 3">
+              <xsl:if
+                test="string-length(@ulica) &lt; 3">
                 <xsl:for-each select="@miejscowosc">
                   <span>
                     <xsl:value-of select="string(.)" />
@@ -3850,7 +4178,8 @@
                   </span>
                 </xsl:for-each>
               </xsl:if>
-              <xsl:for-each select="@nr_domu">
+              <xsl:for-each
+                select="@nr_domu">
                 <span>
                   <xsl:value-of select="string(.)" />
                 </span>
@@ -3861,8 +4190,10 @@
               <span>
                 <xsl:text> </xsl:text>
               </span>
-              <xsl:if test="string-length( @nr_mieszkania )&gt;0">
-                <xsl:if test="name(@nr_mieszkania) and  name(@nr_mieszkania)!='' and string-length( normalize-space( @nr_mieszkania)) &gt;0">
+              <xsl:if
+                test="string-length( @nr_mieszkania )&gt;0">
+                <xsl:if
+                  test="name(@nr_mieszkania) and  name(@nr_mieszkania)!='' and string-length( normalize-space( @nr_mieszkania)) &gt;0">
                   <xsl:for-each select="@nr_mieszkania">
                     <span>
                       <xsl:text>/</xsl:text>
@@ -3876,7 +4207,8 @@
                   </xsl:for-each>
                 </xsl:if>
               </xsl:if>
-              <xsl:if test="string-length( @kod )!=5">
+              <xsl:if
+                test="string-length( @kod )!=5">
                 <xsl:for-each select="@kod">
                   <span>
                     <xsl:text> </xsl:text>
@@ -3899,7 +4231,8 @@
                   </span>
                 </xsl:for-each>
               </xsl:if>
-              <xsl:if test="string-length(@ulica)&gt;2">
+              <xsl:if
+                test="string-length(@ulica)&gt;2">
                 <xsl:for-each select="@miejscowosc">
                   <span>
                     <xsl:text> </xsl:text>
@@ -3912,7 +4245,8 @@
               <span>
                 <xsl:text> </xsl:text>
               </span>
-              <xsl:if test="@poczta!=@miejscowosc or string-length( @ulica )&lt;3">
+              <xsl:if
+                test="@poczta!=@miejscowosc or string-length( @ulica )&lt;3">
                 <xsl:for-each select="@poczta">
                   <span>
                     <xsl:text> </xsl:text>

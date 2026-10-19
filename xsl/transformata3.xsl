@@ -1,4 +1,15 @@
-<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:curr="http://www.currenda.pl/epu" xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:link="http://www.xbrl.org/2003/linkbase" xmlns:xbrldi="http://xbrl.org/2006/xbrldi" xmlns:xbrli="http://www.xbrl.org/2003/instance" xmlns:xdt="http://www.w3.org/2005/xpath-datatypes" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:altova="http://www.altova.com" version="1.0" exclude-result-prefixes="curr fn link xbrldi xbrli xdt xlink xs xsd xsi">
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+  xmlns:curr="http://www.currenda.pl/epu"
+  xmlns:fn="http://www.w3.org/2005/xpath-functions"
+  xmlns:link="http://www.xbrl.org/2003/linkbase"
+  xmlns:xbrldi="http://xbrl.org/2006/xbrldi"
+  xmlns:xbrli="http://www.xbrl.org/2003/instance"
+  xmlns:xdt="http://www.w3.org/2005/xpath-datatypes"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:altova="http://www.altova.com" version="1.0" exclude-result-prefixes="curr fn link xbrldi xbrli xdt xlink xs xsd xsi">
   <xsl:output version="4.0" method="html" indent="no" encoding="UTF-8" doctype-public="-//W3C//DTD HTML 4.01 Transitional//EN" doctype-system="http://www.w3.org/TR/html4/loose.dtd" />
   <xsl:param name="SV_OutputFormat" select="'HTML'" />
   <xsl:variable name="XML" select="/" />
@@ -6,7 +17,7 @@
   <xsl:template name="stopaTemplate">
     <xsl:for-each select="@stopa">
       <span>
-        <xsl:text> </xsl:text>
+        <xsl:text></xsl:text>
       </span>
       <span>
         <xsl:value-of select="format-number(number(translate(string(.), '  ','')), '### ##0,00##', 'european')" />
@@ -74,7 +85,7 @@
         <title />
         <style type="text/css">
                     span.spanStyle1{ font-family:"3 of 9 Barcode"; font-size:large;  }
-				</style>
+        </style>
       </head>
       <body style="margin-left=0.6in; margin-right=0.6in; margin-top=0.79in; margin-bottom=0.79in">
         <xsl:for-each select="$XML">
@@ -104,12 +115,12 @@
               <xsl:text> Sygnatura akt</xsl:text>
             </span>
             <span>
-              <xsl:text> </xsl:text>
+              <xsl:text></xsl:text>
             </span>
             <xsl:for-each select="curr:NakazEPU">
               <xsl:for-each select="curr:Sygnatura">
                 <span style="font-weight:bold; ">
-                  <xsl:text> </xsl:text>
+                  <xsl:text></xsl:text>
                 </span>
                 <span style="font-weight:bold; ">
                   <xsl:apply-templates />
@@ -152,7 +163,7 @@
                 </xsl:for-each>
                 <xsl:for-each select="curr:Wydzial">
                   <span>
-                    <xsl:text> </xsl:text>
+                    <xsl:text></xsl:text>
                   </span>
                   <xsl:apply-templates />
                 </xsl:for-each>
@@ -160,20 +171,20 @@
               <br />
               <xsl:for-each select="curr:WSkladzie">
                 <span>
-                  <xsl:text> </xsl:text>
+                  <xsl:text></xsl:text>
                 </span>
                 <xsl:apply-templates />
               </xsl:for-each>
               <br />
               <xsl:for-each select="curr:Sedzia">
                 <span>
-                  <xsl:text>           </xsl:text>
+                  <xsl:text></xsl:text>
                 </span>
                 <xsl:apply-templates />
               </xsl:for-each>
             </xsl:for-each>
             <span>
-              <xsl:text> </xsl:text>
+              <xsl:text></xsl:text>
             </span>
           </div>
           <!--Wycofane ze zmiany 3.1-->
@@ -226,16 +237,16 @@
                 <xsl:apply-templates />
               </xsl:for-each>
               <span>
-                <xsl:text> </xsl:text>
+                <xsl:text></xsl:text>
               </span>
               <xsl:for-each select="curr:DataWplywu">
                 <span>
-                  <xsl:text> </xsl:text>
+                  <xsl:text></xsl:text>
                 </span>
                 <xsl:apply-templates />
               </xsl:for-each>
               <span>
-                <xsl:text> </xsl:text>
+                <xsl:text></xsl:text>
               </span>
               <xsl:for-each select="curr:Przez">
                 <xsl:apply-templates />
@@ -251,7 +262,7 @@
                       <xsl:apply-templates />
                     </span>
                     <span style="font-weight:bold; ">
-                      <xsl:text> </xsl:text>
+                      <xsl:text></xsl:text>
                     </span>
                   </xsl:for-each>
                 </xsl:for-each>
@@ -275,7 +286,7 @@
                       <xsl:apply-templates />
                     </span>
                     <span style="font-weight:bold; ">
-                      <xsl:text> </xsl:text>
+                      <xsl:text></xsl:text>
                     </span>
                   </xsl:for-each>
                 </xsl:for-each>
@@ -298,7 +309,7 @@
                         <xsl:value-of select="string(.)" />
                       </span>
                       <span style="font-weight:bold; ">
-                        <xsl:text> </xsl:text>
+                        <xsl:text></xsl:text>
                       </span>
                     </xsl:for-each>
                   </xsl:if>
@@ -308,7 +319,7 @@
                       <xsl:value-of select="string(.)" />
                     </span>
                     <span>
-                      <xsl:text> </xsl:text>
+                      <xsl:text></xsl:text>
                     </span>
                   </xsl:for-each>
                   <!-- </xsl:if> -->
@@ -322,7 +333,7 @@
                   <xsl:if test="@typ&lt;10 or (not(name(@typ)) or name(@typ)='')">
                     <xsl:for-each select="@wartosc">
                       <span>
-                        <xsl:text> </xsl:text>
+                        <xsl:text></xsl:text>
                       </span>
                       <span>
                         <xsl:value-of select="format-number(number(translate(string(.), '  ','')), '### ##0,00', 'european')" />
@@ -332,26 +343,26 @@
                   <xsl:if test="@typ&gt;=10">
                     <xsl:for-each select="@waluta">
                       <span style="font-weight:bold; ">
-                        <xsl:text> </xsl:text>
+                        <xsl:text></xsl:text>
                       </span>
                       <span style="font-weight:bold; ">
                         <xsl:value-of select="string(.)" />
                       </span>
                       <span style="font-weight:bold; ">
-                        <xsl:text> </xsl:text>
+                        <xsl:text></xsl:text>
                       </span>
                     </xsl:for-each>
                   </xsl:if>
                   <xsl:if test="@typ&lt;10 or (not(name(@typ)) or name(@typ)='')">
                     <xsl:for-each select="@waluta">
                       <span>
-                        <xsl:text> </xsl:text>
+                        <xsl:text></xsl:text>
                       </span>
                       <span>
                         <xsl:value-of select="string(.)" />
                       </span>
                       <span>
-                        <xsl:text> </xsl:text>
+                        <xsl:text></xsl:text>
                       </span>
                     </xsl:for-each>
                   </xsl:if>
@@ -384,7 +395,7 @@
                   <xsl:for-each select="@opis">
                     <xsl:if test="string-length(@opis)=0">
                       <span>
-                        <xsl:text> </xsl:text>
+                        <xsl:text></xsl:text>
                       </span>
                       <span>
                         <xsl:value-of select="string(.)" />
@@ -392,7 +403,7 @@
                     </xsl:if>
                   </xsl:for-each>
                   <span>
-                    <xsl:text> </xsl:text>
+                    <xsl:text></xsl:text>
                   </span>
                   <xsl:if test="@odsetki=1">
                     <xsl:for-each select="@odsetki">
@@ -404,7 +415,7 @@
                   </xsl:if>
                   <xsl:for-each select="curr:Odsetki[../@odsetki=1]">
                     <xsl:for-each select="curr:OkresOdsetkowy">
-                      <!--	 <xsl:if test="@czyUstawowe=0 or @czyUstawowe=1 or @czyUstawowe=2 or @czyUstawowe=3" >
+                      <!--	 <xsl:if test="@czyUstawowe=0 or @czyUstawowe=1 or @czyUstawowe=2 or @czyUstawowe=3">
                       <xsl:choose>
                         <xsl:when test="@czyUstawowe=0">
                           <xsl:for-each select="@czyUstawowe">
@@ -1255,7 +1266,7 @@
                             <xsl:value-of select="format-number(number(translate(string(.), '  ','')), '### ##0,00', 'european')" />
                           </span>
                           <span>
-                            <xsl:text> </xsl:text>
+                            <xsl:text></xsl:text>
                           </span>
                           <span>
                             <xsl:value-of select="../../../@waluta" />

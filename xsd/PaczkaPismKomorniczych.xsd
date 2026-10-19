@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<xsd:schema xmlns:curr="http://www.currenda.pl/epu" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.currenda.pl/epu" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" xml:lang="pl">
+<xsd:schema xmlns:curr="http://www.currenda.pl/epu"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.currenda.pl/epu" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" xml:lang="pl">
   <xsd:include schemaLocation="TypyDanych.xsd"/>
   <xsd:element name="PaczkaPismKomorniczych">
     <xsd:complexType>
@@ -10,112 +11,112 @@
         <xsd:element name="DokumentEPU" type="curr:DokumentEPU" maxOccurs="unbounded">
         </xsd:element>
       </xsd:sequence>
-      <xsd:attribute name="OznaczeniePaczki" type="curr:typNazwa30" use="required" >        
+      <xsd:attribute name="OznaczeniePaczki" type="curr:typNazwa30" use="required">
       </xsd:attribute>
     </xsd:complexType>
   </xsd:element>
   <xsd:complexType name="DokumentEPU">
     <xsd:annotation>
-      <xsd:documentation>Dokument / Pismo / Wniosek w elektronicznym postêpowaniu upominawczym </xsd:documentation>
+      <xsd:documentation>Dokument / Pismo / Wniosek w elektronicznym postï¿½powaniu upominawczym </xsd:documentation>
     </xsd:annotation>
-      <xsd:sequence>
-        <xsd:element name="IDSprawy" type="xsd:unsignedLong" />
-        <xsd:element name="Sygnatura" type="curr:typNazwa120" />
-        <xsd:element name="SygnaturaSprawyKomorniczej" type="curr:typNazwa120" minOccurs="0" />
-        <xsd:element name="IDDoreczenia" type="xsd:unsignedLong" minOccurs="0">
-          <xsd:annotation>
-            <xsd:documentation>Identyfikator dorêczenia odpisu decyzji. Sk³adany dokument stanowi odpowiedŸ  na dorêczenie o podanym IDDoreczenia. Wymagane dla rodzaju = 5 </xsd:documentation>
-          </xsd:annotation>
-        </xsd:element>
-        <xsd:element name="NazwaKancelarii" type="curr:typNazwa500" minOccurs="0">
-          <xsd:annotation>
-            <xsd:documentation>Nazwa kancelarii jest obowi¹zkowa dla pism komorniczych oraz odpowiedzi na zarz¹dzenie.</xsd:documentation>
-          </xsd:annotation>
-        </xsd:element>
-        <xsd:element name="IdentyfikatorPisma" type="curr:typNazwa300" minOccurs="0">
-          <xsd:annotation>
-            <xsd:documentation> Identyfikator pisma komorniczego. Wymagane dla odpowiedzi na zarz¹dzenie, pisma lub wniosku komorniczego</xsd:documentation>
-          </xsd:annotation>
-        </xsd:element>
-        <xsd:element name="IdentyfikatorTytuluWykonawczego" type="xsd:unsignedLong" minOccurs="0">
-          <xsd:annotation>
-            <xsd:documentation>Identyfikator tytu³u wykonawczego wymagany dla pisma i wniosku komorniczego</xsd:documentation>
-          </xsd:annotation>
-        </xsd:element>
-        <xsd:element name="WersjaTransformaty" type="xsd:unsignedLong" minOccurs="0">
-          <xsd:annotation>
-            <xsd:documentation>Identyfikator dorêczenia odpisu decyzji. Sk³adany dokument stanowi odpowiedŸ  na dorêczenie o podanym IDDoreczenia. Wymagane dla rodzaju = 5 </xsd:documentation>
-          </xsd:annotation>
-        </xsd:element>
-        <xsd:element name="PESELPelnomocnika" type="curr:typPESEL" minOccurs="0">
-          <xsd:annotation>
-            <xsd:documentation>W przypadku sk³adania dokumentu z rezygnacj¹ z pe³nomocnictwa mo¿na podaæ PESEL nowego pe³nomocnika. Pole nieobowi¹zkowe.</xsd:documentation>
-          </xsd:annotation>
-        </xsd:element>
-        <xsd:element name="IDKancelarii" type="xsd:unsignedLong" minOccurs="0">
-          <xsd:annotation>
-            <xsd:documentation>W przypadku sk³adania dokumentu przez komornika musi zawieraæ on ID kancelarii w EPU.</xsd:documentation>
-          </xsd:annotation>
-        </xsd:element>
-        <xsd:element name="Odpowiedz" type="curr:typOdpowiedz" minOccurs="0">
-          <xsd:annotation>
-            <xsd:documentation>Typ odpowiedz nie mo¿e byæ obowi¹zkowy gdy¿ komornik mo¿e z³o¿yæ równie¿ dowolne pismo.</xsd:documentation>
-          </xsd:annotation>
-        </xsd:element>
-        <xsd:element name="DataZlozenia" type="xsd:dateTime" />
-        <xsd:element name="Rodzaj" type="curr:typWybor3_6">
-          <xsd:annotation>
-            <xsd:documentation>
+    <xsd:sequence>
+      <xsd:element name="IDSprawy" type="xsd:unsignedLong" />
+      <xsd:element name="Sygnatura" type="curr:typNazwa120" />
+      <xsd:element name="SygnaturaSprawyKomorniczej" type="curr:typNazwa120" minOccurs="0" />
+      <xsd:element name="IDDoreczenia" type="xsd:unsignedLong" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>Identyfikator dorï¿½czenia odpisu decyzji. Skï¿½adany dokument stanowi odpowiedï¿½  na dorï¿½czenie o podanym IDDoreczenia. Wymagane dla rodzaju = 5 </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="NazwaKancelarii" type="curr:typNazwa500" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>Nazwa kancelarii jest obowiï¿½zkowa dla pism komorniczych oraz odpowiedzi na zarzï¿½dzenie.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="IdentyfikatorPisma" type="curr:typNazwa300" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation> Identyfikator pisma komorniczego. Wymagane dla odpowiedzi na zarzï¿½dzenie, pisma lub wniosku komorniczego</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="IdentyfikatorTytuluWykonawczego" type="xsd:unsignedLong" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>Identyfikator tytuï¿½u wykonawczego wymagany dla pisma i wniosku komorniczego</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="WersjaTransformaty" type="xsd:unsignedLong" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>Identyfikator dorï¿½czenia odpisu decyzji. Skï¿½adany dokument stanowi odpowiedï¿½  na dorï¿½czenie o podanym IDDoreczenia. Wymagane dla rodzaju = 5 </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="PESELPelnomocnika" type="curr:typPESEL" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>W przypadku skï¿½adania dokumentu z rezygnacjï¿½ z peï¿½nomocnictwa moï¿½na podaï¿½ PESEL nowego peï¿½nomocnika. Pole nieobowiï¿½zkowe.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="IDKancelarii" type="xsd:unsignedLong" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>W przypadku skï¿½adania dokumentu przez komornika musi zawieraï¿½ on ID kancelarii w EPU.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="Odpowiedz" type="curr:typOdpowiedz" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>Typ odpowiedz nie moï¿½e byï¿½ obowiï¿½zkowy gdyï¿½ komornik moï¿½e zï¿½oï¿½yï¿½ rï¿½wnieï¿½ dowolne pismo.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="DataZlozenia" type="xsd:dateTime" />
+      <xsd:element name="Rodzaj" type="curr:typWybor3_6">
+        <xsd:annotation>
+          <xsd:documentation>
 				3 - pismo,
 				4 - wniosek,
-				5 - uzupe³nienie adresu,
-				6 - uzupe³nienie braków,
-				13 - rezygnacja z pe³nomocnictwa,
-				14 - zg³oszenie pe³nomocnika do sprawy,
-				16 - wniosek o wydanie dalszego tytu³u wykonawczego,
+				5 - uzupeï¿½nienie adresu,
+				6 - uzupeï¿½nienie brakï¿½w,
+				13 - rezygnacja z peï¿½nomocnictwa,
+				14 - zgï¿½oszenie peï¿½nomocnika do sprawy,
+				16 - wniosek o wydanie dalszego tytuï¿½u wykonawczego,
 				17 - wniosek o sprostowanie,
-				18 - wniosek o udzielenie kodu dostêpu,
-				19 - wniosek o reasumpcjê,
-				21 - cofniêcie powództwa w ca³oœci,
-				38 - Wniosek o uzasadnienie decyzji S¹du Rejonowego,
-				127 - Wniosek o uzasadnienie decyzji S¹du Okrêgowego Okrêgowego,
-				51 - informacja o wszczêciu egzekucji.
+				18 - wniosek o udzielenie kodu dostï¿½pu,
+				19 - wniosek o reasumpcjï¿½,
+				21 - cofniï¿½cie powï¿½dztwa w caï¿½oï¿½ci,
+				38 - Wniosek o uzasadnienie decyzji Sï¿½du Rejonowego,
+				127 - Wniosek o uzasadnienie decyzji Sï¿½du Okrï¿½gowego Okrï¿½gowego,
+				51 - informacja o wszczï¿½ciu egzekucji.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="Przedmiot" type="xsd:string" minOccurs="0" />
+      <xsd:element name="OsobaSkladajaca" type="curr:typSkladajacy" minOccurs="0" />
+      <xsd:element name="ListaPowodow" type="curr:typListaPowodow" minOccurs="0" />
+      <xsd:element name="ListaPozwanych" type="curr:typListaPozwanych" minOccurs="0" />
+      <xsd:element name="Tresc" type="xsd:string" nillable="true" minOccurs="0" />
+      <xsd:element name="Orzeczenie" type="curr:typOrzeczenie" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>
+					Orzeczenie, dla ktï¿½rego jest skï¿½adany wniosek o uzasadnienie
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="CzyZwolnionyOplat" minOccurs="0">
+        <xsd:simpleType>
+          <xsd:annotation>
+            <xsd:documentation>
+						Zwolniony z opï¿½aty za uzasadnienie 0 - nie,  1 - tak powï¿½d, 2 - tak pozwany
             </xsd:documentation>
           </xsd:annotation>
-        </xsd:element>
-        <xsd:element name="Przedmiot" type="xsd:string" minOccurs="0" />
-        <xsd:element name="OsobaSkladajaca" type="curr:typSkladajacy" minOccurs="0" />
-        <xsd:element name="ListaPowodow" type="curr:typListaPowodow" minOccurs="0" />
-        <xsd:element name="ListaPozwanych" type="curr:typListaPozwanych" minOccurs="0" />
-        <xsd:element name="Tresc" type="xsd:string" nillable="true" minOccurs="0" />
-		<xsd:element name="Orzeczenie" type="curr:typOrzeczenie" minOccurs="0">
-			<xsd:annotation>
-				<xsd:documentation>
-					Orzeczenie, dla którego jest sk³adany wniosek o uzasadnienie
-				</xsd:documentation>
-			</xsd:annotation>
-		</xsd:element>
-		<xsd:element name="CzyZwolnionyOplat" minOccurs="0">
-			<xsd:simpleType>
-				<xsd:annotation>
-					<xsd:documentation>
-						Zwolniony z op³aty za uzasadnienie 0 - nie,  1 - tak powód, 2 - tak pozwany
-					</xsd:documentation>
-				</xsd:annotation>
-				<xsd:restriction base="xsd:byte">
-					<xsd:maxInclusive value="2" />
-				</xsd:restriction>
-			</xsd:simpleType>
-		</xsd:element>		
-      </xsd:sequence>
-    </xsd:complexType>
+          <xsd:restriction base="xsd:byte">
+            <xsd:maxInclusive value="2" />
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
   <xsd:simpleType name="typStatusOdbiorcy">
     <xsd:restriction base="xsd:string">
-      <xsd:enumeration value="doros³y domownik" />
+      <xsd:enumeration value="dorosï¿½y domownik" />
       <xsd:enumeration value="dozorca domu" />
-      <xsd:enumeration value="so³tys" />
+      <xsd:enumeration value="soï¿½tys" />
       <xsd:enumeration value="administracja domu" />
-      <xsd:enumeration value="dorêczenie nast¹pi³o w inny sposób" />
+      <xsd:enumeration value="dorï¿½czenie nastï¿½piï¿½o w inny sposï¿½b" />
     </xsd:restriction>
   </xsd:simpleType>
   <xsd:complexType name="typOdpowiedz">
@@ -153,17 +154,17 @@
     <xsd:choice>
       <xsd:element name="DoreczenieOsobiste" type="curr:typTak">
         <xsd:annotation>
-          <xsd:documentation>Przesy³kê dorêczono / Adresatowi osobiœcie</xsd:documentation>
+          <xsd:documentation>Przesyï¿½kï¿½ dorï¿½czono / Adresatowi osobiï¿½cie</xsd:documentation>
         </xsd:annotation>
       </xsd:element>
       <xsd:element name="DoreczenieOsobieUprawnionejDoOdbioru" type="curr:typDoreczenieOsobieUprawnionejDoOdbioru">
         <xsd:annotation>
-          <xsd:documentation>Przesy³kê dorêczono / Osobie uprawnionej do odbioru</xsd:documentation>
+          <xsd:documentation>Przesyï¿½kï¿½ dorï¿½czono / Osobie uprawnionej do odbioru</xsd:documentation>
         </xsd:annotation>
       </xsd:element>
       <xsd:element name="OdbiorDluznikaPlacowka" type="curr:typTak">
         <xsd:annotation>
-          <xsd:documentation>Przesy³kê dorêczono / Przesy³ka uprzednio awizowana i odebrana przez d³u¿nika</xsd:documentation>
+          <xsd:documentation>Przesyï¿½kï¿½ dorï¿½czono / Przesyï¿½ka uprzednio awizowana i odebrana przez dï¿½uï¿½nika</xsd:documentation>
         </xsd:annotation>
       </xsd:element>
     </xsd:choice>
@@ -172,17 +173,17 @@
     <xsd:sequence>
       <xsd:element name="Imie" type="xsd:string">
         <xsd:annotation>
-          <xsd:documentation>Rozwa¿yæ ograniczenie d³ugoœci, aby by³o zgodne ze schematem bazy danych, jeœli dosz³oby do sytuacji, i¿ wymagany jest zapis poszczególnych po³ XML w bazie.</xsd:documentation>
+          <xsd:documentation>Rozwaï¿½yï¿½ ograniczenie dï¿½ugoï¿½ci, aby byï¿½o zgodne ze schematem bazy danych, jeï¿½li doszï¿½oby do sytuacji, iï¿½ wymagany jest zapis poszczegï¿½lnych poï¿½ XML w bazie.</xsd:documentation>
         </xsd:annotation>
       </xsd:element>
       <xsd:element name="Nazwisko" type="xsd:string">
         <xsd:annotation>
-          <xsd:documentation>Rozwa¿yæ ograniczenie d³ugoœci, aby by³o zgodne ze schematem bazy danych, jeœli dosz³oby do sytuacji, i¿ wymagany jest zapis poszczególnych po³ XML w bazie.</xsd:documentation>
+          <xsd:documentation>Rozwaï¿½yï¿½ ograniczenie dï¿½ugoï¿½ci, aby byï¿½o zgodne ze schematem bazy danych, jeï¿½li doszï¿½oby do sytuacji, iï¿½ wymagany jest zapis poszczegï¿½lnych poï¿½ XML w bazie.</xsd:documentation>
         </xsd:annotation>
       </xsd:element>
       <xsd:element name="innySposob" type="xsd:string" minOccurs="0">
         <xsd:annotation>
-          <xsd:documentation>Nale¿y uzupe³niæ w przypadku innego sposobu dorêczenia</xsd:documentation>
+          <xsd:documentation>Naleï¿½y uzupeï¿½niï¿½ w przypadku innego sposobu dorï¿½czenia</xsd:documentation>
         </xsd:annotation>
       </xsd:element>
     </xsd:sequence>
@@ -192,12 +193,12 @@
     <xsd:choice>
       <xsd:element name="Inny" type="curr:typInnySposobNiedoreczenia">
         <xsd:annotation>
-          <xsd:documentation>Przesy³ka niedorêczona (inna ni¿ dwukrotnie awizowana i zwrócona)</xsd:documentation>
+          <xsd:documentation>Przesyï¿½ka niedorï¿½czona (inna niï¿½ dwukrotnie awizowana i zwrï¿½cona)</xsd:documentation>
         </xsd:annotation>
       </xsd:element>
       <xsd:element name="NiedoreczenieAwizoZwrot" type="curr:typSposobNiedoreczeniaAwizoZwrot">
         <xsd:annotation>
-          <xsd:documentation> Przesy³ka niedorêczona (dwukrotnie awizowana i zwrócona)</xsd:documentation>
+          <xsd:documentation> Przesyï¿½ka niedorï¿½czona (dwukrotnie awizowana i zwrï¿½cona)</xsd:documentation>
         </xsd:annotation>
       </xsd:element>
     </xsd:choice>
@@ -244,10 +245,10 @@
       </xsd:element>
       <xsd:element name="Miejscowosc" type="curr:typMiejscowosc" minOccurs="1">
         <xsd:annotation>
-          <xsd:documentation>Miejscowoœæ</xsd:documentation>
+          <xsd:documentation>Miejscowoï¿½ï¿½</xsd:documentation>
         </xsd:annotation>
       </xsd:element>
-      <xsd:element name="KodPocztowy" type="curr:typKodPocztowy" minOccurs="1" >
+      <xsd:element name="KodPocztowy" type="curr:typKodPocztowy" minOccurs="1">
         <xsd:annotation>
           <xsd:documentation>Kod pocztowy zgodny ze wzorcem</xsd:documentation>
         </xsd:annotation>
@@ -267,7 +268,7 @@
   </xsd:simpleType>
   <xsd:simpleType name="typNazwa500">
     <xsd:annotation>
-      <xsd:documentation>Definicja nazwy do 500 znaków</xsd:documentation>
+      <xsd:documentation>Definicja nazwy do 500 znakï¿½w</xsd:documentation>
     </xsd:annotation>
     <xsd:restriction base="xsd:string">
       <xsd:maxLength value="500" />
@@ -275,22 +276,22 @@
   </xsd:simpleType>
   <xsd:simpleType name="typUlica">
     <xsd:restriction base="xsd:string">
-      <xsd:pattern value="[a-zA-Z£³¯¿ŸÓóŒœÆæÑñ¥¹Êê0-9\\\/ \-]{1,50}"/>
+      <xsd:pattern value="[a-zA-Zï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½0-9\\\/ \-]{1,50}"/>
     </xsd:restriction>
   </xsd:simpleType>
   <xsd:simpleType name="typMiejscowosc">
     <xsd:restriction base="xsd:string">
-      <xsd:pattern value="[a-zA-Z£³¯¿ŸÓóŒœÆæÑñ¥¹Êê \-]{1,50}"/>
+      <xsd:pattern value="[a-zA-Zï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ \-]{1,50}"/>
     </xsd:restriction>
   </xsd:simpleType>
   <xsd:simpleType name="typNumerDomuLubMieszkania">
     <xsd:restriction base="xsd:string">
-      <xsd:pattern value="[a-zA-Z£³¯¿ŸÓóŒœÆæÑñ¥¹Êê0-9\\\/ \-]{1,6}"/>
+      <xsd:pattern value="[a-zA-Zï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½0-9\\\/ \-]{1,6}"/>
     </xsd:restriction>
   </xsd:simpleType>
   <xsd:simpleType name="typPoczta">
     <xsd:restriction base="xsd:string">
-      <xsd:pattern value="[a-zA-Z£³¯¿ŸÓóŒœÆæÑñ¥¹Êê0-9 \-]{1,50}"/>
+      <xsd:pattern value="[a-zA-Zï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½0-9 \-]{1,50}"/>
     </xsd:restriction>
   </xsd:simpleType>
 </xsd:schema>

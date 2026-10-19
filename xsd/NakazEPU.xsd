@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema xmlns:curr="http://www.currenda.pl/epu" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.currenda.pl/epu" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" xml:lang="pl">
+<xsd:schema xmlns:curr="http://www.currenda.pl/epu"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.currenda.pl/epu" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" xml:lang="pl">
 	<xsd:include schemaLocation="TypyDanych.xsd"/>
 	<xsd:element name="NakazEPU">
 		<xsd:annotation>
-			<xsd:documentation>Nakaz w elektronicznym postêpowaniu upominawczym</xsd:documentation>
+			<xsd:documentation>Nakaz w elektronicznym postï¿½powaniu upominawczym</xsd:documentation>
 		</xsd:annotation>
 		<xsd:complexType>
 			<xsd:sequence>
@@ -28,10 +29,10 @@
 				<xsd:element name="WTerminie" type="xsd:string"/>
 				<xsd:element name="Uzasadnienie" type="xsd:string" minOccurs="0"/>
 				<xsd:element name="SprawaWgPowoda" type="curr:typNazwa60" minOccurs="0">
-				<xsd:annotation>
-					<xsd:documentation>Sygnatura / oznaczenie sprawy nadane przez powoda </xsd:documentation>
-				</xsd:annotation>
-			</xsd:element>
+					<xsd:annotation>
+						<xsd:documentation>Sygnatura / oznaczenie sprawy nadane przez powoda </xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
 			</xsd:sequence>
 			<xsd:attribute name="ID" type="xsd:unsignedLong" use="required"/>
 			<xsd:attribute name="KOD" type="xsd:string" use="required"/>

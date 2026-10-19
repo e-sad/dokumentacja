@@ -1,5 +1,14 @@
-<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:curr="http://www.currenda.pl/epu" xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:link="http://www.xbrl.org/2003/linkbase" xmlns:xbrldi="http://xbrl.org/2006/xbrldi" xmlns:xbrli="http://www.xbrl.org/2003/instance" xmlns:xdt="http://www.w3.org/2005/xpath-datatypes" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:altova="http://www.altova.com" version="1.0" exclude-result-prefixes="curr fn link xbrldi xbrli xdt xlink xs xsd xsi">
-  <xsl:output version="4.0" method="html" indent="no" encoding="UTF-8" doctype-public="-//W3C//DTD HTML 4.01 Transitional//EN" doctype-system="http://www.w3.org/TR/html4/loose.dtd" />
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+  xmlns:curr="http://www.currenda.pl/epu" xmlns:fn="http://www.w3.org/2005/xpath-functions"
+  xmlns:link="http://www.xbrl.org/2003/linkbase" xmlns:xbrldi="http://xbrl.org/2006/xbrldi"
+  xmlns:xbrli="http://www.xbrl.org/2003/instance" xmlns:xdt="http://www.w3.org/2005/xpath-datatypes"
+  xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:altova="http://www.altova.com" version="1.0"
+  exclude-result-prefixes="curr fn link xbrldi xbrli xdt xlink xs xsd xsi">
+  <xsl:output version="4.0" method="html" indent="no" encoding="UTF-8"
+    doctype-public="-//W3C//DTD HTML 4.01 Transitional//EN"
+    doctype-system="http://www.w3.org/TR/html4/loose.dtd" />
   <xsl:param name="SV_OutputFormat" select="'HTML'" />
   <xsl:variable name="XML" select="/" />
   <xsl:template match="/">
@@ -60,7 +69,8 @@
               </table>
             </div>
             <br />
-            <div align="center">
+            <div
+              align="center">
               <p />
               <xsl:for-each select="curr:OrzeczenieEPU">
                 <h3 align="center">
@@ -72,7 +82,8 @@
                 </h3>
               </xsl:for-each>
             </div>
-            <div align="right">
+            <div
+              align="right">
               <xsl:for-each select="curr:OrzeczenieEPU">
                 <xsl:for-each select="@dataOrzeczenia">
                   <span style="width:640px;">
@@ -84,14 +95,16 @@
                 </xsl:for-each>
               </xsl:for-each>
             </div>
-            <div align="justify">
+            <div
+              align="justify">
               <xsl:for-each select="curr:OrzeczenieEPU">
                 <xsl:for-each select="curr:SadEPU">
                   <xsl:for-each select="curr:Nazwa">
                     <xsl:apply-templates />
                   </xsl:for-each>
                   <xsl:text> </xsl:text>
-                  <xsl:for-each select="curr:Wydzial">
+                  <xsl:for-each
+                    select="curr:Wydzial">
                     <xsl:apply-templates />
                   </xsl:for-each>
                 </xsl:for-each>
@@ -102,26 +115,31 @@
                 <xsl:for-each select="curr:WSkladzie">
                   <xsl:apply-templates />
                 </xsl:for-each>
-                <xsl:for-each select="curr:WSkladzie">
+                <xsl:for-each
+                  select="curr:WSkladzie">
                   <xsl:if test="string-length(.) &gt; 1">
                     <br />
                   </xsl:if>
                 </xsl:for-each>
-                <xsl:for-each select="curr:Sedzia">
+                <xsl:for-each
+                  select="curr:Sedzia">
                   <xsl:apply-templates />
                 </xsl:for-each>
                 <br />
                 <br />
-                <xsl:for-each select="curr:NaPosiedzeniu">
+                <xsl:for-each
+                  select="curr:NaPosiedzeniu">
                   <xsl:apply-templates />
                 </xsl:for-each>
                 <br />
-                <xsl:for-each select="curr:Przez">
+                <xsl:for-each
+                  select="curr:Przez">
                   <xsl:apply-templates />
                 </xsl:for-each>
               </xsl:for-each>
             </div>
-            <xsl:for-each select="curr:OrzeczenieEPU">
+            <xsl:for-each
+              select="curr:OrzeczenieEPU">
               <xsl:for-each select="curr:ListaPowodow">
                 <xsl:for-each select="curr:Powod">
                   <xsl:for-each select="curr:Nazwa">
@@ -133,13 +151,15 @@
                 </xsl:for-each>
               </xsl:for-each>
             </xsl:for-each>
-            <xsl:for-each select="curr:OrzeczenieEPU">
+            <xsl:for-each
+              select="curr:OrzeczenieEPU">
               <xsl:for-each select="curr:NakazujeAby">
                 <xsl:apply-templates />
                 <br />
               </xsl:for-each>
             </xsl:for-each>
-            <xsl:for-each select="curr:OrzeczenieEPU">
+            <xsl:for-each
+              select="curr:OrzeczenieEPU">
               <xsl:for-each select="curr:ListaPozwanych">
                 <xsl:for-each select="curr:Pozwany">
                   <xsl:for-each select="curr:Nazwa">
@@ -151,19 +171,22 @@
                 </xsl:for-each>
               </xsl:for-each>
             </xsl:for-each>
-            <xsl:if test="curr:OrzeczenieEPU/@kodDecyzji=17">
+            <xsl:if
+              test="curr:OrzeczenieEPU/@kodDecyzji=17">
               <div>
                 <span>
                   <xsl:text>w przedmiocie nadania klauzuli wykonalności</xsl:text>
                 </span>
               </div>
             </xsl:if>
-            <xsl:for-each select="curr:OrzeczenieEPU">
+            <xsl:for-each
+              select="curr:OrzeczenieEPU">
               <xsl:for-each select="curr:NaSkutek">
                 <xsl:apply-templates />
               </xsl:for-each>
             </xsl:for-each>
-            <div align="center">
+            <div
+              align="center">
               <xsl:for-each select="curr:OrzeczenieEPU">
                 <xsl:for-each select="curr:Postanawia">
                   <xsl:apply-templates />
@@ -187,7 +210,8 @@
                   </xsl:for-each>
                 </xsl:for-each>
                 <xsl:text>, oznaczając ten tytuł liczbą porządkową </xsl:text>
-                <xsl:for-each select="curr:OrzeczenieEPU">
+                <xsl:for-each
+                  select="curr:OrzeczenieEPU">
                   <xsl:for-each select="curr:NrTytuluWykon">
                     <span>
                       <xsl:text />
@@ -205,14 +229,16 @@
                 </xsl:if>
               </xsl:if>
             </div>
-            <xsl:if test="string-length( curr:OrzeczenieEPU/curr:Uzasadnienie )&gt;5">
+            <xsl:if
+              test="string-length( curr:OrzeczenieEPU/curr:Uzasadnienie )&gt;5">
               <div align="center">
                 <span style="font-weight:bold; width:640px;">
                   <xsl:text>U Z A S A D N I E N I E</xsl:text>
                 </span>
               </div>
             </xsl:if>
-            <div style="width:inherit;" align="justify">
+            <div
+              style="width:inherit;" align="justify">
               <xsl:for-each select="curr:OrzeczenieEPU">
                 <xsl:for-each select="curr:Uzasadnienie">
                   <span style="width:640px;">

@@ -1,4 +1,5 @@
-<xsd:schema xmlns:curr="http://www.currenda.pl/epu" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.currenda.pl/epu" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" xml:lang="pl">
+<xsd:schema xmlns:curr="http://www.currenda.pl/epu"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.currenda.pl/epu" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" xml:lang="pl">
   <xsd:element name="Pozwy">
     <xsd:annotation>
       <xsd:documentation>Paczka pozwów w elektronicznym postępowaniu upominawczym</xsd:documentation>
@@ -19,12 +20,12 @@
       <xsd:documentation>Pozew inicjujący sprawę w elektronicznym postępowaniu upominawczym</xsd:documentation>
     </xsd:annotation>
     <xsd:sequence>
-	  <xsd:element name="Oswiadczenie" type="xsd:string" minOccurs="0">
-	    <xsd:annotation>
+      <xsd:element name="Oswiadczenie" type="xsd:string" minOccurs="0">
+        <xsd:annotation>
           <xsd:documentation>Przyjmuje wartości tak/nie</xsd:documentation>
         </xsd:annotation>
-	  </xsd:element>
-	  <xsd:element name="Adresat" type="curr:typAdresat" />
+      </xsd:element>
+      <xsd:element name="Adresat" type="curr:typAdresat" />
       <xsd:element name="SadWlasciwy" type="curr:typAdresat" minOccurs="0" />
       <xsd:element name="OsobaSkladajaca" type="curr:typSkladajacy" />
       <xsd:element name="ListaPowodow" type="curr:typListaPowodow" />
@@ -42,7 +43,7 @@
       <xsd:element name="OplataSadowa" type="curr:typOplata" />
       <xsd:element name="KosztyZastepstwa" type="curr:typKoszty" />
       <xsd:element name="InneKoszty" type="curr:typKoszty" minOccurs="0" />
-	  <xsd:element name="RachunekDoZwrotuOplat" type="curr:typRachunekDoZwrotuOplat" >
+      <xsd:element name="RachunekDoZwrotuOplat" type="curr:typRachunekDoZwrotuOplat">
         <xsd:annotation>
           <xsd:documentation>Element dla numeru oraz nazwy właściciela rachunku do zwrotu opłat sądowych</xsd:documentation>
         </xsd:annotation>
